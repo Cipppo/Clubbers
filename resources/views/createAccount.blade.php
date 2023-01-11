@@ -7,15 +7,13 @@
 </head>
 
 
-<div class="relative min-h-screen flex ">
+<div class="relative min-h-screen flex bg-stone-100">
         <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
-          <div class="sm:w-1/2 xl:w-2/5 h-full hidden md:flex flex-auto items-center justify-start p-10 overflow-hidden bg-purple-900 text-white bg-no-repeat bg-cover relative" style="background-image: url(https://images.unsplash.com/photo-1579451861283-a2239070aaa9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80);">
+          <div class="sm:w-1/2 xl:w-2/5 h-full hidden md:flex flex-auto items-center justify-start p-10 overflow-hidden bg-purple-900 text-white bg-no-repeat bg-cover relative Back">
             <div class="absolute bg-gradient-to-b from-blue-900 to-gray-900 opacity-75 inset-0 z-0"></div>
-    <div class="absolute triangle  min-h-screen right-0 w-16" style=""></div>
-    <a href="https://codepen.io/uidesignhub" target="_blank" title="codepen aji" class="flex absolute top-5 text-center text-gray-100 focus:outline-none"><img src="/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg" alt="aji" class="object-cover mx-auto w-8 h-8 rounded-full w-10 h-10"><p class="text-xl ml-3">aji<strong>mon</strong></p> </a>
-    <img src="https://jasper-pimstorage-skullcandy.s3.us-west-1.amazonaws.com/bd2253a9671dac36a95faf821b52e78935050140be1718ce001f6aace45cf25c.png" class="h-96 absolute right-5 mr-5">
+    <div class="absolute triangle min-h-screen right-0 w-16" style=""></div>
             <div class="w-full  max-w-md z-10">
-              <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6">Reference site about Lorem Ipsum..</div>
+              <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6">Join the Revolution</div>
               <div class="sm:text-sm xl:text-md text-gray-200 font-normal"> What is Lorem Ipsum Lorem Ipsum is simply dummy
                 text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever
                 since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it
@@ -35,7 +33,7 @@
           <li></li>
        </ul>
           </div>
-          <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white ">
+          <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-stone-100 ">
             <div class="max-w-md w-full space-y-8">
               <div class="text-center">
                 <h2 class="mt-6 text-3xl font-bold text-gray-900">
