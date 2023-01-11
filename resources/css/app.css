@@ -112,6 +112,10 @@
      
     }
     .triangle{
-      border-top:60rem solid #fff;
+      border-top:60rem solid #f5f5f4;
       border-left:25rem solid transparent;
+    }
+    
+    .Back{
+        background: url('imgs/1.jpg');
     }
