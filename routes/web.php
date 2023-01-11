@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RegistrationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('register');
+    return view("createAccount");
 });
 
-Route::post('/register', 'RegistrationController@store');
+
+Route::resource('/register', RegistrationController::class);
