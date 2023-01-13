@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\Usercontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,12 @@ use App\Http\Controllers\RegistrationController;
 |
 */
 
+
 Route::get('/', function () {
-    return view("createAccount");
-});
+    return view("welcome");
+})->name('Home.home');
 
 
-Route::resource('/register', RegistrationController::class);
+
+Route::get('/create-user', [Usercontroller::class, 'create'])->name('User.create');
+Route::post('/create-user', [Usercontroller::class, 'store'])->name('User.store');
