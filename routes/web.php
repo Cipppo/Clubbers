@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
 
+use App\Http\Controllers\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +26,5 @@ Route::get('/', function () {
 
 Route::get('/create-user', [Usercontroller::class, 'create'])->name('User.create');
 Route::post('/create-user', [Usercontroller::class, 'store'])->name('User.store');
+
+Route::get('/logIn', [LoginController::class, 'create'])->name('User.logIn');
