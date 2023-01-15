@@ -3,7 +3,7 @@
 
 <head>
     <title>RegistratiPorcodio</title>
-    @vite('../resources/css/app.css')
+    @vite(['../resources/css/app.css', '../resources/js/User/registrationPage.js'])
 </head>
 
 
@@ -36,10 +36,10 @@
           <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-stone-100 ">
             <div class="max-w-md w-full space-y-8">
               <div class="text-center">
-                <h2 class="mt-6 text-3xl font-bold text-gray-900">
+                <h2 class="mt-6 text-3xl font-bold text-gray-900" id="regTitle">
                   Welcome!
                 </h2>
-                <p class="mt-2 text-sm text-gray-500">Please register your account</p>
+                <p class="mt-2 text-sm text-gray-500" id="description">Please register your account</p>
               </div>
               <form class="mt-8 space-y-6" method="POST" action="/create-user" enctype="multipart/form-data">
                 @csrf
