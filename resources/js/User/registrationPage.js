@@ -1,6 +1,7 @@
 let step = 1;
 
 
+
 function updateForm(){
     switch(step){
         case 1:
@@ -74,7 +75,7 @@ let submitButton = document.getElementById('sendall');
 let nextButton = document.getElementById('next');
 
 let regTitle = document.getElementById('regTitle');
-let regDescription = document.getElementById('regDescription');
+let regDescription = document.getElementById('description');
 
 
 
