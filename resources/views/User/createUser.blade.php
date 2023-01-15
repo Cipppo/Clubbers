@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-    <title>RegistratiPorcodio</title>
+    <title>Clubbers-Registration</title>
     @vite(['../resources/css/app.css', '../resources/js/User/registrationPage.js'])
 </head>
 
@@ -14,14 +14,13 @@
     <div class="absolute triangle min-h-screen right-0 w-16" style=""></div>
             <div class="w-full  max-w-md z-10">
               <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6">Join the Revolution</div>
-              <div class="sm:text-sm xl:text-md text-gray-200 font-normal"> What is Lorem Ipsum Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it
-                has?</div>
+              <div class="sm:text-sm xl:text-md text-gray-200 font-normal"> Clubbers is the first Social network dedicated to people who enjoy the night life All over the World.
+                Take a seat and get ready, this is gonna be a long journey !
+              </div>
             </div>
             <!---remove custom style-->
            <ul class="circles">
-          <li>dio</li>
+          <li></li>
           <li></li>
           <li></li>
           <li></li>
@@ -68,6 +67,10 @@
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Phone" name="phone" id="phone">
                 </div>
                 <div class="mt-8 content-center">
+                  <label for="username" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="username-tag">Username</label>
+                  <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Username" name="username" id="username">
+              </div>
+                <div class="mt-8 content-center">
                   <label for="password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="password-tag">Password</label>
                   <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password" id="password">
                 </div>
@@ -76,9 +79,9 @@
                     <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Confirm Password" name="confirm-password" id="confirm-password">
                 </div>
                 <div>
-                  <button type="button" class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500" id="next">Yep! That's me!</button> 
+                  <button type="button" class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" id="next">Yep! That's me!</button> 
                   <button type="submit" class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500" id="sendall">
-                    Register
+                    Let me join this new World!
                   </button>
                 </div>
                 <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">

@@ -34,6 +34,7 @@ class Usercontroller extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = $request->password;
+        $user->username = $request->username;
         $user->save();
 
         return redirect()->route('Home.home');
