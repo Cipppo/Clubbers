@@ -44,39 +44,40 @@
               <form class="mt-8 space-y-6" method="POST" action="/create-user" enctype="multipart/form-data">
                 @csrf
                 <div class="relative">
-                  <label for="name" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Name</label>
+                  <label for="name" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="name-tag">What's your Name?</label>
                   <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Name" name="name" id="name">
                 </div>
                 <div class="mt-8 content-center">
-                    <label for="surname" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Surname</label>
+                    <label for="surname" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="surname-tag">And your Surname?</label>
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Surname" id="surname" name="surname">
                 </div>
                 <div class="mt-8 content-center">
-                    <label for="birth" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Date of Birth</label>
+                    <label for="birth" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="birth-tag">When is your birthday ?</label>
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="Date" id="birth" name="birth">
                 </div>
                 <div class="mt-8 content-center">
-                  <label for="City" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">City</label>
+                  <label for="City" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="city-tag">Where do you live?</label>
                   <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Rome" name="city" id="city">
                 </div>
                 <div class="mt-8 content-center">
-                    <label for="email" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email</label>
+                    <label for="email" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="mail-tag">Email</label>
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="something@domain.com" name="email" id="email">
                 </div>
                 <div class="mt-8 content-center">
-                    <label for="phone" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Phone</label>
+                    <label for="phone" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="phone-tag">Phone</label>
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Phone" name="phone" id="phone">
                 </div>
                 <div class="mt-8 content-center">
-                  <label for="password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Password</label>
+                  <label for="password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="password-tag">Password</label>
                   <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password" id="password">
                 </div>
                 <div class="mt-8 content-center">
-                    <label for="confirm-password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Confirm Password</label>
+                    <label for="confirm-password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="confirm-password-tag">Confirm Password</label>
                     <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Confirm Password" name="confirm-password" id="confirm-password">
                 </div>
                 <div>
-                  <button type="submit" class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                  <button type="button" class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500" id="next">Yep! That's me!</button> 
+                  <button type="submit" class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500" id="sendall">
                     Register
                   </button>
                 </div>
