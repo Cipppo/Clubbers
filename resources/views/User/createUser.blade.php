@@ -3,7 +3,7 @@
 
 <head>
     <title>Clubbers-Registration</title>
-    @vite(['../resources/css/app.css', '../resources/js/User/registrationPage.js'])
+    @vite(['../resources/css/app.css', '../resources/js/User/registrationPage.js', '../resources/css/imgs/2.jpg'])
 </head>
 
 
@@ -65,6 +65,9 @@
                 <div class="mt-8 content-center">
                     <label for="phone" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="phone-tag">Phone</label>
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Phone" name="phone" id="phone">
+                </div>
+                <div class="mt-8 content-center">
+                  <img alt="ProfilePic" src="{{route('Image.get', 2)}}" id="propic">
                 </div>
                 <div class="mt-8 content-center">
                   <label for="username" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="username-tag">Username</label>
