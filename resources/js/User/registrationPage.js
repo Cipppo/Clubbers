@@ -20,6 +20,7 @@ function updateForm(){
             submitButton.style = 'display: none';
             username.style = 'display: none';
             usernameTag.style = 'display: none';
+            propic.style = 'display: none'
             break
         case 2:
             regTitle.innerHTML = "Some private data";
@@ -61,6 +62,7 @@ function updateForm(){
             confirmPasswordTag.style = 'display: flex';
             confirmpassword.style = 'display: flex';
             submitButton.style = 'display: flex';
+            propic.style = 'display: flex';
             nextButton.style = 'display: none';
     }
 }
@@ -96,6 +98,8 @@ let phone = document.getElementById('phone');
 let password = document.getElementById('password');
 let confirmpassword = document.getElementById('confirm-password');
 let username = document.getElementById('username');
+let propic = document.getElementById('propic');
+
 
 //Di base la struttura potrebbe essere: 
 //1 Nome cognome -> Conosciamoci !
