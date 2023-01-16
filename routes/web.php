@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
-
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -19,7 +19,7 @@ use App\Http\Controllers\LoginController;
 
 
 Route::get('/', function () {
-    return view("welcome");
+    return view("Home.home");
 })->name('Home.home');
 
 
@@ -28,3 +28,5 @@ Route::get('/create-user', [Usercontroller::class, 'create'])->name('User.create
 Route::post('/create-user', [Usercontroller::class, 'store'])->name('User.store');
 
 Route::get('/logIn', [LoginController::class, 'create'])->name('User.logIn');
+
+Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
