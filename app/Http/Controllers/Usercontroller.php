@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class Usercontroller extends Controller
 {
+
+    public const IMAGE_UPLOAD_URL = 'public/uploads/imgs/proPics';
+    
         /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +29,8 @@ class Usercontroller extends Controller
     public function store(Request $request)
     {
         $user = new User();
-
+        $this->storeImage($request);
+        dd($request);
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->birth = $request->birth;
@@ -40,6 +44,16 @@ class Usercontroller extends Controller
         return redirect()->route('Home.home');
     }
 
+    public function storeImage(Request $request){
+
+        $IMAGE_UPLOAD_URL='public/uploads/imgs/proPics';
+
+        $file = $request->hasfile('propicChooser');
+        if($file){
+            $newFile = $request->file('propicChooser');
+            $newFile->storeAs($IMAGE_UPLOAD_URL, $request->name."_propic.png");
+        }
+    }
     /**
      * Display the specified resource.
      *
