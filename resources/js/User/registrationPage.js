@@ -21,6 +21,7 @@ function updateForm(){
             username.style = 'display: none';
             usernameTag.style = 'display: none';
             profilePicFile.style = 'display: none';
+            picError.style = 'display: none';
             break
         case 2:
             regTitle.innerHTML = "Some private data";
@@ -64,6 +65,7 @@ function updateForm(){
             submitButton.style = 'display: flex';
             profilePicFile.style = 'display:flex';
             nextButton.style = 'display: none';
+            submitButton.disabled = true;
     }
 }
 
@@ -82,15 +84,11 @@ function validateMail(input) {
 
 function checkPassword(pwd, confirmpwd){
     //Need to set styles in order to make the user understand what's happening
-    if(pwd == confirmpwd){
+    if(pwd == confirmpwd && pwd != ""){
         return true;
     }else{
         return false;
     }
-}
-
-function checkProPicSize(){
-    
 }
 
 let firstName = document.getElementById('name');
@@ -103,7 +101,7 @@ let password = document.getElementById('password');
 let confirmpassword = document.getElementById('confirm-password');
 let username = document.getElementById('username');
 let propic = document.getElementById('propic');
-
+let picError = document.getElementById('error-message');
 
 //Di base la struttura potrebbe essere: 
 //1 Nome cognome -> Conosciamoci !
@@ -147,17 +145,50 @@ confirmpassword.addEventListener('keyup', function(e){
 });
 
 
+
+function validatePic(file){
+    /*
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.addEventListener("load", function(e){
+        const image = new Image();
+        image.src = e.target.result;
+        image.addEventListener("load", function(e){
+            const {height, width} = image;
+            console.log(height);
+            console.log(width);
+            if(height <= 100 && width <= 100){
+                const image = new Image();
+                image.src = e.target.result
+                propicPreview.style.display = "block";
+                propicPreview.innerHTML = '<img src="' + this.result + '" />';
+            }else{
+                picError.style.display = "flex";
+            }
+        });
+    });
+    */
+}
+
+
 profilePicFile.addEventListener('change', function(e){
 
+
+
     const files = profilePicFile.files[0];
+    let checkDim = validatePic(files);
+    console.log(checkDim);
+    //validateProPicSize(files);
+    
     if(files){
         const fileReader = new FileReader();
         fileReader.readAsDataURL(files);
-        fileReader.addEventListener("load", function(){
+        fileReader.addEventListener("load", function(e){
             propicPreview.style.display = "block";
-            propicPreview.innerHTML = '<img src="' + this.result + '" />';
+            propicPreview.innerHTML = '<img class="mt-8 content-center" src="' + this.result + '" />';
         })
     }
+    
 
 });
 
