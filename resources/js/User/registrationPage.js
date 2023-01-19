@@ -20,7 +20,7 @@ function updateForm(){
             submitButton.style = 'display: none';
             username.style = 'display: none';
             usernameTag.style = 'display: none';
-            propic.style = 'display: none'
+            profilePicFile.style = 'display: none';
             break
         case 2:
             regTitle.innerHTML = "Some private data";
@@ -62,7 +62,7 @@ function updateForm(){
             confirmPasswordTag.style = 'display: flex';
             confirmpassword.style = 'display: flex';
             submitButton.style = 'display: flex';
-            propic.style = 'display: flex';
+            profilePicFile.style = 'display:flex';
             nextButton.style = 'display: none';
     }
 }
@@ -87,6 +87,10 @@ function checkPassword(pwd, confirmpwd){
     }else{
         return false;
     }
+}
+
+function checkProPicSize(){
+    
 }
 
 let firstName = document.getElementById('name');
@@ -117,6 +121,8 @@ let phoneTag = document.getElementById('phone-tag');
 let passwordTag = document.getElementById('password-tag');
 let confirmPasswordTag = document.getElementById('confirm-password-tag');
 let usernameTag = document.getElementById('username-tag');
+let profilePicFile = document.getElementById('choose-file');
+let propicPreview = document.getElementById('proPicPreview');
 
 let submitButton = document.getElementById('sendall');
 let nextButton = document.getElementById('next');
@@ -138,7 +144,23 @@ email.addEventListener('keyup', function(e){
 
 confirmpassword.addEventListener('keyup', function(e){
     console.log(checkPassword(password.value, confirmpassword.value));
-})
+});
+
+
+profilePicFile.addEventListener('change', function(e){
+
+    const files = profilePicFile.files[0];
+    if(files){
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(files);
+        fileReader.addEventListener("load", function(){
+            propicPreview.style.display = "block";
+            propicPreview.innerHTML = '<img src="' + this.result + '" />';
+        })
+    }
+
+});
+
 
 
 updateForm()
