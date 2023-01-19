@@ -17,13 +17,6 @@ class ImageController extends Controller
     }
 
     public function get(int $id){
-        if ($image = Image::where('id', $id)->first()) {
-            dd($image);
-            $response = Storage::response(ImageController::IMAGE_LOCAL_STORAGE_PATH.'/'.$image->storage_path);
-            $response->headers->set('Cache-Control', 'public, max-age=86400');
-            return $response;
-        }
 
-        return Response('Not found.', 404);
     }
 }
