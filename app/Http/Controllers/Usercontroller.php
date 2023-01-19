@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class Usercontroller extends Controller
 {
@@ -30,14 +31,14 @@ class Usercontroller extends Controller
     {
         $user = new User();
         $this->storeImage($request);
-        dd($request);
+        #dd($request);
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->birth = $request->birth;
         $user->city = $request->city;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->username = $request->username;
         $user->save();
 
@@ -48,9 +49,9 @@ class Usercontroller extends Controller
 
         $IMAGE_UPLOAD_URL='public/uploads/imgs/proPics';
 
-        $file = $request->hasfile('propicChooser');
+        $file = $request->hasfile('choose-file');
         if($file){
-            $newFile = $request->file('propicChooser');
+            $newFile = $request->file('choose-file');
             $newFile->storeAs($IMAGE_UPLOAD_URL, $request->name."_propic.png");
         }
     }
