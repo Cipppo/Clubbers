@@ -69,6 +69,7 @@
                 <div class="mt-8 content-center">
                   <div id="proPicPreview"></div>
                   <input type="file" id="choose-file" name="choose-file" accept="image/png, image/jpeg">
+                  <div id="error-message">errore</div>
                 </div>
                 <div class="mt-8 content-center">
                   <label for="username" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="username-tag">Username</label>
@@ -85,7 +86,7 @@
                 <div>
                   <button type="button" class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" id="next">Yep! That's me!</button> 
                   <button type="submit" class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500" id="sendall">
-                    Let me join this new World!
+                    Register me Now!
                   </button>
                 </div>
                 <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
