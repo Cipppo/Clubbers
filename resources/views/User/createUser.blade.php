@@ -67,7 +67,8 @@
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Phone" name="phone" id="phone">
                 </div>
                 <div class="mt-8 content-center">
-                  <img alt="ProfilePic" src="{{route('Image.get', 2)}}" id="propic">
+                  <div id="proPicPreview"></div>
+                  <input type="file" id="choose-file" name="choose-file" accept="image/png, image/jpeg">
                 </div>
                 <div class="mt-8 content-center">
                   <label for="username" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="username-tag">Username</label>
