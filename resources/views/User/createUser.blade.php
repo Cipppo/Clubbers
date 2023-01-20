@@ -68,7 +68,9 @@
                 </div>
                 <div class="mt-8 content-center">
                   <div id="proPicPreview"></div>
-                  <input type="file" id="choose-file" name="choose-file" accept="image/png, image/jpeg">
+                  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="choose-file"id="FileInputLabel">Upload your Profile avatar!</label>
+                  <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="choose-file" type="file">
+                  <!--<input type="file" id="choose-file" name="choose-file" class="ml-3 text-base px-4 py-2" accept="image/png, image/jpeg">-->
                   <div id="error-message">errore</div>
                 </div>
                 <div class="mt-8 content-center">
