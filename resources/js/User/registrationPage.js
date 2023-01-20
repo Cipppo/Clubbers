@@ -22,6 +22,7 @@ function updateForm(){
             usernameTag.style = 'display: none';
             profilePicFile.style = 'display: none';
             picError.style = 'display: none';
+            fileInputTag.style = 'display:none';
             break
         case 2:
             regTitle.innerHTML = "Some private data";
@@ -64,6 +65,7 @@ function updateForm(){
             confirmpassword.style = 'display: flex';
             submitButton.style = 'display: flex';
             profilePicFile.style = 'display:flex';
+            fileInputTag.style = 'display: flex';
             nextButton.style = 'display: none';
             submitButton.disabled = true;
     }
@@ -74,10 +76,9 @@ function validateMail(input) {
     var validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   
     if (input.value.match(validRegex)) {  
+        console.log("valido");
         return true;
     } else {
-        //Need to fix that 
-        nextButton.disable = true;
         return false;
     }
 }
@@ -121,6 +122,7 @@ let confirmPasswordTag = document.getElementById('confirm-password-tag');
 let usernameTag = document.getElementById('username-tag');
 let profilePicFile = document.getElementById('choose-file');
 let propicPreview = document.getElementById('proPicPreview');
+let fileInputTag = document.getElementById('FileInputLabel');
 
 let submitButton = document.getElementById('sendall');
 let nextButton = document.getElementById('next');
@@ -130,10 +132,39 @@ let regDescription = document.getElementById('description');
 
 
 
+function validateStep(step){
+    let debug = 1;
+    if(debug == 0){
+        switch(step){
+            case 1:
+                if(firstName.value == "" || surname.value == ""){
+                    return false;
+                }else{
+                    return true
+                }
+            case 2:
+                if(birth.value == "" || city.value == ""){
+                    return false;
+                }else{
+                    return true;
+                }
+            case 3:
+                if((email.value == "" || phone.value == "")){
+                    return false;
+                }else{
+                    return true;
+                }
+        }
+    }else{
+        return true;
+    }
+}
 
 nextButton.addEventListener('click', function(e){
-    step = step + 1;
-    updateForm();
+    if(validateStep(step)){
+        step = step + 1;
+        updateForm();
+    }
 });
 
 email.addEventListener('keyup', function(e){
@@ -185,7 +216,7 @@ profilePicFile.addEventListener('change', function(e){
         fileReader.readAsDataURL(files);
         fileReader.addEventListener("load", function(e){
             propicPreview.style.display = "block";
-            propicPreview.innerHTML = '<img class="mt-8 content-center" src="' + this.result + '" />';
+            propicPreview.innerHTML = '<img class="mt-8 content-center" id="propic" alt="Avatar" src="' + this.result + '" />';
         })
     }
     
