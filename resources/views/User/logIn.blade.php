@@ -39,7 +39,7 @@
                     </h2>
                     <p class="mt-2 text-sm text-gray-500">Insert your credentials to enter!</p>
                   </div>
-                  <form class="mt-8 space-y-6" method="POST" action="/logIn" enctype="multipart/form-data">
+                  <form class="mt-8 space-y-6" method="POST" action="/authenticate" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-8 content-center">
                         <label for="username" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Username</label>
