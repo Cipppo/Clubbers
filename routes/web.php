@@ -23,10 +23,13 @@ Route::get('/', function () {
 })->name('Home.home');
 
 
-
+Route::get('/home', function(){
+    return view('Home.home');
+});
 Route::get('/create-user', [Usercontroller::class, 'create'])->name('User.create');
 Route::post('/create-user', [Usercontroller::class, 'store'])->name('User.store');
 
 Route::get('/logIn', [LoginController::class, 'create'])->name('User.logIn');
+Route::post('/authenticate', [LoginController::class, 'authenticate'])->name(('User.login'));
 
 Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
