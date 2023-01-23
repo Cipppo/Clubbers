@@ -3,7 +3,7 @@
     <head>
         <title>LogIn</title>
         @vite('../resources/css/app.css')
-    </head>
+  </head
     <body>
         <div class="relative min-h-screen flex bg-stone-100">
             <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
@@ -42,12 +42,19 @@
                   <form class="mt-8 space-y-6" method="POST" action="/authenticate" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-8 content-center">
-                        <label for="username" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Username</label>
-                        <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Username" id="username" name="username">
+                        <label for="email" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">email</label>
+                        <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Email" id="email" name="email">
                     </div>
                     <div class="mt-8 content-center">
                         <label for="password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Password</label>
                         <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="password" placeholder="Password" id="password" name="password">
+                    </div>
+                    <div>
+                      @if($errors->has('email'))
+                      <span>
+                          <strong>{{ $errors->first('email') }}</strong>
+                      </span>
+                      @endif
                     </div>
                     <div>
                       <button type="submit" class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
