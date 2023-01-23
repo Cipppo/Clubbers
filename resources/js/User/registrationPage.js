@@ -67,7 +67,6 @@ function updateForm(){
             profilePicFile.style = 'display:flex';
             fileInputTag.style = 'display: flex';
             nextButton.style = 'display: none';
-            submitButton.disabled = true;
     }
 }
 
