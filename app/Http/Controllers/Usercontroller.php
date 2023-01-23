@@ -29,18 +29,20 @@ class Usercontroller extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
+        $user = User::create([
+            'name' => $request->name, 
+            'surname' => $request->surname, 
+            'birth' => $request->birth, 
+            'city' => $request->city, 
+            'email' => $request->email, 
+            'phone' => $request->phone, 
+            'password' => bcrypt($request->password), 
+            'username' => $request->username,
+        ]);
         $this->storeImage($request);
-        #dd($request);
-        $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->birth = $request->birth;
-        $user->city = $request->city;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->password = Hash::make($request->password);
-        $user->username = $request->username;
+        
         $user->save();
+
 
         return redirect()->route('Home.home');
     }
