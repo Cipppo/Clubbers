@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.post-User{
+    border: 10px;
+}
+
+.bbg{
+    background-color: #141414;
+}
+
+.post-buttons{
+    padding-left: 90%;
+    padding-right: 10px;
+}
+
+.Back{
+    background-image: url('img/background.jpg');
+    object-fit: fill;
+    background-attachment: fixed;
+}
