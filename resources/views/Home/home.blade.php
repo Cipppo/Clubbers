@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -37,14 +36,6 @@
                 </div>
         </header>
     
-=======
-<html>
-    <title>Clubbers-Home</title>
-    <body>
-        <h1>HOME</h1>
-        <h2><a href="/create-user">REGISTRAZIONE</a></h2>
-        <h2><a href="/log">LOGIN</a></h2>
->>>>>>> 3743585 (Add entries)
     </body>
 
     <footer class="fixed bottom-0 left-0 z-20 w-full p-4 bg-opacity-70 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-black dark:bg-opacity-70 dark:border-black">
