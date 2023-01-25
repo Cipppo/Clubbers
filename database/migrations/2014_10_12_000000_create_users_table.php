@@ -13,16 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
+        //Throws an exception when creating a club, surname is null (?)
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('surname');
-            $table->date('birth');
+            $table->string('name')->default("");
+            $table->string('surname')->default("");
+            $table->string('birth')->default("00/00/00");
             $table->string('city');
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('phone');
             $table->string('password');
+            $table->string('via')->default("");
+            $table->string('CAP')->default("");
+            $table->string('comune')->default("");
+            $table->string('regione')->default("");
         });
     }
 
