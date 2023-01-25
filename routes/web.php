@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClubRegistrationController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
@@ -31,12 +32,16 @@ Route::middleware(['auth'])->group(function(){
 })->name("Feed.Home");
 });
 
+Route::get('/create-club', [ClubRegistrationController::class, 'create'])->name('Club.create');
+Route::post('/create-club', [ClubRegistrationController::class, 'store'])->name('Club.store');
 
 Route::get('/create-user', [Usercontroller::class, 'create'])->name('User.create');
 Route::post('/create-user', [Usercontroller::class, 'store'])->name('User.store');
 
 Route::get('/logout', [LoginController::class, 'logOut'])->name('User.logout');
-Route::get('/log', [LoginController::class, 'create'])->name('User.log');
+Route::get('/log-user', [LoginController::class, 'create'])->name('User.log');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name(('User.login'));
+
+
 
 Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
