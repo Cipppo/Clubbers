@@ -19,7 +19,7 @@
                 </div>
                 <!---remove custom style-->
                <ul class="circles">
-              <li>dio</li>
+              <li></li>
               <li></li>
               <li></li>
               <li></li>
