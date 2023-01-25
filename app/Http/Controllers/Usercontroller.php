@@ -53,6 +53,7 @@ class Usercontroller extends Controller
 
         $file = $request->hasfile('choose-file');
         if($file){
+            //TODO: Need to fix the file upload
             $newFile = $request->file('choose-file');
             $newFile->storeAs($IMAGE_UPLOAD_URL, $request->name."_propic.png");
         }
