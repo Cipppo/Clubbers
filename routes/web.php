@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\ClubRegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,10 +39,9 @@ Route::post('/create-club', [ClubRegistrationController::class, 'store'])->name(
 Route::get('/create-user', [Usercontroller::class, 'create'])->name('User.create');
 Route::post('/create-user', [Usercontroller::class, 'store'])->name('User.store');
 
-Route::get('/logout', [LoginController::class, 'logOut'])->name('User.logout');
+Route::post('/logout', [LoginController::class, 'logOut'])->name('User.logout');
 Route::get('/log-user', [LoginController::class, 'create'])->name('User.log');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name(('User.login'));
-
 
 
 Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
