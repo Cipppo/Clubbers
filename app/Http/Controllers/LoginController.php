@@ -28,8 +28,12 @@ class LoginController extends Controller
         
         if(Auth::attempt($credentials)){
             //$request->session()->regenerate();
-            return redirect()->route('Feed.Home');
+            return redirect()->route('`Feed`.Home');
         }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 
     public function logOut(Request $request){
