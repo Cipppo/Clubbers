@@ -43,5 +43,4 @@ Route::post('/logout', [LoginController::class, 'logOut'])->name('User.logout');
 Route::get('/log-user', [LoginController::class, 'create'])->name('User.log');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name(('User.login'));
 
-
 Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
