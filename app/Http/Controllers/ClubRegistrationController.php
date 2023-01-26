@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Club;
+use App\Models\User;
 
 class ClubRegistrationController extends Controller
 {
@@ -16,8 +16,9 @@ class ClubRegistrationController extends Controller
     }
 
     public function store(Request $request){
-        $club = Club::create([
+        $club = User::create([
             'name' => $request->name, 
+            'type' => "Club",     
             'email' => $request->email, 
             'phone' => $request->phone, 
             'password' => bcrypt($request->password), 
