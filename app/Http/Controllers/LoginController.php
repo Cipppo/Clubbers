@@ -28,7 +28,7 @@ class LoginController extends Controller
         
         if(Auth::attempt($credentials)){
             //$request->session()->regenerate();
-            return redirect()->route('`Feed`.Home');
+            return redirect()->route('Feed.Home');
         }
 
         return back()->withErrors([
