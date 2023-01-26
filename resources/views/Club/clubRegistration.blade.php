@@ -41,11 +41,11 @@
                   </h2>
                   <p class="mt-2 text-sm text-gray-500" id="description">Please register your account</p>
                   
-                <form class="mt-8 space-y-6" method="POST" action="/create-user" enctype="multipart/form-data">
+                <form class="mt-8 space-y-6" method="POST" action="/create-club" enctype="multipart/form-data">
                   @csrf
                   <div class="relative">
-                    <label for="name" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="name-tag">What's your club Name?</label>
-                    <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Name" name="name" id="name">
+                    <label for="username" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="username-tag">What's your club Name?</label>
+                    <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Your club name" name="username" id="username">
                   </div>
                   <div class="mt-8 content-center">
                       <label for="email" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="mail-tag">What's your E-Mail address?</label>
