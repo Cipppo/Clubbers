@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class ClubRegistrationController extends Controller
 {
@@ -17,7 +18,7 @@ class ClubRegistrationController extends Controller
 
     public function store(Request $request){
         $club = User::create([
-            'name' => $request->name, 
+            'username' => $request->username, 
             'type' => "Club",     
             'email' => $request->email, 
             'phone' => $request->phone, 
@@ -28,7 +29,7 @@ class ClubRegistrationController extends Controller
             'regione' => $request->state,
         ]);
 
-
+        
         $this->storeImage($request);
         //Store image
         //Save 
@@ -47,7 +48,9 @@ class ClubRegistrationController extends Controller
         $file = $request->hasFile('choose-file');
         if($file){
             $newFile = $request->file('choose-file');
-            $newFile->storeAs($IMAGE_UPLOAD_URL, $request->name."_propic.png");        
+            //$newFile->storeAs($IMAGE_UPLOAD_URL, $request->name."_propic.png");   
+            dd($newFile);
+            Storage::put('/images',$newFile);     
         }
     }
 }
