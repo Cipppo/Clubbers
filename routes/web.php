@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\likePostClubberController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -32,6 +33,10 @@ Route::middleware(['auth'])->group(function(){
         return view('Feed.feed');
 })->name("Feed.Home");
 });
+
+
+Route::post('/post/react/like', [likePostClubberController::class, 'store'])->name('Like.store');
+
 
 Route::get('/create-club', [ClubRegistrationController::class, 'create'])->name('Club.create');
 Route::post('/create-club', [ClubRegistrationController::class, 'store'])->name('Club.store');
