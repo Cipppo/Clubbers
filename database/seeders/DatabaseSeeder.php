@@ -24,40 +24,40 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         postclubber::factory()->create([
-            'caption' => "Lorem Ipsum", 
+            'caption' => "Mi fai un tavolo ?", 
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
 
         postclubber::factory()->create([
-            'caption' => "Lorem Ipsum2", 
-            'clubberUsername' => "Cipe", 
+            'caption' => "Money Cash", 
+            'clubberUsername' => "Lucone", 
             'ClubUsername' => 'UClub',
         ]);
 
         postclubber::factory()->create([
-            'caption' => "Lorem Ipsum3", 
+            'caption' => "Porco Dio", 
+            'clubberUsername' => "Ez", 
+            'ClubUsername' => 'UClub',
+        ]);
+        postclubber::factory()->create([
+            'caption' => "Daje roma Daje", 
+            'clubberUsername' => "LaNico", 
+            'ClubUsername' => 'UClub',
+        ]);
+        postclubber::factory()->create([
+            'caption' => "Ghe sboro", 
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
-            'caption' => "Lorem Ipsum4", 
-            'clubberUsername' => "Cipe", 
+            'caption' => "Non vengo", 
+            'clubberUsername' => "LaFra", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
-            'caption' => "Lorem Ipsum5", 
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
-        postclubber::factory()->create([
-            'caption' => "Lorem Ipsum6", 
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
-        postclubber::factory()->create([
-            'caption' => "Lorem Ipsum7", 
-            'clubberUsername' => "Cipe", 
+            'caption' => "Cacca", 
+            'clubberUsername' => "Lucone", 
             'ClubUsername' => 'UClub',
         ]);
 
@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'rapollaluca@gmail.com', 
             'phone' => '3206770451', 
             'password' => bcrypt('password'), 
-            'username' => 'cip', 
+            'username' => 'Cipe', 
             'via' => 'NULL', 
             'cap' => 'NULL', 
             'comune' => 'NULL', 
