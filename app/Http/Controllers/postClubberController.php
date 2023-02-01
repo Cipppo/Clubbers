@@ -8,8 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class postClubberController extends Controller
 {
-    public static function getAll($clubberUser){
+    public static function getAllbyUsername($clubberUser){
         $posts = DB::table('postClubber')->where('clubberUsername', $clubberUser)->get();
+        return $posts;
+    }
+
+    public static function getAll(){
+        $posts = DB::table('postClubber')->get();
         return $posts;
     }
 }
