@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -27,24 +26,18 @@
                             <a class="hover:text-gray-500" href="#">work with us</a>
                         </li>
                         <li>
-                            <a class="hover:text-gray-500" href="/create-user">Log in</a>
+                            <a class="hover:text-gray-500" href="#">Log in</a>
                         </li>
                     </ul>
                 </div>
                 <div class="flex items-center gap-6">
-                    <button class="bg-[#1d4185] text-white px-5 py-2 rounded-md hover:bg-[#1e4794]">Sign in</button>
+                    <a href="/create-user">
+                        <button class="bg-[#1d4185] text-white px-5 py-2 rounded-md hover:bg-[#1e4794]" href="/create-user">Sign in</button>
+                    </a>
                     <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
                 </div>
         </header>
     
-=======
-<html>
-    <title>Clubbers-Home</title>
-    <body>
-        <h1>HOME</h1>
-        <h2><a href="/create-user">REGISTRAZIONE</a></h2>
-        <h2><a href="/log">LOGIN</a></h2>
->>>>>>> 3743585 (Add entries)
     </body>
 
     <footer class="fixed bottom-0 left-0 z-20 w-full p-4 bg-opacity-70 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-black dark:bg-opacity-70 dark:border-black">
