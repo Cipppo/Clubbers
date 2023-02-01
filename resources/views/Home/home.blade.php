@@ -23,10 +23,14 @@
                             <a class="hover:text-gray-500" href="#">About us</a>
                         </li>
                         <li>
-                            <a class="hover:text-gray-500" href="#">work with us</a>
+                            <a class="hover:text-gray-500" href="/create-club">work with us</a>
                         </li>
                         <li>
+<<<<<<< HEAD
                             <a class="hover:text-gray-500" href="#">Log in</a>
+=======
+                            <a class="hover:text-gray-500" onclick="window.location='{{ URL::route('User.create'); }}'" href="log-user">Log in</a>
+>>>>>>> 2ac1474dee8cdfbb7bc24813d6b1a7ac4c248522
                         </li>
                     </ul>
                 </div>

@@ -30,6 +30,7 @@ class Usercontroller extends Controller
     public function store(Request $request)
     {
         $user = User::create([
+            'type' => "User",
             'name' => $request->name, 
             'surname' => $request->surname, 
             'birth' => $request->birth, 
@@ -53,6 +54,7 @@ class Usercontroller extends Controller
 
         $file = $request->hasfile('choose-file');
         if($file){
+            //TODO: Need to fix the file upload
             $newFile = $request->file('choose-file');
             $newFile->storeAs($IMAGE_UPLOAD_URL, $request->name."_propic.png");
         }

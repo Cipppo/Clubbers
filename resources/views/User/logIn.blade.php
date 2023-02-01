@@ -3,7 +3,7 @@
     <head>
         <title>LogIn</title>
         @vite('../resources/css/app.css')
-  </head
+  </head>
     <body>
         <div class="relative min-h-screen flex bg-stone-100">
             <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
@@ -19,7 +19,7 @@
                 </div>
                 <!---remove custom style-->
                <ul class="circles">
-              <li>dio</li>
+              <li></li>
               <li></li>
               <li></li>
               <li></li>
