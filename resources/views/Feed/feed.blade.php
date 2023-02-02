@@ -10,10 +10,9 @@
         @vite(['../resources/css/userPost.css', '../resources/js/Like/Like.js',  '../resources/js/app.js'])
     </head>
     
-
-<body class="bg-fixed ..." style="background-image: url(images/feed/background.jpg)">
+<header>
     <!--NAVBAR-->
-    <nav class="items-center px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
+    <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
                 <div class="navbar-logo items-center flex gap-2">
                     <img class="h-12 w-12 shadow-xl" src="images/feed/ClubbersLogo.png" alt="Clubbers">
@@ -30,25 +29,12 @@
                 </div>
             </div>            
     </nav>
+</header>
+<body class="bg-fixed ..." style="background-image: url(images/feed/background.jpg)">
+<div class="py-[5%] lg:grid grid-cols-3 justify-between text-slate-200" >
+    <div class="left"></div>
 
-
-</body>
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <h1>Home Feed</h1>
-    <h1>{{ Auth::user()->username}}</h1>
-    <h1><strong><a href="/logout">LOGOUT</a></strong></h1>
-    <h1>{{ Auth::user()->id}}</h1>
+    <div class="feed px-3">
 
     @php
         $posts = App\Http\Controllers\postClubberController::getAll();  
@@ -56,14 +42,37 @@
 
 
     @foreach ($posts as $post)
-        <div data-post="{{$post->id}}">
-            <h1>-----</h1>
-            <h1>{{$post->clubberUsername}} ha postato</h1>
-            <h3><strong>{{$post->caption}}</strong> al {{$post->clubUsername}}</h3>
-            <h6>Questo post ha <div class='inline' id="likeNumber{{$post->id}}"></div> likes</h6>
-            <button id="like-button" name="{{$post->id}}">METTI LIKE</button>
-        </div>
-    @endforeach -->
+        <div class="w-21 items-center text-slate-200 py-2">
+            <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
+                <div class ="post-banner rounded-t-lg object-fill">
+                    <img class ="rounded-t-lg " src="img/Banner1.jpg" alt="banner">
+                </div>
+                <div class="post-Profile flex items-center gap-2 p-2">
+                    <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="img/profilepic.jpeg" alt="profile picture">
+                    <a class="post-Username" href="">RobertoSaviano14</a>
+                    <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="">U-Club</a>
+                </div>
+                    
+                <div class="post-info p-2">
+                    <p class="post-caption">questo è un post molto lungo ceh se scrivi una descrizione cosi lunga sei uno stronzo</p>
+                </div>
+                <div class="post-buttons flex p-2">
+                    <!-- <div class="p-1"><a href=""><img class="h-5 w-5" src="img/like-not-pressed.png" alt="like"></a></div> -->
 
+                    <i class="uil uil-heart text-size-10" alt="like"></i>
+                </div>
+                    
+            </div>
+        </div>
+    @endforeach
+
+    </div>
+
+
+
+
+
+
+</body>
 
 </html>
