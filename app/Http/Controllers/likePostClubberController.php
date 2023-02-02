@@ -11,6 +11,15 @@ class likePostClubberController extends Controller
 {
     public function store(Request $request){
 
+        //Find previous like 
+        $given = likePostClubber::where(['clubberId' => Auth::id(), 'postId' => $request->post_id])->first();
+
+        if(isset($given)){
+            $given->delete();
+            return Response('DeleteLike.', 200);
+        }
+
+
         $like = new likePostClubber();
         $like->postId = $request->post_id;
         $like->clubberId = Auth::id();
@@ -20,6 +29,24 @@ class likePostClubberController extends Controller
         //E fare l accendi e spegni
         
         return Response('Success.', 200);
+
+    }
+
+    public function getStats($postId){
+        $likes = likePostClubber::getPostLike($postId);
+
+        if(Auth::check()){
+            $userReaction = likePostClubber::where(['postId'=>$postId, 'clubberId'=>Auth::id()])->first();
+            $userReactionRes = isset($userReaction) ? true : false;
+            return response()->json([
+                'likes'=> $likes,
+                'userLike' => $userReactionRes,
+            ]);
+        }else{
+            return response()->json([
+                'likes'=> $likes
+            ]);
+        }
 
     }
 }
