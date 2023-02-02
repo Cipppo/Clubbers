@@ -8,6 +8,7 @@ use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\likePostClubberController;
 use App\Http\Controllers\LoginController;
+use App\Models\likePostClubber;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
 
 
 Route::post('/post/react/like', [likePostClubberController::class, 'store'])->name('Like.store');
-
+Route::get('/post/react/{id}', [likePostClubberController::class, 'getStats'])->name('Like.info');
 
 Route::get('/create-club', [ClubRegistrationController::class, 'create'])->name('Club.create');
 Route::post('/create-club', [ClubRegistrationController::class, 'store'])->name('Club.store');
@@ -44,7 +45,7 @@ Route::post('/create-club', [ClubRegistrationController::class, 'store'])->name(
 Route::get('/create-user', [Usercontroller::class, 'create'])->name('User.create');
 Route::post('/create-user', [Usercontroller::class, 'store'])->name('User.store');
 
-Route::post('/logout', [LoginController::class, 'logOut'])->name('User.logout');
+Route::get('/logout', [LoginController::class, 'logOut'])->name('User.logout');
 Route::get('/log-user', [LoginController::class, 'create'])->name('User.log');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name(('User.login'));
 
