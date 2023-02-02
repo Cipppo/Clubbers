@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class likePostClubber extends Model
 {
@@ -17,4 +18,10 @@ class likePostClubber extends Model
         'postId', 
         'clubberId'
     ];
+
+
+    public static function getPostLike($postId){
+        $likes = DB::table('like_post_clubber')->where('postId', $postId)->count();
+        return $likes;
+    }
 }
