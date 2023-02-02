@@ -10,20 +10,21 @@
     </head>
     <h1>Home Feed</h1>
     <h1>{{ Auth::user()->username}}</h1>
+    <h1><strong><a href="/logout">LOGOUT</a></strong></h1>
     @php
         $posts = App\Http\Controllers\postClubberController::getAll();  
     @endphp
 
 
     @foreach ($posts as $post)
-        <h1>-----</h1>
-        <h1>{{$post->clubberUsername}} ha postato</h1>
-        <h3><strong>{{$post->caption}}</strong> al {{$post->clubUsername}}</h3>
-        <button id="like-button" name="{{$post->id}}">METTI LIKE</button>
+        <div data-post="{{$post->id}}">
+            <h1>-----</h1>
+            <h1>{{$post->clubberUsername}} ha postato</h1>
+            <h3><strong>{{$post->caption}}</strong> al {{$post->clubUsername}}</h3>
+            <h6>Questo post ha <div class='inline' id="likeNumber{{$post->id}}"></div> likes</h6>
+            <button id="like-button" name="{{$post->id}}">METTI LIKE</button>
+        </div>
     @endforeach
-
-    <button id="prova">PROVA</button>
-    @csrf
 
 
 </html>
