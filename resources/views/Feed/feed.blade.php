@@ -11,6 +11,34 @@
     <h1>Home Feed</h1>
     <h1>{{ Auth::user()->username}}</h1>
     <h1><strong><a href="/logout">LOGOUT</a></strong></h1>
+    <h1>{{ Auth::user()->id}}</h1>
+    
+    <!--NAVBAR-->
+    <nav class="items-center px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
+            <div class="flex items-center justify-between">
+                <div class="navbar-logo items-center flex gap-2">
+                    <img class="h-12 w-12 shadow-xl" src="img/ClubbersLogo.png" alt="Clubbers">
+                    <h1 class="invisible md:visible lg:visible">Clubbers</h1>
+                </div>
+                <div class="navbar-search-bar flex gap-2">
+                    <input type="search" placeholder="connect with people...">
+                    <i><img src="" alt="search-alt"></i>
+                </div>
+                <div class="navbar-options items-center md:flex lg:flex gap-2">
+                    <a href="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white">create</a>
+                    <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
+                    <a href=""><img src="img/shrek.jpg" class="rounded-full h-12 w-12 shadow-xl" alt="profile-picture"></a>
+                </div>
+            </div>            
+        </nav>
+
+
+
+
+
+
+
+
     @php
         $posts = App\Http\Controllers\postClubberController::getAll();  
     @endphp
