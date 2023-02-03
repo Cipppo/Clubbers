@@ -49,7 +49,7 @@
                     <img class ="rounded-t-lg " src="images/try/Banner1.jpg" alt="banner">
                 </div>
                 <div class="post-Profile flex items-center gap-2 p-2">
-                    <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="images/try/100x100.jpg" alt="profile picture">
+                    <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{App\Http\Controllers\ImageController::getProPic($post->clubberUsername)}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($post->clubberUsername)}}">
                     <a class="post-Username" href="">{{$post->clubberUsername}}</a>
                     <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="">{{$post->clubUsername}}</a>
                 </div>
