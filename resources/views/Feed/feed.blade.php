@@ -26,6 +26,7 @@
                     <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
                     <h1 class="invisible lg:visible">{{ Auth::user()->username}}</h1>
                     <a href=""><img src="" class="rounded-full h-12 w-12 shadow-xl" alt="profile-picture"></a>
+                    <h1><a href="/logout"><strong>LOGOUT</strong></a></h1>
                 </div>
             </div>            
     </nav>
@@ -60,8 +61,8 @@
                     <!-- <div class="p-1"><a href=""><img class="h-5 w-5" src="img/like-not-pressed.png" alt="like"></a></div> -->
 
                     <div class="likes-interaction items-center gap-1 flex"> 
-                        <p>0</p>
-                        <button><i class="uil uil-heart" alt="like" ></i></button>
+                        <p id="likeNumber{{$post->id}}">0</p>
+                        <button id="like-button" name="{{$post->id}}"><i class="uil uil-heart" alt="like"></i></button>
                     </div>
                     <div><button><i class="uil uil-comment"></i></button></div>
                     <div><button><i class="uil uil-tag"></i></button></div>

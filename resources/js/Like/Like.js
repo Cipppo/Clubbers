@@ -11,7 +11,7 @@ function update(postId){
         if(response.userLike == true){
             $(`#likeNumber${postId}`).css('color', 'red');
         }else{
-            $(`#likeNumber${postId}`).css('color', 'black');
+            $(`#likeNumber${postId}`).css('color', 'white');
         }
     })
 }
