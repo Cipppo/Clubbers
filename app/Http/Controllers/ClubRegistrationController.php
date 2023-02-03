@@ -29,8 +29,8 @@ class ClubRegistrationController extends Controller
             'regione' => $request->state,
         ]);
 
-        
-        $this->storeImage($request);
+
+        ImageController::storeProPic($request);
         //Store image
         //Save 
         //Redirect
@@ -41,16 +41,4 @@ class ClubRegistrationController extends Controller
     
 
     }   
-
-    public function storeImage(Request $request){
-        $IMAGE_UPLOAD_URL='public/uploads/imgs/proPics';
-
-        $file = $request->hasFile('choose-file');
-        if($file){
-            $newFile = $request->file('choose-file');
-            //$newFile->storeAs($IMAGE_UPLOAD_URL, $request->name."_propic.png");   
-            dd($newFile);
-            Storage::put('/images',$newFile);     
-        }
-    }
 }
