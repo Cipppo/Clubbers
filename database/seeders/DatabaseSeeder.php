@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\postclubber;
 use App\Models\User;
+use App\Models\userProPic;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,18 +32,18 @@ class DatabaseSeeder extends Seeder
 
         postclubber::factory()->create([
             'caption' => "Money Cash", 
-            'clubberUsername' => "Lucone", 
+            'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
 
         postclubber::factory()->create([
             'caption' => "Porco Dio", 
-            'clubberUsername' => "Ez", 
+            'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
             'caption' => "Daje roma Daje", 
-            'clubberUsername' => "LaNico", 
+            'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
@@ -52,12 +53,12 @@ class DatabaseSeeder extends Seeder
         ]);
         postclubber::factory()->create([
             'caption' => "Non vengo", 
-            'clubberUsername' => "LaFra", 
+            'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
             'caption' => "Cacca", 
-            'clubberUsername' => "Lucone", 
+            'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
 
@@ -91,6 +92,12 @@ class DatabaseSeeder extends Seeder
             'cap' => 'cpa', 
             'comune' => 'comune', 
             'regione' => 'regione',
+        ]);
+
+        userProPic::factory()->create([
+            'username' => 'Cipe', 
+            'URL' => 'images/proPics/100x100.jpg', 
+            'alt' => 'Cipe Profile Avatar',
         ]);
 
     }
