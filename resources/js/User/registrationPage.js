@@ -119,7 +119,7 @@ let phoneTag = document.getElementById('phone-tag');
 let passwordTag = document.getElementById('password-tag');
 let confirmPasswordTag = document.getElementById('confirm-password-tag');
 let usernameTag = document.getElementById('username-tag');
-let profilePicFile = document.getElementById('choose-file');
+let profilePicFile = document.getElementById('fileIn');
 let propicPreview = document.getElementById('proPicPreview');
 let fileInputTag = document.getElementById('FileInputLabel');
 
