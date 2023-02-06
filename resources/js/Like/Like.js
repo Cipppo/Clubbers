@@ -9,9 +9,9 @@ function update(postId){
     .then(response =>{
         $(`#likeNumber${postId}`).html(response.likes)
         if(response.userLike == true){
-            $(`#likeNumber${postId}`).css('color', 'red');
+            $(`#likeIcon${postId}`).css('color', 'red');
         }else{
-            $(`#likeNumber${postId}`).css('color', 'white');
+            $(`#likeIcon${postId}`).css('color', 'white');
         }
     })
 }
