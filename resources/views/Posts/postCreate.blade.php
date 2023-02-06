@@ -31,7 +31,7 @@
             </div>            
     </nav>
 </header>
-<body class="bg-fixed object-fill" style="background-image: url(../images/feed/background.jpg)">
+<body class="bg-fixed object-fill" style="background-image: url(../images/feed/background2.jpg)">
 
     <div class="py-36 md:py-36 lg:py-24 lg:grid grid-cols-3 justify-between text-slate-200">
         <div></div>
@@ -40,7 +40,7 @@
                 <h1>UPLOAD POST</h1>
             </div>
             <div class="rounded-lg shadow-xl bg-black bg-opacity-40 items-center justify-between flex p-3 gap-5">
-                <p class="pl-[20%]">Wich event did you go?</p>
+                <p>Wich event did you go?</p>
 
                 <div class="flex justify-center">
                     <div class="mb-3 xl:w-96">
