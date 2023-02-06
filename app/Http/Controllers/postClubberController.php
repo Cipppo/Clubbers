@@ -17,4 +17,9 @@ class postClubberController extends Controller
         $posts = DB::table('postClubber')->get();
         return $posts;
     }
+
+    public function create(){
+        return view("Posts.postCreate");
+    }
 }
+

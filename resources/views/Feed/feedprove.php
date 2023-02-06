@@ -54,7 +54,7 @@
                         <div class="post-buttons flex p-2">
                             <!-- <div class="p-1"><a href=""><img class="h-5 w-5" src="img/like-not-pressed.png" alt="like"></a></div> -->
 
-                            <i class="uil uil-heart text-size-10" alt="like"></i>
+                            <i class="uil uil-heart text-size-10" style = "color:red" alt="like"></i>
                         </div>
                     
                 </div>
