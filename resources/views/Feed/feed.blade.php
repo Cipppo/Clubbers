@@ -112,26 +112,8 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-                        </div>
-
-                        <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url(images/try/Banner1.jpg)" >
-                            <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
-                                <div class="text-center flex justify-center">
-                                    <img src="" alt="">
-                                    <h2>CazziSporchiOfficiel</h2>
-                                </div>
-                                <div class="justify-center flex gap-2 w-full">
-                                    <p>0 attentati in america</p>
-                                    <p>10/9/2001</p>
-                                </div>
-                            </div>
-                        </div>
-
-=======
                         </a>
                         @endforeach
->>>>>>> 188f3884518e2b2049be1e321a85a956ee5271c9
                     </div>
                 </div>
                 
