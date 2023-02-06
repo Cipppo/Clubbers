@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class partecipa_evento extends Model
 {
+    use HasFactory;
+    
     public $timestamps = false;
     public $table = "partecipa_evento";
 

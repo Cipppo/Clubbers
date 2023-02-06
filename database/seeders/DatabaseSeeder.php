@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use App\Models\postclubber;
 use App\Models\User;
 use App\Models\userProPic;
+use App\Models\event;
+use App\Models\partecipa_evento;
 
 class DatabaseSeeder extends Seeder
 {
@@ -98,6 +100,43 @@ class DatabaseSeeder extends Seeder
             'username' => 'Cipe', 
             'URL' => 'images/proPics/100x100.jpg', 
             'alt' => 'Cipe Profile Avatar',
+        ]);
+
+        event::factory()->create([
+            'name' => 'iGen', 
+            'description' => 'Il party per la generazione Z',
+            'clubName' => 'UClub', 
+            'entrances' => 2000, 
+            'Date' => "18/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event::factory()->create([
+            'name' => 'iGen', 
+            'description' => 'Il party per la generazione Z',
+            'clubName' => 'UClub', 
+            'entrances' => 2000, 
+            'Date' => "18/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event::factory()->create([
+            'name' => 'iGen - Capitolo 2', 
+            'description' => 'Il party per la generazione Z con quel negro di bello figo',
+            'clubName' => 'UClub', 
+            'entrances' => 2000, 
+            'Date' => "25/03/2022", 
+            'Time' => '23',
+        ]);
+
+        partecipa_evento::factory()->create([
+            'idClubber' => 1, 
+            'idEvento' => 1,
+        ]);
+
+        partecipa_evento::factory()->create([
+            'idClubber' => 1, 
+            'idEvento' => 2,
         ]);
 
     }
