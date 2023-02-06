@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\userProPic;
 use App\Models\event;
 use App\Models\partecipa_evento;
+use App\Models\event_banner;
 
 class DatabaseSeeder extends Seeder
 {
@@ -128,6 +129,19 @@ class DatabaseSeeder extends Seeder
             'Date' => "25/03/2022", 
             'Time' => '23',
         ]);
+        
+        event_banner::factory()->create([
+            'clubid' => 1,
+            'URL' => 'images/Banners/tryBanner1.jpg',
+            'alt' => 'iGen Banner',
+        ]);
+
+        event_banner::factory()->create([
+            'clubid' => 2,
+            'URL' => 'images/Banners/tryBanner2.jpg',
+            'alt' => 'iGen-Capitolo 2 Banner',
+        ]);
+
 
         partecipa_evento::factory()->create([
             'idClubber' => 1, 
