@@ -80,22 +80,20 @@
                 <div class="py-4 px-2">
                     <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >UPCOMING EVENST</h1>
 
-                    <div class="events py-2">
-                        
-                    <div class="events-bg-img bg-cover" style="background-image: url(images/try/Banner1.jpg)" >
-                        <div class="event-real rounded-xl bg-black bg-opacity-60 p-3 ">
-                            <diV class="text-center flex justify-center">
-                                <img src="" alt="">
-                                <h2>CazziSporchiOfficiel</h2>
-                            </div>
-                            <div class="justify-center flex gap-2 w-full">
-                                <p>0 attentati in america</p>
-                                <p>10/9/2001</p>
+                    <div class="events py-2 grid grid-cols-1 gap-2">
+                        <!-- EVENTS TEMPLATE -->
+                        <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url(images/try/Banner1.jpg)" >
+                            <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
+                                <div class="text-center flex justify-center">
+                                    <img src="" alt="">
+                                    <h2>CazziSporchiOfficiel</h2>
+                                </div>
+                                <div class="justify-center flex gap-2 w-full">
+                                    <p>0 attentati in america</p>
+                                    <p>10/9/2001</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                        
-                            
 
                     </div>
                 </div>
