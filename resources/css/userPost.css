@@ -2,20 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-.post-User{
+.post-User {
     border: 10px;
 }
 
-.bbg{
+.bbg {
     background-color: #141414;
 }
 
-.post-buttons{
+.post-buttons {
     padding-right: 10px;
 }
 
-.Back{
+/* .Back{
     background-image: url('img/background.jpg');
     object-fit: fill;
     background-attachment: fixed;
-}
+} */
