@@ -36,10 +36,10 @@
     <div class="py-36 md:py-36 lg:py-24 lg:grid grid-cols-3 justify-between text-slate-200">
         <div></div>
         <div class="p-2 grid grid-cols-1 gap-2">
-            <div class="rounded-lg shadow-xl bg-black bg-opacity-40 p-3 text-center">
+            <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-3 text-center">
                 <h1>UPLOAD POST</h1>
             </div>
-            <div class="rounded-lg shadow-xl bg-black bg-opacity-40 items-center justify-between flex p-3 gap-5">
+            <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 items-center justify-between flex p-3 gap-5">
                 <p>Wich event did you go?</p>
 
                 <div class="flex justify-center">
@@ -68,7 +68,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="rounded-lg shadow-xl bg-black bg-opacity-40 p-10 text-center">
+                <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-10 text-center">
                     <div class="flex items-center justify-center w-full">
                         <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-black bg-opacity-40 hover:bg-white hover:bg-opacity-20 p-2">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -82,14 +82,14 @@
                   
                 </div>
 
-                <div class="rounded-lg shadow-xl bg-black bg-opacity-40 p-10 text-center">
+                <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-10 text-center">
                     <h2 class="pb-2">Caption</h2>
                     <div class="py-2">
                         <input type="text" class = "bg-black bg-opacity-40 w-full rounded-xl py-6 px-3">
                     </div>
                     
                 </div>
-            <div class="rounded-lg shadow-xl bg-black bg-opacity-40 p-3 text-center hover:bg-white hover:bg-opacity-20">
+            <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-3 text-center hover:bg-white hover:bg-opacity-20">
                 <button onclick="">CREATE POST</button>
             </div>
         </div>
