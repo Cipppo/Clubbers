@@ -13,7 +13,7 @@
 
 
 
-<body class="bg-fixed object-fill" style="background-image: url(images/feed/background.jpg)">
+<body class="bg-fixed object-fill" style="background-image: url(images/feed/background2luce.jpg)">
     <!--NAVBAR-->
     <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
