@@ -41,6 +41,7 @@
 
         @php
             $posts = App\Http\Controllers\postClubberController::getAll();  
+            $events = App\Http\Controllers\EventController::getFollowedEvents(Auth::id());
         @endphp
 
         @foreach ($posts as $post)
@@ -78,23 +79,25 @@
         <div class="right p-2">
             <div class="upcoming-events rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl sticky-top fixed w-[32%]">
                 <div class="py-4 px-2">
-                    <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >UPCOMING EVENST</h1>
-
+                    <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >UPCOMING EVENTS</h1>
                     <div class="events py-2 grid grid-cols-1 gap-2">
                         <!-- EVENTS TEMPLATE -->
-                        <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url(images/try/Banner1.jpg)" >
-                            <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
-                                <div class="text-center flex justify-center">
-                                    <img src="" alt="">
-                                    <h2>CazziSporchiOfficiel</h2>
-                                </div>
-                                <div class="justify-center flex gap-2 w-full">
-                                    <p>0 attentati in america</p>
-                                    <p>10/9/2001</p>
+                        @foreach($events as $event)
+                        <a href="#">
+                            <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{App\Http\Controllers\ImageController::getBannerUrl($event->id)}})" alt="{{App\Http\Controllers\ImageController::getBannerAlt($event->id)}}">
+                                <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
+                                    <div class="text-center flex justify-center">
+                                    </div>
+                                    <div class="justify-center flex gap-2 w-full">
+                                        <p class="mt-2 text-2xl">{{$event->name}}</p>
+                                    </div>
+                                    <div class="justify-center flex gap-2 w-full">
+                                        <p>{{$event->shortDescription}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        </a>
+                        @endforeach
                     </div>
                 </div>
                 
