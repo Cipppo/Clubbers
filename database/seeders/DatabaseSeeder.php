@@ -131,13 +131,13 @@ class DatabaseSeeder extends Seeder
         ]);
         
         event_banner::factory()->create([
-            'clubid' => 1,
+            'eventId' => 1,
             'URL' => 'images/Banners/tryBanner1.jpg',
             'alt' => 'iGen Banner',
         ]);
 
         event_banner::factory()->create([
-            'clubid' => 2,
+            'eventId' => 2,
             'URL' => 'images/Banners/tryBanner2.jpg',
             'alt' => 'iGen-Capitolo 2 Banner',
         ]);

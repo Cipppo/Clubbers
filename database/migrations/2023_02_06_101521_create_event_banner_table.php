@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('event_banner', function (Blueprint $table) {
             $table->id();
-            $table->string('clubId');
+            $table->string('eventId');
             $table->string('URL');
             $table->string('alt');
         });
