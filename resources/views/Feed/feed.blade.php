@@ -41,7 +41,7 @@
         <div class="left p-2">
             <div class="upload-button sticky-top fixed w-full md:w-full lg:w-[32%] text-center">
                 <div class="p-2 rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
-                    <a href="#">UPLOAD</a>
+                    <a href="/post/create">UPLOAD</a>
                 </div>
             </div>
         </div>
