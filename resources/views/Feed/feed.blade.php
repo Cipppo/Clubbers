@@ -79,7 +79,7 @@
         <div class="right p-2">
             <div class="upcoming-events rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl sticky-top fixed w-[32%]">
                 <div class="py-4 px-2">
-                    <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >UPCOMING EVENTS</h1>
+                    <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >YOUR UPCOMING EVENTS</h1>
                     <div class="events py-2 grid grid-cols-1 gap-2">
                         <!-- EVENTS TEMPLATE -->
                         @foreach($events as $event)
