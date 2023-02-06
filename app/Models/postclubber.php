@@ -15,6 +15,7 @@ class postclubber extends Model
 
     protected $fillable = [
         'caption', 
+        'eventId',
         'clubberUsername',
         'clubUsername',
     ];

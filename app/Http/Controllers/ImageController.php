@@ -37,4 +37,14 @@ class ImageController extends Controller
         $alt = DB::table('user_pro_pic')->where('username', $username)->first()->alt;
         return $alt;
     }
+
+    public static function getBannerUrl($eventId){
+        $url = DB::table('event_banner')->where('eventId', $eventId)->first()->URL;
+        return $url;
+    }
+
+    public static function getbannerAlt($eventId){
+        $alt = DB::table('event_banner')->where('eventId', $eventId)->first()->alt;
+        return $alt;
+    }
 }

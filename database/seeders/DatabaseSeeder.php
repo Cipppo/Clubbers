@@ -7,6 +7,9 @@ use Illuminate\Database\Seeder;
 use App\Models\postclubber;
 use App\Models\User;
 use App\Models\userProPic;
+use App\Models\event;
+use App\Models\partecipa_evento;
+use App\Models\event_banner;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,38 +29,45 @@ class DatabaseSeeder extends Seeder
 
         postclubber::factory()->create([
             'caption' => "Mi fai un tavolo ?", 
+            'eventId' => 1,
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
 
         postclubber::factory()->create([
             'caption' => "Money Cash", 
+            'eventId' => 2,
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
 
         postclubber::factory()->create([
             'caption' => "Porco Dio", 
+            'eventId' => 3,
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
             'caption' => "Daje roma Daje", 
+            'eventId' => 4,
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
             'caption' => "Ghe sboro", 
+            'eventId' => 5,
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
             'caption' => "Non vengo", 
+            'eventId' => 6,
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
         postclubber::factory()->create([
             'caption' => "Cacca", 
+            'eventId' => 7,
             'clubberUsername' => "Cipe", 
             'ClubUsername' => 'UClub',
         ]);
@@ -96,8 +106,128 @@ class DatabaseSeeder extends Seeder
 
         userProPic::factory()->create([
             'username' => 'Cipe', 
-            'URL' => 'images/proPics/100x100.jpg', 
+            'URL' => 'images/proPics/CipeProPic.jpg', 
             'alt' => 'Cipe Profile Avatar',
+        ]);
+
+        event::factory()->create([
+            'name' => 'iGen', 
+            'description' => 'Il party per la generazione Z',
+            'clubName' => 'UClub', 
+            'shortDescription' => 'Il party per la generazione Z', 
+            'Date' => "18/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event_banner::factory()->create([
+            'eventId' => 1,
+            'URL' => 'images/Banners/iGen1.jpg',
+            'alt' => 'iGen Banner',
+        ]);
+
+        partecipa_evento::factory()->create([
+            'idClubber' => 1, 
+            'idEvento' => 1,
+        ]);
+
+        event::factory()->create([
+            'name' => 'EnergyIlVenerdi - BlackOrWhite', 
+            'description' => 'Il Venerdi sera bianco con la bianca',
+            'clubName' => 'UClub', 
+            'shortDescription' => 'Il Venerdi sera bianco con la bianca', 
+            'Date' => "20/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event_banner::factory()->create([
+            'eventId' => 2,
+            'URL' => 'images/Banners/BlackOrWhite.jpg',
+            'alt' => 'BlackOrWhite Banner',
+        ]);
+
+        event::factory()->create([
+            'name' => 'EnergyIlVenerdi - Capodanno', 
+            'description' => 'Il capodanno piu bianco che ci sia',
+            'clubName' => 'UClub', 
+            'shortDescription' => 'Il capodanno piu bianco che ci sia', 
+            'Date' => "21/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event_banner::factory()->create([
+            'eventId' => 3,
+            'URL' => 'images/Banners/capodanno.jpeg',
+            'alt' => 'Capodanno Banner',
+        ]);
+
+        event::factory()->create([
+            'name' => 'EnergyIlVenerdi - Inaugurazione', 
+            'description' => 'L inizio della fine',
+            'clubName' => 'UClub', 
+            'shortDescription' => 'L inizio della fine', 
+            'Date' => "22/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event_banner::factory()->create([
+            'eventId' => 4,
+            'URL' => 'images/Banners/EnergyIlVenerdi.jpg',
+            'alt' => 'Inaugurazione Banner',
+        ]);
+
+        event::factory()->create([
+            'name' => 'EnergyIlVenerdi - Horror Circus', 
+            'description' => 'I mostri si risvegliano (ancora)',
+            'clubName' => 'UClub', 
+            'shortDescription' => 'I mostri si risvegliano (ancora)', 
+            'Date' => "23/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event_banner::factory()->create([
+            'eventId' => 5,
+            'URL' => 'images/Banners/HorrorCircus.jpg',
+            'alt' => 'HorrorCircus Banner',
+        ]);
+
+        event::factory()->create([
+            'name' => 'EnergyIlVenerdi - Mala Chica', 
+            'description' => 'Mala Chica o Mala Riga ?',
+            'clubName' => 'UClub', 
+            'shortDescription' => 'Mala Chica o Mala Riga ?', 
+            'Date' => "24/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event_banner::factory()->create([
+            'eventId' => 6,
+            'URL' => 'images/Banners/malaChica.jpg',
+            'alt' => 'MalaChica Banner',
+        ]);
+
+        partecipa_evento::factory()->create([
+            'idClubber' => 1, 
+            'idEvento' => 6,
+        ]);
+
+        event::factory()->create([
+            'name' => 'iGen - Capitolo 2', 
+            'description' => 'Il party per la generazione Z con quel negro di bello figo',
+            'clubName' => 'UClub', 
+            'shortDescription' => 'Il party per la generazione Z con quel negro di Bello Figo', 
+            'Date' => "25/03/2022", 
+            'Time' => '23',
+        ]);
+
+        event_banner::factory()->create([
+            'eventId' => 7,
+            'URL' => 'images/Banners/iGen2.jpg',
+            'alt' => 'iGen-Capitolo 2 Banner',
+        ]);
+
+        partecipa_evento::factory()->create([
+            'idClubber' => 1, 
+            'idEvento' => 7,
         ]);
 
     }
