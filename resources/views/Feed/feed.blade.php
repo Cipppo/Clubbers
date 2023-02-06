@@ -127,7 +127,8 @@
 
                     <div class="events py-2">
                         
-                        <div class="event-real rounded-xl bg-black bg-opacity-50 p-3 ">
+                    <div class="events-bg-img bg-cover" style="background-image: url(images/try/Banner1.jpg)" >
+                        <div class="event-real rounded-xl bg-black bg-opacity-60 p-3 ">
                             <diV class="text-center flex justify-center">
                                 <img src="" alt="">
                                 <h2>CazziSporchiOfficiel</h2>
@@ -137,6 +138,8 @@
                                 <p>10/9/2001</p>
                             </div>
                         </div>
+                    </div>
+                        
                             
 
                     </div>
