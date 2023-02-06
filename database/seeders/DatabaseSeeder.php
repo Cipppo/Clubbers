@@ -107,16 +107,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'iGen', 
             'description' => 'Il party per la generazione Z',
             'clubName' => 'UClub', 
-            'entrances' => 2000, 
-            'Date' => "18/03/2022", 
-            'Time' => '23',
-        ]);
-
-        event::factory()->create([
-            'name' => 'iGen', 
-            'description' => 'Il party per la generazione Z',
-            'clubName' => 'UClub', 
-            'entrances' => 2000, 
+            'shortDescription' => 'Il party per la generazione Z', 
             'Date' => "18/03/2022", 
             'Time' => '23',
         ]);
@@ -125,14 +116,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'iGen - Capitolo 2', 
             'description' => 'Il party per la generazione Z con quel negro di bello figo',
             'clubName' => 'UClub', 
-            'entrances' => 2000, 
+            'shortDescription' => 'Il party per la generazione Z con quel negro di Bello Figo', 
             'Date' => "25/03/2022", 
             'Time' => '23',
         ]);
         
         event_banner::factory()->create([
             'eventId' => 1,
-            'URL' => 'images/Banners/tryBanner1.jpg',
+            'URL' => 'images/Banners/tryBanner.jpg',
             'alt' => 'iGen Banner',
         ]);
 

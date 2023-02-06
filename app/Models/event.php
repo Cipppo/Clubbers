@@ -16,7 +16,7 @@ class event extends Model
         'name', 
         'description', 
         'clubName', 
-        'entrances', 
+        'shortDescription', 
         'Date',
         'Time',
     ];

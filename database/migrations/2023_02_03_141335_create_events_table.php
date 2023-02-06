@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('clubName');
-            $table->string("entrances");
+            $table->string("shortDescription");
             $table->String('Date');
             $table->string('Time');
         });
