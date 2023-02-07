@@ -10,7 +10,7 @@
     </head>
     <body class="bg-fixed object-fill">
         <!-- inizio del calendario -->
-        <div class="contianer">
+        <div class="contianer h-full">
             <div class="calendar">
                 <div class="calendar-header">
                     <span class="month-picker" id="month-picker"> May </span>

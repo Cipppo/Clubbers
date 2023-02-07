@@ -79,7 +79,7 @@
                             <input type="text" class = "bg-black bg-opacity-40 w-full rounded-xl py-6 px-3">
                         </div>
                     </div>
-                    <div class="w-full h-24 rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-3 text-center hover:bg-white hover:bg-opacity-20">
+                    <div class="w-full rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-3 text-center hover:bg-white hover:bg-opacity-20 mt-2">
                         <button onclick="">CREATE POST</button>
                     </div>
                 </div>
