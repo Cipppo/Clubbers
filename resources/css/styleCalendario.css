@@ -7,22 +7,15 @@
     --light-body: #f3f8fe;
     --light-main: #fdfdfd;
     --light-second: #c3c2c8;
-    --light-hover: #f0f0f0;
+    --light-hover: #b6b6b6;
     --light-text: #151426;
-    --light-btn: #dd1122;
+    --light-btn: #aa1111;
     --blue: #0000ff;
     --white: #fff;
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     --font-family: consolas;
 }
 
-.calendar-week-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-}
 .calendar-week-days div:hover {
     transform: scale(1.2);
     transition: all 0.2s ease-in-out;

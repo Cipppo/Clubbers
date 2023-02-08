@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="calendar-body">
-                    <div class="calendar-week-days">
+                    <div class="calendar-week-days grid grid-cols-7 cursor-pointer font-bold">
                         <div>Sun</div>
                         <div>Mon</div>
                         <div>Tue</div>
