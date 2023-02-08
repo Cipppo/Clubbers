@@ -81,7 +81,7 @@ const generateCalendar = (month, year) => {
         day.addEventListener("click", () => {
             let giorno = i - first_day.getDay() + 1;
             let data = new Date(year, month, giorno);
-            console.log(data);
+            console.table(data.getDate(), data.getMonth(), data.getFullYear());
         });
         calendar_days.appendChild(day);
     }
