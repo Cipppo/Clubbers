@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <title>Clubbers</title>
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-        @vite(['../resources/css/userPost.css', '../resources/js/Post/postCreate.js',  '../resources/js/app.js'])
+        @vite(['../resources/css/userPost.css ','../resources/js/Post/postCreate.js',  '../resources/js/app.js'])
     </head>
     
  <body class="bg-fixed object-fill" style="background-image: url(../images/feed/background2.jpg)">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="w-full h-24 rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-3 text-center hover:bg-white hover:bg-opacity-20">
-                        <button onclick="">CREATE POST</button>
+                        <button id="Submit">CREATE POST</button>
                     </div>
                 </div>
         </div>
