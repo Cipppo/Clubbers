@@ -51,6 +51,7 @@ $(()=>{
     const mustdisappear = $('#partTwo2');
     let counter = 0;
     let uploaded = 0;
+    let deletionPhrase = "Click to delete";
     // console.log($('#selectEvent').val());
 
 
@@ -60,6 +61,18 @@ $(()=>{
             two.css('display', 'block');
         }
     });
+
+    $('#Submit').on('click', function(e){
+        let pics
+    })
+
+    function createWrapper(id, img){
+        let newId = 'imageWrapper' + id;
+        let wrapper = $('<div>').attr('id', newId);
+        wrapper.append(img);
+        wrapper.append($('</div>'));
+        return wrapper;
+    }
 
     // Improve
     fileIn.on('change', function(e){
@@ -78,11 +91,13 @@ $(()=>{
                 reader.onload = function(e){
                     var data = e.target.result,
                     img = $('<img />').attr('src', data).fadeIn();
-                    let id = 'uploadedImage' + counter;
+                    let id = 'UploadedImage' + counter;
                     counter++;
                     img.attr('id',id);
+                    img.attr('class', 'UpImage');
+                    let wrapper = createWrapper(id, img);
                     $('#previewZone').css('display', 'block');
-                    $('#previewZone').append(img);
+                    $('#previewZone').append(wrapper);
                     $(`#${id}`).on('click', function(e){
                         this.style = "display: none";
                         del(this);
