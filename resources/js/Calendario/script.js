@@ -77,6 +77,12 @@ const generateCalendar = (month, year) => {
                 day.id = "daycurrent";
             }
         }
+        // funzione che restituisce il giorno
+        day.addEventListener("click", () => {
+            let giorno = i - first_day.getDay() + 1;
+            let data = new Date(year, month, giorno);
+            console.log(data);
+        });
         calendar_days.appendChild(day);
     }
 };
