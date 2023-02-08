@@ -67,7 +67,6 @@ const generateCalendar = (month, year) => {
             day.innerHTML = giorno;
             day.classList.add("ODIOIFROCI");
             day.id = `day${giorno}`;
-            console.log(day);
             if (
                 i - first_day.getDay() + 1 === currentDate.getDate() &&
                 year === currentDate.getFullYear() &&

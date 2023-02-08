@@ -8,11 +8,11 @@
         @vite(['../resources/css/styleCalendario.css',
         '../resources/js/Calendario/script.js', '../resources/js/app.js', '../resources/js/Calendario/script2.js'])
     </head>
-    <body class="bg-fixed object-fill">
+    <body class="bg-blue-300">
         <!-- inizio del calendario -->
-        <div class="contianer h-full">
-            <div class="calendar">
-                <div class="calendar-header">
+        <div class="contianer flex relative justify-center pt-[2%]">
+            <div class="calendar pt-8 px-12 shadow-xl rounded-2xl h-[610px] bg-black bg-opacity-40 backdrop-blur text-slate-200 overflow-hidden">
+                <div class="calendar-header p-2 flex justify-between items-center bg-black bg-opacity-20 rounded-2xl font-weight-bold">
                     <span class="month-picker" id="month-picker"> May </span>
                     <div class="year-picker" id="year-picker">
                         <span class="year-change" id="pre-year">
