@@ -52,3 +52,7 @@ Route::get('/log-user', [LoginController::class, 'create'])->name('User.log');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name(('User.login'));
 
 Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
+
+Route::get('/calendar', function(){
+    return view('Calendario.calenDARIO');
+})->name("Calendario");
