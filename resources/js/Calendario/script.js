@@ -63,7 +63,12 @@ const generateCalendar = (month, year) => {
         if (i >= first_day.getDay()) {
             let giorno = i - first_day.getDay() + 1;
             day.innerHTML = giorno;
-            day.classList.add("dayss");
+            day.classList.add(
+                "dayss",
+                "bg-opacity-40",
+                "hover:bg-opacity-40",
+                "hover:bg-white"
+            );
             day.id = `${giorno}`;
             if (
                 i - first_day.getDay() + 1 === currentDate.getDate() &&

@@ -20,18 +20,7 @@
     transform: scale(1.2);
     transition: all 0.2s ease-in-out;
 }
-.calendar-week-days div {
-    display: grid;
-    place-items: center;
-    color: var(--bg-second);
-    height: 50px;
-}
-.calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    color: var(--color-txt);
-}
+
 .calendar-days div {
     width: 37px;
     height: 33px;
@@ -42,21 +31,6 @@
     position: relative;
     cursor: pointer;
     animation: to-top 1s forwards;
-}
-.month-picker {
-    padding: 5px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.month-picker:hover {
-    background-color: var(--color-hover);
-}
-.month-picker:hover {
-    color: var(--color-txt);
-}
-.year-picker {
-    display: flex;
-    align-items: center;
 }
 .year-change {
     height: 30px;
@@ -72,26 +46,11 @@
     transition: all 0.2s ease-in-out;
     transform: scale(1.12);
 }
-.year-change:hover pre {
-    color: var(--bg-body);
-}
-.calendar-footer {
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-#year:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-    transition: all 0.2 ease-in-out;
-}
 .calendar-days div span {
     position: absolute;
 }
 .calendar-days div:hover {
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-    background-color: black;
     border-radius: 20%;
     color: var(--dark-text);
 }
@@ -99,17 +58,6 @@
     color: var(--dark-text);
     background-color: var(--light-btn);
     border-radius: 20%;
-}
-.month-list {
-    position: relative;
-    left: 0;
-    top: -50px;
-    background-color: #ebebeb;
-    color: var(--light-text);
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 5px;
-    border-radius: 20px;
 }
 .month-list > div {
     display: grid;
