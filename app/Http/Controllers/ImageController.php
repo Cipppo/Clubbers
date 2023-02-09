@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Image;
+use App\Models\postclubber;
 use App\Models\userProPic;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\foto_post_clubber;
 
 class ImageController extends Controller
 {
@@ -26,6 +29,28 @@ class ImageController extends Controller
             ]);
             $userPic->save();
         }
+    }
+
+    public static function storePost(Request $request){
+
+        $POST_UPLOAD_URL = 'images/Posts';
+
+        $files = 1;
+        //Scoprire come si tirano giu i file dalla request;
+        foreach($files as $file){
+            if($file){
+                $fileName = $file->getClientOriginalName();
+                $file->move(public_path($POST_UPLOAD_URL), $file, $fileName);
+                $pic = foto_post_clubber::create([
+                    'username' => Auth::user()->name,
+                    'eventName' => $request->selectEvent,
+                    'URL' => $POST_UPLOAD_URL.$fileName,
+                    'alt' => Auth::user()->name."_".$request->selectEvent."_post",
+                ]);
+                $pic->save();
+            }
+        }
+
     }
 
     public static function getProPic($username){
