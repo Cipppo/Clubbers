@@ -33,4 +33,20 @@ class EventController extends Controller
         }
         return $events;
     }
+
+
+
+    public static function getIdByName($name){
+        $id = DB::table('events')->where('name', $name)->first()->id;
+        return $id;
+    }
+
+    public static function getClubNameById($id){
+        $name = DB::table('events')->where('id', $id)->first()->clubName;
+        return $name;
+    }
+
+    public static function delete_partecipation($id){
+        DB::table('partecipa_evento')->where('idEvento',$id)->delete();
+    }
 }
