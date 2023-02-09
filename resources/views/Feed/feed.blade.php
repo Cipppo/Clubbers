@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Clubbers</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @vite(['../resources/css/userPost.css', '../resources/js/Like/Like.js',  '../resources/js/app.js'])
+    @vite(['../resources/css/userPost.css', 
+    '../resources/js/Like/Like.js',  
+    '../resources/js/app.js', 
+    '../resources/css/styleCalendario.css', 
+    '../resources/js/Calendario/script.js'])
 </head>
     
 
@@ -42,6 +46,37 @@
             <div class="upload-button sticky-top fixed w-full md:w-full lg:w-[32%] text-center">
                 <div class="p-2 rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
                     <a href="/post/create">UPLOAD</a>
+                </div>
+                <div class="contianer flex relative justify-center pt-[2%]">
+                    <div class="calendar w-full pt-8 px-12 shadow-xl rounded-2xl h-[610px] bg-black bg-opacity-40 backdrop-blur text-slate-200 overflow-hidden">
+                        <div class="calendar-header p-2 flex justify-between items-center bg-black bg-opacity-20 rounded-2xl font-weight-bold">
+                            <span class="month-picker hover:font-bold rounded-lg pt-1 pl-3 cursor-pointer" id="month-picker"> May </span>
+                            <div class="year-picker flex items-center" id="year-picker">
+                                <span class="year-change" id="pre-year">
+                                    <span><</span>
+                                </span>
+                                <span id="year" class="hover:scale-105 hover:font-bold">2020 </span>
+                                <span class="year-change" id="next-year">
+                                    <span>></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="calendar-body">
+                            <div class="calendar-week-days grid grid-cols-7 cursor-pointer font-bold place-items-center pt-12">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-days grid grid-cols-7 gap-2"></div>
+                        </div>
+                        <div class="calendar-footer p-3 flex justify-end items-center"></div>
+                        <div class="date-time-formate flex text-center items-center"></div>
+                        <div class="month-list z-30 position-relative left-0 top-[50px] text-slate-200 bg-white bg-opacity-10 backdrop-blur-3xl grid grid-cols-3 rounded-xl gap-1"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,8 +144,9 @@
                                             <div class="justify-center flex gap-2 w-full">
                                                 <p class="mt-2 text-2xl">{{$event->name}}</p>
                                             </div>
-                                            <div class="justify-center flex gap-2 w-full">
+                                            <div class="flex justify-between w-full px-7 pt-3">
                                                 <p>{{$event->shortDescription}}</p>
+                                                <p>{{$event->Date}}</p>
                                             </div>
                                         </div>
                                     </div>

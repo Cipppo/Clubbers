@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 const isLeapYear = (year) => {
     return (
         (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) ||
@@ -25,7 +23,7 @@ const month_names = [
     "December",
 ];
 let month_picker = document.querySelector("#month-picker");
-
+let idDataPrecedente;
 month_picker.onclick = () => {
     month_list.classList.remove("hideonce");
     month_list.classList.remove("hide");
@@ -65,8 +63,13 @@ const generateCalendar = (month, year) => {
         if (i >= first_day.getDay()) {
             let giorno = i - first_day.getDay() + 1;
             day.innerHTML = giorno;
-            day.classList.add("ODIOIFROCI");
-            day.id = `day${giorno}`;
+            day.classList.add(
+                "dayss",
+                "bg-opacity-40",
+                "hover:bg-opacity-40",
+                "hover:bg-white"
+            );
+            day.id = `${giorno}`;
             if (
                 i - first_day.getDay() + 1 === currentDate.getDate() &&
                 year === currentDate.getFullYear() &&
@@ -80,7 +83,32 @@ const generateCalendar = (month, year) => {
         day.addEventListener("click", () => {
             let giorno = i - first_day.getDay() + 1;
             let data = new Date(year, month, giorno);
-            console.table(data.getDate(), data.getMonth(), data.getFullYear());
+            const dayss = document.querySelectorAll(".dayss");
+
+            for (const day1 of dayss) {
+                if (day1.id == idDataPrecedente) {
+                    day1.classList.remove(
+                        "clicked-day",
+                        "bg-white",
+                        "bg-opacity-20",
+                        "rounded-lg"
+                    );
+                }
+            }
+            for (const day1 of dayss) {
+                if (day1.id == giorno.toString()) {
+                    day1.classList.add(
+                        "clicked-day",
+                        "bg-white",
+                        "bg-opacity-20",
+                        "rounded-lg"
+                    );
+                    idDataPrecedente = day1.id;
+                    console.log(idDataPrecedente);
+                }
+            }
+
+            console.log(data);
         });
         calendar_days.appendChild(day);
     }
