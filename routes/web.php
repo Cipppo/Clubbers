@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ClubRegistrationController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->group(function(){
 });
 
 Route::get('/post/create', [postClubberController::class, 'create'])->name('Post.create');
+Route::post('/post/store', [postClubberController::class, 'store'])->name('Post.store');
 
 Route::post('/post/react/like', [likePostClubberController::class, 'store'])->name('Like.store');
 Route::get('/post/react/{id}', [likePostClubberController::class, 'getStats'])->name('Like.info');
@@ -56,3 +58,5 @@ Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
 Route::get('/calendar', function(){
     return view('Calendario.calenDARIO');
 })->name("Calendario");
+
+Route::get('/user/followedEvents', [EventController::class, 'getAuthenticatedUserFollowedEvents'])->name('User.getFollowedEvents');
