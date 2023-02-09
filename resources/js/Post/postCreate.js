@@ -16,12 +16,14 @@ $(()=>{
         filesRemoved = Array();
         files = Array();
         uploaded = 0;
+        fileUploaded = 0;
         mustdisappear.css('display', 'block');
         three.css('display', 'none');
         previewZone.css('display', 'none');
     }
 
     function del(element){
+        files[element.getAttribute('data')] = 0;
         filesRemoved.push(element);
         // console.log(filesRemoved.length);
         // console.log(uploaded);
@@ -50,6 +52,7 @@ $(()=>{
     let filesRemoved = Array();
     const mustdisappear = $('#partTwo2');
     let counter = 0;
+    let fileUploaded = 0;
     let uploaded = 0;
     let deletionPhrase = "Click to delete";
     // console.log($('#selectEvent').val());
@@ -59,12 +62,27 @@ $(()=>{
         const val = ($('#selectEvent').val());
         if(val != 0){
             two.css('display', 'block');
+        }else{
+            two.css('display', 'none');
+            three.css('display', 'none');
         }
     });
 
-    $('#Submit').on('click', function(e){
-        let pics
-    })
+    // $('#Submit').on('click', function(e){
+    //     console.log(files)   
+    //     console.log(filesRemoved)
+    // })
+
+    function populateEventInput(){
+        $.get('/user/followedEvents')
+        .then(response =>{
+            let menu = $("#selectEvent");
+            for(let i = 0; i < response.length; i++){
+                let tmp = $(`<option>${response[i].name}</option>`);
+                menu.append(tmp);
+            };
+        });
+    }
 
     function createWrapper(id, img){
         let newId = 'imageWrapper' + id;
@@ -92,7 +110,10 @@ $(()=>{
                     var data = e.target.result,
                     img = $('<img />').attr('src', data).fadeIn();
                     let id = 'UploadedImage' + counter;
+                    let up = fileUploaded;
+                    img.attr('data', fileUploaded);
                     counter++;
+                    fileUploaded++;
                     img.attr('id',id);
                     img.attr('class', 'UpImage');
                     let wrapper = createWrapper(id, img);
@@ -108,4 +129,6 @@ $(()=>{
        
     });
 
-})  
+    populateEventInput();
+
+})      
