@@ -1,3 +1,6 @@
+import $ from 'jquery';
+
+
 const isLeapYear = (year) => {
     return (
         (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) ||
@@ -63,12 +66,26 @@ const generateCalendar = (month, year) => {
         if (i >= first_day.getDay()) {
             let giorno = i - first_day.getDay() + 1;
             day.innerHTML = giorno;
-            day.classList.add(
-                "dayss",
-                "bg-opacity-40",
-                "hover:bg-opacity-40",
-                "hover:bg-white"
-            );
+
+            let monthGiven = parseInt(month + 1);
+            if(monthGiven < 10){
+                monthGiven = "" + 0 + monthGiven;
+            }
+            let data = "" + giorno + '-' + monthGiven + '-' + year;
+            isEventPresent(data, day);
+            // console.log("" + data + "evento");
+            // day.classList.add(
+            //     "dayss", 
+            //     'bg-opacity-40', 
+            // );
+        
+            // day.classList.add(
+            //     "dayss",
+            //     "bg-opacity-40",
+            //     "hover:bg-opacity-40",
+            //     "hover:bg-white"
+            // );
+        
             day.id = `${giorno}`;
             if (
                 i - first_day.getDay() + 1 === currentDate.getDate() &&
@@ -83,6 +100,8 @@ const generateCalendar = (month, year) => {
         day.addEventListener("click", () => {
             let giorno = i - first_day.getDay() + 1;
             let data = new Date(year, month, giorno);
+            // console.log(year);
+            // console.log(month);
             const dayss = document.querySelectorAll(".dayss");
 
             for (const day1 of dayss) {
@@ -104,11 +123,15 @@ const generateCalendar = (month, year) => {
                         "rounded-lg"
                     );
                     idDataPrecedente = day1.id;
-                    console.log(idDataPrecedente);
+                    let monthGiven = parseInt(month + 1);
+                    if(monthGiven < 10){
+                        monthGiven = "" + 0 + monthGiven;
+                    }
+                    showEventsInDate("" + idDataPrecedente + '-' + monthGiven + '-' + year);
                 }
             }
 
-            console.log(data);
+            // console.log(data);
         });
         calendar_days.appendChild(day);
     }
@@ -130,6 +153,38 @@ month_names.forEach((e, index) => {
 (function () {
     month_list.classList.add("hideonce");
 })();
+
+function showEventsInDate(date){
+    console.log(date);
+    $.get(`calendar/date/${date}`).then(response => {
+        console.log(response);
+    });
+}
+
+function isEventPresent(date, day){
+    $.get(`calendar/date/event/${date}`).then(
+        response => {
+            if(response == 1){
+                day.classList.add(
+                    "dayss", 
+                    'bg-opacity-40', 
+                    'isEvent',
+                    "hover:bg-opacity-40",
+                    "hover:bg-white",
+                );
+            }else{
+                day.classList.add(
+                    "dayss",
+                    "bg-opacity-40",
+                    "hover:bg-opacity-40",
+                    "hover:bg-white"
+                );  
+            }
+        }
+    )
+}
+
+
 document.querySelector("#pre-year").onclick = () => {
     --currentYear.value;
     generateCalendar(currentMonth.value, currentYear.value);
