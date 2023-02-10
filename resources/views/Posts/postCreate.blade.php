@@ -16,8 +16,10 @@
     <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
                 <div class="navbar-logo items-center flex gap-2">
-                    <img class="h-12 w-12 shadow-xl" src="../images/feed/ClubbersLogo.png" alt="Clubbers">
-                    <h1 class="invisible md:visible lg:visible">Clubbers</h1>
+                    <a href="/home">
+                        <img class="h-12 w-12 shadow-xl" src="images/feed/ClubbersLogo.png" alt="Clubbers">
+                        <h2 class="invisible md:visible lg:visible">Clubbers</h2>
+                    </a>
                 </div>
                 <div class="navbar-search-bar flex gap-4 p-2 bg-black backdrop-blur bg-opacity-40 rounded-2xl">
                     <button><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>

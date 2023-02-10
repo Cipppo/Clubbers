@@ -34,6 +34,15 @@ class EventController extends Controller
         return $events;
     }
 
+    public static function show($id){
+        $event = DB::table('events')->where('id', $id)->first();
+        return view('Event.EventPage', ['event' => $event]);
+    }
+
+    public static function create(){
+        return view('Event.EventCreate');
+    }
+
 
 
     public static function getIdByName($name){

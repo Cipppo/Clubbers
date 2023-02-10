@@ -154,10 +154,41 @@ month_names.forEach((e, index) => {
     month_list.classList.add("hideonce");
 })();
 
+function addEventOnEventList(name, id){
+    $.get(`/images/banners/${id}`).then(response =>{
+        let container = $("#calendarEventContainer");
+        let a = ($(`<a href="/event/${id}">`));
+        let div1 = ($('<div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">'));
+        let div2 = $(`<div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url(${response})">`);
+        let div3 = $('<div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">');
+        let div4 = $('<div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">');
+        let div5 = $('<div class="justify-center flex gap-2 w-full">');
+        let p = $(`<p class="mt-2 text-2xl">${name}</p>`);
+        div5.append(p);
+        div4.append(div5);
+        div3.append(div4);
+        div2.append(div3);
+        div1.append(div2);
+        a.append(div1);
+        container.append(a);
+    })
+
+
+}
+
 function showEventsInDate(date){
     console.log(date);
+    $("#calendarEventContainer").html("");
     $.get(`calendar/date/${date}`).then(response => {
-        
+        if(response.length > 0){
+            response.forEach(element=> {
+                console.log(element.name);
+                console.log(element.id);
+                addEventOnEventList(element.name, element.id);
+            })
+        }else{
+            $("#calendarEventContainer").html("Non ci sono eventi");
+        }
     });
 }
 

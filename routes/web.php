@@ -54,6 +54,7 @@ Route::get('/log-user', [LoginController::class, 'create'])->name('User.log');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name(('User.login'));
 
 Route::get('/image/{id}', [ImageController::class, 'get'])->name('Image.get');
+Route::get('/images/banners/{eventId}', [ImageController::class, 'getBannerUrl'])->name("Banner.get");
 
 Route::get('/calendar', function(){
     return view('Calendario.calenDARIO');
@@ -63,3 +64,6 @@ Route::get('/calendar/date/{date}', [EventController::class, 'getEventsbyDate'])
 Route::get('/calendar/date/event/{date}', [EventController::class, 'isEvent'])->name('Calendar.isThereanEvent');
 
 Route::get('/user/followedEvents', [EventController::class, 'getAuthenticatedUserFollowedEvents'])->name('User.getFollowedEvents');
+
+Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.show');
+Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
