@@ -39,7 +39,7 @@
             <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-3 text-center">
                 <h1>UPLOAD POST</h1>
             </div>
-            <form action="/post/store" method="POST">
+            <form action="/post/store" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 items-center justify-between flex p-3 gap-5">
                     <p>Wich event did you go?</p>
@@ -64,7 +64,7 @@
                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">(MAX: 1920x1080px)</p>
                                 </div>
-                                <input id="dropzoneFile" name="fileIn" type="file" class="hidden" multiple>
+                                <input id="dropzoneFile" name="fileIn[]" type="file" class="hidden" multiple>
                             </label>
                         </div> 
                     
