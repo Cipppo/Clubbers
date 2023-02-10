@@ -27,8 +27,10 @@
     <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
                 <div class="navbar-logo items-center flex gap-2">
-                    <img class="h-12 w-12 shadow-xl" src="images/feed/ClubbersLogo.png" alt="Clubbers">
-                    <h2 class="invisible md:visible lg:visible">Clubbers</h2>
+                    <a href="/home">
+                        <img class="h-12 w-12 shadow-xl" src="images/feed/ClubbersLogo.png" alt="Clubbers">
+                        <h2 class="invisible md:visible lg:visible">Clubbers</h2>
+                    </a>
                 </div>
                 <div class="navbar-search-bar flex gap-4 p-2 bg-black backdrop-blur bg-opacity-40 rounded-2xl">
                     <button><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
@@ -44,9 +46,9 @@
     </nav>
 
 
-
     <div class="py-36 md:py-36 lg:py-24 lg:grid grid-cols-3 justify-between text-slate-200" >
-
+        
+        @if(Auth::user()->type == "User")
         <div class="left p-2">
             <div class="upload-button sticky-top fixed w-full md:w-full lg:w-[32%] text-center">
                 <div class="p-2 rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
@@ -83,27 +85,15 @@
 
                         <!-- EVENTS TEMPLATE -->
                         <div id="calendarEventContainer">
-                        {{-- <a href="#">
-                                <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
-                                    <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{App\Http\Controllers\ImageController::getBannerUrl($event->id)}})">
-                                        <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
-                                            <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
-                                                <div class="text-center flex justify-center">
-                                                </div>
-                                                <div class="justify-center flex gap-2 w-full">
-                                                    <p class="mt-2 text-2xl">{{$event->name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a> --}}
                         </div> 
                     </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
+        @else
+            <div></div>
+        @endif
 
 
 
@@ -148,12 +138,16 @@
                 
 
                 <div class="py-4 px-2">
-                    <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >YOUR UPCOMING EVENTS</h1>
+                    @if(Auth::user()->type == "User")
+                        <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >YOUR UPCOMING EVENTS</h1>
+                    @else
+                    <h1 class="rounded-xl bg-black bg-opacity-50 p-3 text-center" >YOUR SCHEDULED EVENTS</h1>
+                    @endif
                     <div class="events py-2 grid grid-cols-1 gap-2">
 
                         <!-- EVENTS TEMPLATE -->
                         @foreach($events as $event)
-                        <a href="#">
+                        <a href="/event/{{$event->id}}">
                             <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
                                 <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{App\Http\Controllers\ImageController::getBannerUrl($event->id)}})">
                                     <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
