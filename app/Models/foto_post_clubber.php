@@ -11,6 +11,8 @@ class foto_post_clubber extends Model
 
     public $timestamps = false;
 
+    public $table = 'foto_post_clubber';
+
     protected $fillable = [
         'username', 
         'eventName',
