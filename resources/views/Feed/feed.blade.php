@@ -19,6 +19,10 @@
 
 
 <body class="bg-fixed object-fill" style="background-image: url(images/feed/background2luce.jpg)">
+    @php
+        $posts = App\Http\Controllers\postClubberController::getAll();  
+        $events = App\Http\Controllers\EventController::getFollowedEvents(Auth::id());
+    @endphp
     <!--NAVBAR-->
     <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
@@ -72,11 +76,30 @@
                                 <div>Fri</div>
                                 <div>Sat</div>
                             </div>
-                            <div class="calendar-days grid grid-cols-7 gap-2"></div>
+                            <div class="calendar-days grid grid-cols-7 gap-[5px]"></div>
                         </div>
-                        <div class="calendar-footer p-3 flex justify-end items-center"></div>
-                        <div class="date-time-formate flex text-center items-center"></div>
-                        <div class="month-list z-30 position-relative left-0 top-[50px] text-slate-200 bg-white bg-opacity-10 backdrop-blur-3xl grid grid-cols-3 rounded-xl gap-1"></div>
+                        <div class="month-list z-30 position-fixed top-[50px] text-slate-200 bg-black bg-opacity-90 backdrop-blur-3xl grid grid-cols-3 rounded-xl gap-1"></div>
+                        <div class="events py-2 grid grid-cols-1 gap-2 position-relative mt-[-190px]">
+
+                        <!-- EVENTS TEMPLATE -->
+                        @foreach($events as $event)
+                        <a href="#">
+                            <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
+                                <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{App\Http\Controllers\ImageController::getBannerUrl($event->id)}})">
+                                    <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
+                                        <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
+                                            <div class="text-center flex justify-center">
+                                            </div>
+                                            <div class="justify-center flex gap-2 w-full">
+                                                <p class="mt-2 text-2xl">{{$event->name}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        @endforeach
+                    </div>
                     </div>
                 </div>
             </div>
@@ -85,11 +108,6 @@
 
 
         <div class="feed px-2">
-
-        @php
-            $posts = App\Http\Controllers\postClubberController::getAll();  
-            $events = App\Http\Controllers\EventController::getFollowedEvents(Auth::id());
-        @endphp
 
         @foreach ($posts as $post)
             <div class="w-21 items-center text-slate-200 py-2">
@@ -146,7 +164,7 @@
                                                 <p class="mt-2 text-2xl">{{$event->name}}</p>
                                             </div>
                                             <div class="flex justify-between w-full px-7 pt-3">
-                                                <p>{{$event->shortDescription}}</p>
+                                                <p class="invisible xl:visible">{{$event->shortDescription}}</p>
                                                 <p>{{$event->Date}}</p>
                                             </div>
                                         </div>
