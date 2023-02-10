@@ -49,4 +49,24 @@ class EventController extends Controller
     public static function delete_partecipation($id){
         DB::table('partecipa_evento')->where('idEvento',$id)->delete();
     }
+
+    public static function getEventsbyDate($date){
+        $dateref = str_replace("-", "/", $date);
+        $events = DB::table('events')->where('Date', $dateref)->get();
+        if(isset($events)){
+            return $events;
+        }else{
+            return 0;
+        }
+    }
+
+    public static function isEvent($date){
+        $dateref = str_replace("-", "/", $date);
+        $events = DB::table('events')->where('Date', $dateref)->first();
+        if(isset($events)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 }
