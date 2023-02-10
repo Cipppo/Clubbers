@@ -65,4 +65,5 @@ Route::get('/calendar/date/event/{date}', [EventController::class, 'isEvent'])->
 
 Route::get('/user/followedEvents', [EventController::class, 'getAuthenticatedUserFollowedEvents'])->name('User.getFollowedEvents');
 
-Route::get('/event/{id}', [EventController::class, 'show'])->name('Event.show');
+Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.show');
+Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
