@@ -59,4 +59,7 @@ Route::get('/calendar', function(){
     return view('Calendario.calenDARIO');
 })->name("Calendario");
 
+Route::get('/calendar/date/{date}', [EventController::class, 'getEventsbyDate'])->name("Calendar.InDate");
+Route::get('/calendar/date/event/{date}', [EventController::class, 'isEvent'])->name('Calendar.isThereanEvent');
+
 Route::get('/user/followedEvents', [EventController::class, 'getAuthenticatedUserFollowedEvents'])->name('User.getFollowedEvents');
