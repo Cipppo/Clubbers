@@ -157,7 +157,7 @@ month_names.forEach((e, index) => {
 function showEventsInDate(date){
     console.log(date);
     $.get(`calendar/date/${date}`).then(response => {
-        console.log(response);
+        
     });
 }
 
