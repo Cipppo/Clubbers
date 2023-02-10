@@ -35,17 +35,16 @@ class ImageController extends Controller
 
         $POST_UPLOAD_URL = 'images/Posts';
 
-        $files = 1;
-        //Scoprire come si tirano giu i file dalla request;
+        $files = $request->fileIn;
         foreach($files as $file){
             if($file){
                 $fileName = $file->getClientOriginalName();
-                $file->move(public_path($POST_UPLOAD_URL), $file, $fileName);
+                $file->move(public_path($POST_UPLOAD_URL), $fileName);
                 $pic = foto_post_clubber::create([
-                    'username' => Auth::user()->name,
+                    'username' => Auth::user()->username,
                     'eventName' => $request->selectEvent,
                     'URL' => $POST_UPLOAD_URL.$fileName,
-                    'alt' => Auth::user()->name."_".$request->selectEvent."_post",
+                    'alt' => Auth::user()->username."_".$request->selectEvent."_post",
                 ]);
                 $pic->save();
             }
