@@ -110,6 +110,12 @@ class DatabaseSeeder extends Seeder
             'alt' => 'Cipe Profile Avatar',
         ]);
 
+        userProPic::factory()->create([
+            'username' => 'UClub', 
+            'URL' => 'images/try/100x100.jpg', 
+            'alt' => 'UClub profile avatar',
+        ]);
+
         event::factory()->create([
             'name' => 'iGen', 
             'description' => 'Il party per la generazione Z',
