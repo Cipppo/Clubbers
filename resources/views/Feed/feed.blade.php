@@ -82,23 +82,23 @@
                         <div class="events py-2 grid grid-cols-1 gap-2 position-relative mt-[-190px]">
 
                         <!-- EVENTS TEMPLATE -->
-                        @foreach($events as $event)
-                        <a href="#">
-                            <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
-                                <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{App\Http\Controllers\ImageController::getBannerUrl($event->id)}})">
-                                    <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
-                                        <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
-                                            <div class="text-center flex justify-center">
-                                            </div>
-                                            <div class="justify-center flex gap-2 w-full">
-                                                <p class="mt-2 text-2xl">{{$event->name}}</p>
+                        <div id="calendarEventContainer">
+                        {{-- <a href="#">
+                                <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
+                                    <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{App\Http\Controllers\ImageController::getBannerUrl($event->id)}})">
+                                        <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
+                                            <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
+                                                <div class="text-center flex justify-center">
+                                                </div>
+                                                <div class="justify-center flex gap-2 w-full">
+                                                    <p class="mt-2 text-2xl">{{$event->name}}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        @endforeach
+                            </a> --}}
+                        </div> 
                     </div>
                     </div>
                 </div>
