@@ -12,6 +12,7 @@
     --light-btn: #aa1111;
     --blue: #0000ff;
     --white: #fff;
+    --event: #6f03fc;
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     --font-family: consolas;
 }
@@ -57,6 +58,11 @@
 .calendar-days div.current-date {
     color: var(--dark-text);
     background-color: var(--light-btn);
+    border-radius: 20%;
+}
+.calendar-days div.isEvent {
+    color: var(--dark-text);
+    background-color: var(--event);
     border-radius: 20%;
 }
 .month-list > div {
