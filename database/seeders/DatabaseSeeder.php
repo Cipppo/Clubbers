@@ -115,7 +115,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Il party per la generazione Z',
             'clubName' => 'UClub', 
             'shortDescription' => 'Il party per la generazione Z', 
-            'Date' => "18/03/2022", 
+            'Date' => "18/02/2023", 
             'Time' => '23',
         ]);
 
@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Il Venerdi sera bianco con la bianca',
             'clubName' => 'UClub', 
             'shortDescription' => 'Il Venerdi sera bianco con la bianca', 
-            'Date' => "20/03/2022", 
+            'Date' => "18/02/2023", 
             'Time' => '23',
         ]);
 
@@ -150,7 +150,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Il capodanno piu bianco che ci sia',
             'clubName' => 'UClub', 
             'shortDescription' => 'Il capodanno piu bianco che ci sia', 
-            'Date' => "21/03/2022", 
+            'Date' => "21/02/2023", 
             'Time' => '23',
         ]);
 
@@ -165,7 +165,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'L inizio della fine',
             'clubName' => 'UClub', 
             'shortDescription' => 'L inizio della fine', 
-            'Date' => "22/03/2022", 
+            'Date' => "22/02/2023", 
             'Time' => '23',
         ]);
 
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'I mostri si risvegliano (ancora)',
             'clubName' => 'UClub', 
             'shortDescription' => 'I mostri si risvegliano (ancora)', 
-            'Date' => "23/03/2022", 
+            'Date' => "23/02/2023", 
             'Time' => '23',
         ]);
 
@@ -195,7 +195,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Mala Chica o Mala Riga ?',
             'clubName' => 'UClub', 
             'shortDescription' => 'Mala Chica o Mala Riga ?', 
-            'Date' => "24/03/2022", 
+            'Date' => "24/02/2023", 
             'Time' => '23',
         ]);
 
@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Il party per la generazione Z con quel negro di bello figo',
             'clubName' => 'UClub', 
             'shortDescription' => 'Il party per la generazione Z con quel negro di Bello Figo', 
-            'Date' => "25/03/2022", 
+            'Date' => "25/02/2023", 
             'Time' => '23',
         ]);
 
