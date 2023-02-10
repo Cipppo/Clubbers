@@ -11,7 +11,8 @@
     '../resources/js/Like/Like.js',  
     '../resources/js/app.js', 
     '../resources/css/styleCalendario.css', 
-    '../resources/js/Calendario/script.js'])
+    '../resources/js/Calendario/script.js', 
+    '../resources/js/app.js']);
 </head>
     
 
