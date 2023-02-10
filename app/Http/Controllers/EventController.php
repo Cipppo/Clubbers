@@ -39,6 +39,10 @@ class EventController extends Controller
         return view('Event.EventPage', ['event' => $event]);
     }
 
+    public static function create(){
+        return view('Event.EventCreate');
+    }
+
 
 
     public static function getIdByName($name){
