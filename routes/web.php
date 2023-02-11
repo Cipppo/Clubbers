@@ -72,3 +72,5 @@ Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.sh
 Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
 
 Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
+
+Route::get('/user/profile',[Usercontroller::class, 'show'])->name("User.show");

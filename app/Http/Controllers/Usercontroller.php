@@ -56,8 +56,8 @@ class Usercontroller extends Controller
      * @param string $id
      * @return \Illuminate\View\View
      */
-    public function show(string $name)
+    public function show()
     {
-
+        return view("User.user");
     }
 }

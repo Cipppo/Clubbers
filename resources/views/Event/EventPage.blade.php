@@ -47,7 +47,10 @@
               alt="{{url(App\Http\Controllers\ImageController::getProPicAlt($event->clubName))}}"
             />
           </div>
-          <div class="name-club pl-8"><a href="#">{{$event->clubName}}</a></div>
+          <div class="name-club pl-8">
+            <a href="#">{{$event->clubName}}</a>
+            <p>via fiorenzuola</p>
+        </div>
         </div>
       </div>
       <div
