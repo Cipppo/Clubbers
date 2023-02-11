@@ -21,6 +21,11 @@
     @php
         $posts = App\Http\Controllers\postClubberController::getAll();  
         $events = App\Http\Controllers\EventController::getFollowedEvents(Auth::id());
+        if(Auth::user()->type == "User"){
+            $events = App\Http\Controllers\EventController::getFollowedEvents(Auth::id());
+        }else{
+            $events = App\Http\Controllers\EventController::getCreatedEvents(Auth::user()->username);
+        }
     @endphp
     <!--NAVBAR-->
     <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
@@ -48,10 +53,10 @@
     <div class="py-36 md:py-36 lg:py-24 lg:grid grid-cols-3 justify-between text-slate-200" >
         
         @if(Auth::user()->type == "User")
-        <div class="left p-2">
+        <div class="left p-2 mt-4">
             <div class="upload-button sticky-top fixed w-full md:w-full lg:w-[32%] text-center">
                 <div class="p-2 rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
-                    <a href="/post/create">UPLOAD</a>
+                    <a href="/post/create">UPLOAD A NEW POST</a>
                 </div>
                 <div class="contianer flex relative justify-center pt-[2%]">
                     <div class="calendar w-full pt-8 px-12 shadow-xl rounded-2xl h-[610px] bg-black bg-opacity-40 backdrop-blur text-slate-200 overflow-hidden">
@@ -91,7 +96,16 @@
             </div>
         </div> 
         @else
-            <div></div>
+        <div class="left p-2 mt-4">
+            <div class="upload-button sticky-top fixed w-full md:w-full lg:w-[32%] text-center">
+                <div class="p-2 rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
+                    <a href="/post/create">UPLOAD A NEW POST</a>
+                </div>
+                <div class="p-2 rounded-xl mt-2 bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
+                    <a href="/event/create">CREATE A NEW EVENT</a>
+                </div>
+            </div>
+        </div>
         @endif
 
 
@@ -99,7 +113,7 @@
         <div class="feed px-2">
 
         @foreach ($posts as $post)
-            <div class="w-21 items-center text-slate-200 py-2">
+            <div class="w-21 items-center text-slate-200 py-2 mt-4">
                 <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
                     <div class ="post-banner rounded-t-lg object-fill">
                         <img class ="rounded-t-lg " src="{{App\Http\Controllers\ImageController::getBannerUrl($post->eventId)}}" alt="{{App\Http\Controllers\ImageController::getBannerAlt($post->eventId)}}">
@@ -130,7 +144,7 @@
         @endforeach
         </div>
 
-        <div class="right p-2">
+        <div class="right p-2 mt-4">
             
             <div class="upcoming-events rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl sticky-top fixed w-[32%]">
 
@@ -146,7 +160,7 @@
 
                         <!-- EVENTS TEMPLATE -->
                         @foreach($events as $event)
-                        <a href="/event/{{$event->id}}">
+                        <a href="/event/show/{{$event->id}}">
                             <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
                                 <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{App\Http\Controllers\ImageController::getBannerUrl($event->id)}})">
                                     <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
