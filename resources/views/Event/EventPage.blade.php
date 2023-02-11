@@ -100,10 +100,10 @@
           </div>
         </div>
       </div>
-      <div class="club-info text-center">
+      <div class="join-event-button text-center">
         <div class="fixed p-3 top-34 w-[32%] items-center flex backdrop-blur bg-black bg-opacity-40 m-3 rounded-xl hover:bg-white hover:bg-opacity-20">
             <div class="pl-[45%] rounded-xl text-center">
-                <a href="/post/create">UPLOAD</a>
+                <a href="#">JOIN EVENT</a>
             </div>
         </div>
       </div>
