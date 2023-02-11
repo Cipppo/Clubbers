@@ -19,7 +19,9 @@ class EventController extends Controller
         $events = array();
         foreach($followed as $event){
             $event_full = DB::table('events')->where('id', $event->idEvento)->first();
-            array_push($events, $event_full); //Fare la query per trovare l'evento e pusharlo
+            if($event_full->onGoing == "True"){
+                array_push($events, $event_full); //Fare la query per trovare l'evento e pusharlo
+            }
         }
         return $events;
     }
@@ -29,7 +31,21 @@ class EventController extends Controller
         $events = array();
         foreach($followed as $event){
             $event_full = DB::table('events')->where('id', $event->idEvento)->first();
-            array_push($events, $event_full); //Fare la query per trovare l'evento e pusharlo
+            if($event_full->onGoing == "True"){
+                array_push($events, $event_full); //Fare la query per trovare l'evento e pusharlo
+            }
+        }
+        return $events;
+    }
+
+    public static function getAuthUserNotOnGoingEvents(){
+        $followed = DB::table('partecipa_evento')->where('idClubber', Auth::id())->get();
+        $events = array();
+        foreach($followed as $event){
+            $event_full = DB::table('events')->where('id', $event->idEvento)->first();
+            if($event_full->onGoing == "False"){
+                array_push($events, $event_full);
+            }
         }
         return $events;
     }
@@ -81,4 +97,15 @@ class EventController extends Controller
             return 0;
         }
     }
+
+    public static function getAllOnGoingClubEvents($clubName){
+        $events = DB::table('events')->where('clubName', $clubName)->where('onGoing', 'True')->get();
+        return $events;
+    }
+
+    public static function getAllNotOnGoingEvents($clubName){
+        $events = DB::table('events')->where('clubName', $clubName)->where('onGoing', 'False')->get();
+        return $events;
+    }
+
 }
