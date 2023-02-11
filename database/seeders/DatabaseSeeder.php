@@ -27,50 +27,50 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // postclubber::factory()->create([
-        //     'caption' => "Mi fai un tavolo ?", 
-        //     'eventId' => 1,
-        //     'clubberUsername' => "Cipe", 
-        //     'ClubUsername' => 'UClub',
-        // ]);
+        postclubber::factory()->create([
+            'caption' => "Mi fai un tavolo ?", 
+            'eventId' => 1,
+            'clubberUsername' => "Cipe", 
+            'ClubUsername' => 'UClub',
+        ]);
 
-        // postclubber::factory()->create([
-        //     'caption' => "Money Cash", 
-        //     'eventId' => 2,
-        //     'clubberUsername' => "Cipe", 
-        //     'ClubUsername' => 'UClub',
-        // ]);
+        postclubber::factory()->create([
+            'caption' => "Money Cash", 
+            'eventId' => 2,
+            'clubberUsername' => "Cipe", 
+            'ClubUsername' => 'UClub',
+        ]);
 
-        // postclubber::factory()->create([
-        //     'caption' => "Porco Dio", 
-        //     'eventId' => 3,
-        //     'clubberUsername' => "Cipe", 
-        //     'ClubUsername' => 'UClub',
-        // ]);
-        // postclubber::factory()->create([
-        //     'caption' => "Daje roma Daje", 
-        //     'eventId' => 4,
-        //     'clubberUsername' => "Cipe", 
-        //     'ClubUsername' => 'UClub',
-        // ]);
-        // postclubber::factory()->create([
-        //     'caption' => "Ghe sboro", 
-        //     'eventId' => 5,
-        //     'clubberUsername' => "Cipe", 
-        //     'ClubUsername' => 'UClub',
-        // ]);
-        // postclubber::factory()->create([
-        //     'caption' => "Non vengo", 
-        //     'eventId' => 6,
-        //     'clubberUsername' => "Cipe", 
-        //     'ClubUsername' => 'UClub',
-        // ]);
-        // postclubber::factory()->create([
-        //     'caption' => "Cacca", 
-        //     'eventId' => 7,
-        //     'clubberUsername' => "Cipe", 
-        //     'ClubUsername' => 'UClub',
-        // ]);
+        postclubber::factory()->create([
+            'caption' => "Porco Dio", 
+            'eventId' => 3,
+            'clubberUsername' => "Cipe", 
+            'ClubUsername' => 'UClub',
+        ]);
+        postclubber::factory()->create([
+            'caption' => "Daje roma Daje", 
+            'eventId' => 4,
+            'clubberUsername' => "Cipe", 
+            'ClubUsername' => 'UClub',
+        ]);
+        postclubber::factory()->create([
+            'caption' => "Ghe sboro", 
+            'eventId' => 5,
+            'clubberUsername' => "Cipe", 
+            'ClubUsername' => 'UClub',
+        ]);
+        postclubber::factory()->create([
+            'caption' => "Non vengo", 
+            'eventId' => 6,
+            'clubberUsername' => "Cipe", 
+            'ClubUsername' => 'UClub',
+        ]);
+        postclubber::factory()->create([
+            'caption' => "Cacca", 
+            'eventId' => 7,
+            'clubberUsername' => "Cipe", 
+            'ClubUsername' => 'UClub',
+        ]);
 
         User::factory()->create([
             'type' => 'User', 
