@@ -74,7 +74,7 @@ $(()=>{
     // })
 
     function populateEventInput(){
-        $.get('/user/followedEvents')
+        $.get('/user/followedNotonGoingEvents')
         .then(response =>{
             let menu = $("#selectEvent");
             for(let i = 0; i < response.length; i++){
