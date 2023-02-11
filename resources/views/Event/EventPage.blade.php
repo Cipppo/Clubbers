@@ -70,7 +70,7 @@
                 </div>
               </div>
               <div class="join-event-button">
-                <button class="p-3 bg-green-500 rounded-xl my-2 font-semibold hover:bg-green-700 shadow-lg">JOIN EVENT!</button>
+                <button class="p-2 bg-green-500 rounded-xl my-2 font-semibold hover:bg-green-700 hover:text-slate-300 shadow-lg">JOIN EVENT!</button>
               </div>
               <p class="py-2">
                 {{$event->description}}
