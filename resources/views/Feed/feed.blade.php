@@ -99,7 +99,7 @@
         <div class="left p-2 mt-4">
             <div class="upload-button sticky-top fixed w-full md:w-full lg:w-[32%] text-center">
                 <div class="p-2 rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
-                    <a href="/post/create">UPLOAD A NEW POST</a>
+                    <a href="/post/club/create">UPLOAD A NEW POST</a>
                 </div>
                 <div class="p-2 rounded-xl mt-2 bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
                     <a href="/event/create">CREATE A NEW EVENT</a>
