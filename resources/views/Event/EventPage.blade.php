@@ -11,7 +11,7 @@
   </head>
   <body
     class="bg-fixed object-fill"
-    style="background-image: url({{url('images/feed/background2luce.jpg')}})"
+    style="background-image: url(../images/feed/background2.jpg)"
   >
     <!--NAVBAR-->
     <nav
