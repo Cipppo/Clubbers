@@ -90,8 +90,10 @@
               <div
                 class="event-date flex text-center justify-between font-bold">
                 <p class="text-2xl">{{$event->Date}}</p>
-                <i class="uil uil-clock text-right"></i>
-                <p class="text-2xl">{{$event->Time}}</p>
+                <div class="flex items-center">
+                  <i class="uil uil-clock"></i>
+                  <p class="text-2xl">{{$event->Time}}</p>
+                </div>
               </div>
               <p class="py-2">
                 {{$event->description}}
@@ -105,6 +107,7 @@
             <div class="pl-[45%] rounded-xl text-center">
                 <a href="#">JOIN EVENT</a>
             </div>
+            
         </div>
       </div>
     </div>

@@ -56,8 +56,10 @@
             <div class="rounded-lg shadow-xl mt-2 bg-black backdrop-blur bg-opacity-40 p-10 text-center">
                 <div class="flex items-center justify-center w-full">
                     <label for="shortDescription" name="shortDescriptionLabel" class="w-full">
-                        <p class="text-left">Give your event a short description</p>
-                        <p class="inline text-right" id="counter">100</p>
+                        <div class="flex justify-between p-2">
+                            <p class="text-left">Give your event a short description</p>
+                            <p class="inline text-right" id="counter">100</p>
+                        </div>
                         <textarea id="shortDescription" name="shortDescription" class="bg-black bg-opacity-40 w-full rounded-xl py-6 px-3"></textarea>
                 </div>
             </div>

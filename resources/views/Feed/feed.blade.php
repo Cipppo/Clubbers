@@ -31,7 +31,7 @@
     <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
                 <div class="navbar-logo items-center flex gap-2">
-                    <a href="/home">
+                    <a href="/home" class="flex items-center">
                         <img class="h-12 w-12 shadow-xl" src="images/feed/ClubbersLogo.png" alt="Clubbers">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
@@ -110,10 +110,10 @@
 
 
 
-        <div class="feed px-2">
+        <div class="feed px-2 mt-2">
 
         @foreach ($posts as $post)
-            <div class="w-21 items-center text-slate-200 py-2 mt-4">
+            <div class="w-21 items-center text-slate-200 py-2">
                 <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
                     <div class ="post-banner rounded-t-lg object-fill">
                         <img class ="rounded-t-lg " src="{{App\Http\Controllers\ImageController::getBannerUrl($post->eventId)}}" alt="{{App\Http\Controllers\ImageController::getBannerAlt($post->eventId)}}">
@@ -144,7 +144,7 @@
         @endforeach
         </div>
 
-        <div class="right p-2 mt-4">
+        <div class="right p-2">
             
             <div class="upcoming-events rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl sticky-top fixed w-[32%]">
 
