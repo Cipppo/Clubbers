@@ -43,7 +43,10 @@ class EventController extends Controller
         return view('Event.EventCreate');
     }
 
-
+    public static function getCreatedEvents($clubName){
+        $created = DB::table('events')->where('clubName', $clubName)->get();
+        return $created;
+    }
 
     public static function getIdByName($name){
         $id = DB::table('events')->where('name', $name)->first()->id;
