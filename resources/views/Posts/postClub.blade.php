@@ -10,7 +10,7 @@
         @vite(['../resources/css/postClubCreate.css',  '../resources/js/app.js'])
     </head>
 
-    <body class="bg-fixed object-fill" style="background-image: url({{url('images/feed/background2luce.jpg')}})>
+    <body class="bg-fixed object-fill" style="background-image: url({{url('images/feed/background2luce.jpg')}})">
 
         <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
