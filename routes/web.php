@@ -10,6 +10,8 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\likePostClubberController;
 use App\Http\Controllers\postClubberController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\postClubController;
+use App\Models\foto_post_club;
 use App\Models\likePostClubber;
 
 /*
@@ -29,6 +31,7 @@ Route::get('/', function () {
 })->name('Home.home');
 
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 Route::middleware(['auth'])->group(function(){
@@ -67,3 +70,5 @@ Route::get('/user/followedEvents', [EventController::class, 'getAuthenticatedUse
 
 Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.show');
 Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
+
+Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
