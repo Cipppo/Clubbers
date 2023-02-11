@@ -19,5 +19,6 @@ class event extends Model
         'shortDescription', 
         'Date',
         'Time',
+        'onGoing',
     ];
 }

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("shortDescription");
             $table->String('Date');
             $table->string('Time');
+            $table->string('onGoing');
         });
     }
 

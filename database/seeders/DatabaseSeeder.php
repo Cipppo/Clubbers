@@ -27,50 +27,50 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        postclubber::factory()->create([
-            'caption' => "Mi fai un tavolo ?", 
-            'eventId' => 1,
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
+        // postclubber::factory()->create([
+        //     'caption' => "Mi fai un tavolo ?", 
+        //     'eventId' => 1,
+        //     'clubberUsername' => "Cipe", 
+        //     'ClubUsername' => 'UClub',
+        // ]);
 
-        postclubber::factory()->create([
-            'caption' => "Money Cash", 
-            'eventId' => 2,
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
+        // postclubber::factory()->create([
+        //     'caption' => "Money Cash", 
+        //     'eventId' => 2,
+        //     'clubberUsername' => "Cipe", 
+        //     'ClubUsername' => 'UClub',
+        // ]);
 
-        postclubber::factory()->create([
-            'caption' => "Porco Dio", 
-            'eventId' => 3,
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
-        postclubber::factory()->create([
-            'caption' => "Daje roma Daje", 
-            'eventId' => 4,
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
-        postclubber::factory()->create([
-            'caption' => "Ghe sboro", 
-            'eventId' => 5,
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
-        postclubber::factory()->create([
-            'caption' => "Non vengo", 
-            'eventId' => 6,
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
-        postclubber::factory()->create([
-            'caption' => "Cacca", 
-            'eventId' => 7,
-            'clubberUsername' => "Cipe", 
-            'ClubUsername' => 'UClub',
-        ]);
+        // postclubber::factory()->create([
+        //     'caption' => "Porco Dio", 
+        //     'eventId' => 3,
+        //     'clubberUsername' => "Cipe", 
+        //     'ClubUsername' => 'UClub',
+        // ]);
+        // postclubber::factory()->create([
+        //     'caption' => "Daje roma Daje", 
+        //     'eventId' => 4,
+        //     'clubberUsername' => "Cipe", 
+        //     'ClubUsername' => 'UClub',
+        // ]);
+        // postclubber::factory()->create([
+        //     'caption' => "Ghe sboro", 
+        //     'eventId' => 5,
+        //     'clubberUsername' => "Cipe", 
+        //     'ClubUsername' => 'UClub',
+        // ]);
+        // postclubber::factory()->create([
+        //     'caption' => "Non vengo", 
+        //     'eventId' => 6,
+        //     'clubberUsername' => "Cipe", 
+        //     'ClubUsername' => 'UClub',
+        // ]);
+        // postclubber::factory()->create([
+        //     'caption' => "Cacca", 
+        //     'eventId' => 7,
+        //     'clubberUsername' => "Cipe", 
+        //     'ClubUsername' => 'UClub',
+        // ]);
 
         User::factory()->create([
             'type' => 'User', 
@@ -121,8 +121,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Il party per la generazione Z',
             'clubName' => 'UClub', 
             'shortDescription' => 'Il party per la generazione Z', 
-            'Date' => "18/02/2023", 
+            'Date' => "18/01/2023", 
             'Time' => '23',
+            'onGoing' => 'False',
         ]);
 
         event_banner::factory()->create([
@@ -143,6 +144,7 @@ class DatabaseSeeder extends Seeder
             'shortDescription' => 'Il Venerdi sera bianco con la bianca', 
             'Date' => "18/02/2023", 
             'Time' => '23',
+            'onGoing' => 'True',
         ]);
 
         event_banner::factory()->create([
@@ -158,6 +160,7 @@ class DatabaseSeeder extends Seeder
             'shortDescription' => 'Il capodanno piu bianco che ci sia', 
             'Date' => "21/02/2023", 
             'Time' => '23',
+            'onGoing' => 'True',
         ]);
 
         event_banner::factory()->create([
@@ -173,6 +176,7 @@ class DatabaseSeeder extends Seeder
             'shortDescription' => 'L inizio della fine', 
             'Date' => "22/02/2023", 
             'Time' => '23',
+            'onGoing' => 'True',
         ]);
 
         event_banner::factory()->create([
@@ -188,6 +192,7 @@ class DatabaseSeeder extends Seeder
             'shortDescription' => 'I mostri si risvegliano (ancora)', 
             'Date' => "23/02/2023", 
             'Time' => '23',
+            'onGoing' => 'True',
         ]);
 
         event_banner::factory()->create([
@@ -203,6 +208,7 @@ class DatabaseSeeder extends Seeder
             'shortDescription' => 'Mala Chica o Mala Riga ?', 
             'Date' => "24/02/2023", 
             'Time' => '23',
+            'onGoing' => 'True',
         ]);
 
         event_banner::factory()->create([
@@ -223,6 +229,7 @@ class DatabaseSeeder extends Seeder
             'shortDescription' => 'Il party per la generazione Z con quel negro di Bello Figo', 
             'Date' => "25/02/2023", 
             'Time' => '23',
+            'onGoing' => 'True',
         ]);
 
         event_banner::factory()->create([
