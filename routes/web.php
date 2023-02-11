@@ -66,7 +66,7 @@ Route::get('/calendar', function(){
 Route::get('/calendar/date/{date}', [EventController::class, 'getEventsbyDate'])->name("Calendar.InDate");
 Route::get('/calendar/date/event/{date}', [EventController::class, 'isEvent'])->name('Calendar.isThereanEvent');
 
-Route::get('/user/followedEvents', [EventController::class, 'getAuthenticatedUserFollowedEvents'])->name('User.getFollowedEvents');
+Route::get('/user/followedNotonGoingEvents', [EventController::class, 'getAuthUserNotOnGoingEvents'])->name('User.getFollowedNotOnGoingEvents');
 
 Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.show');
 Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
@@ -74,3 +74,6 @@ Route::get('/event/create', [EventController::class, 'create'])->name('Event.cre
 Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
 
 Route::get('/user/profile',[Usercontroller::class, 'show'])->name("User.show");
+
+Route::get('/events/onGoing/{clubName}', [EventController::class, 'getAllOnGoingClubEvents'])->name('Events.onGoing');
+Route::get('/events/notOnGoing/{clubName}', [EventController::class, 'getAllNotOnGoingEvents'])->name('Events.notOnGoing');
