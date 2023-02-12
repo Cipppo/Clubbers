@@ -40,16 +40,16 @@
                 <div class="rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 mt-4 p-3 text-center">
                     <h1>UPLOAD A NEW POST</h1>
                 </div>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="/post/club/store" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div id='part1'>
                     <div class="flex items-center mt-2 justify-center w-full">
-                        <label for="dropzoneFile" name="dropzoneFileLabel"class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-black bg-opacity-40 hover:bg-white hover:bg-opacity-20 p-2">
+                        <label for="fileIn" name="fileInLabel" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-black bg-opacity-40 hover:bg-white hover:bg-opacity-20 p-2">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                 <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                                 <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop your post !</p>
                             </div>
-                            <input id="dropzoneFile" name="fileIn" type="file" class="hidden">
+                            <input id="fileIn" name="fileIn" type="file" class="hidden">
                         </label>
                     </div> 
                 </div>
@@ -60,9 +60,9 @@
                             <label for="caption" name="captionLabel" class="w-full">
                                 <div class="flex justify-between p-2">
                                     <p class="text-left">Write your post description</p>
-                                    <p class="inline text-right" id="counter">100</p>
+                                    <p class="inline text-right" id="charCounter">150</p>
                                 </div>
-                                <textarea id="caption" name="caption" class="bg-black bg-opacity-40 w-full rounded-xl py-6 px-3"></textarea>
+                                <textarea id="caption" name="caption" maxlength="150" class="bg-black bg-opacity-40 w-full rounded-xl py-6 px-3"></textarea>
                         </div>
                     </div>
                 </div>
