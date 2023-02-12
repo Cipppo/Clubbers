@@ -12,7 +12,7 @@ class post_club extends Model
     public $table = "post_club";
 
     protected $fillable = [
-        'idEvento', 
+        'eventId', 
         'clubName', 
         'caption', 
     ];

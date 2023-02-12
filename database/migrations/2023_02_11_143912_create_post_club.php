@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('post_club', function (Blueprint $table) {
             $table->id();
-            $table->string('idEvento');
-            $table->string('clubUsername');
+            $table->string('eventId');
+            $table->string('clubName');
             $table->string("caption");
         });
     }
