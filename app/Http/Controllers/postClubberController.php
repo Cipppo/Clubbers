@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\post;
 use App\Models\postclubber;
 
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,11 @@ class postClubberController extends Controller
         return view("Posts.postCreate");
     }
 
+    public static function getById($id){
+        $post = DB::table('postClubber')->where('id', $id)->first();
+        return $post;
+    }
+
     public function store(Request $request){
         $postClubber = postclubber::create([
             'caption' => $request->caption,
@@ -36,6 +42,13 @@ class postClubberController extends Controller
         $postClubber->save();
         EventController::delete_partecipation(EventController::getIdByName($request->selectEvent));
         ImageController::storePost($request);
+
+        post::create([
+            'postId' => $postClubber->id,
+            'profileType' => "Clubber",
+        ]);
+
+
         return redirect()->route("Feed.Home");
     }
 }
