@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\foto_post_club;
 use App\Models\Image;
 use App\Models\postclubber;
 use App\Models\userProPic;
@@ -33,7 +33,7 @@ class ImageController extends Controller
 
     public static function storePost(Request $request){
 
-        $POST_UPLOAD_URL = 'images/Posts';
+        $POST_UPLOAD_URL = 'images/Posts/';
 
         $files = $request->fileIn;
         foreach($files as $file){
@@ -49,7 +49,21 @@ class ImageController extends Controller
                 $pic->save();
             }
         }
+    }
 
+    public static function storePostClub(Request $request, $postId){
+        $POST_UPLOAD_URL = 'images/Posts/';
+
+        $file = $request->hasFile('fileIn');
+        if($file){
+            $newFile = $request->file('fileIn')->getClientOriginalName();
+            $request->file('fileIn')->move(public_path($POST_UPLOAD_URL), $newFile);
+            foto_post_club::create([
+                'postId' => $postId,
+                'URL' => $POST_UPLOAD_URL.$newFile,
+                'alt' => Auth::user()->username."_".$request->selectEvent."_post",
+            ]);
+        }
     }
 
     public static function getProPic($username){
@@ -71,4 +85,15 @@ class ImageController extends Controller
         $alt = DB::table('event_banner')->where('eventId', $eventId)->first()->alt;
         return $alt;
     }
+
+    public static function getPostClubImage($postId){
+        $pic = DB::table('foto_post_club')->where('postId', $postId)->first()->URL;
+        return $pic;
+    }
+
+    public static function getPostClubAlt($postId){
+        $alt = DB::table('foto_post_club')->where('postId', $postId)->first()->alt;
+        return $alt;
+    }
+
 }
