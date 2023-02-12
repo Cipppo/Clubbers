@@ -19,7 +19,7 @@
 
 <body class="bg-fixed object-fill" style="background-image: url(images/feed/background2luce.jpg)">
     @php
-        $posts = App\Http\Controllers\postClubberController::getAll();  
+        $posts = App\Http\Controllers\postController::getAll();  
         $events = App\Http\Controllers\EventController::getFollowedEvents(Auth::id());
         if(Auth::user()->type == "User"){
             $events = App\Http\Controllers\EventController::getFollowedEvents(Auth::id());
@@ -112,36 +112,71 @@
 
         <div class="feed px-2 mt-2">
 
-        @foreach ($posts as $post)
-            <div class="w-21 items-center text-slate-200 py-2">
-                <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
-                    <div class ="post-banner rounded-t-lg object-fill">
-                        <img class ="rounded-t-lg " src="{{App\Http\Controllers\ImageController::getBannerUrl($post->eventId)}}" alt="{{App\Http\Controllers\ImageController::getBannerAlt($post->eventId)}}">
-                    </div>
-                    <div class="post-Profile flex items-center gap-2 p-2">
-                        <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{App\Http\Controllers\ImageController::getProPic($post->clubberUsername)}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($post->clubberUsername)}}">
-                        <a class="post-Username" href="">{{$post->clubberUsername}}</a>
-                        <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="">{{$post->clubUsername}}</a>
-                    </div>
-                        
-                    <div class="post-info p-2">
-                        <p class="post-caption">{{$post->caption}}</p>
-                    </div>
-                    <div class="post-buttons flex gap-2 p-2">
-                        <!-- <div class="p-1"><a href=""><img class="h-5 w-5" src="img/like-not-pressed.png" alt="like"></a></div> -->
-
-                        <div class="likes-interaction items-center gap-1 flex"> 
-                            <p id="likeNumber{{$post->id}}">0</p>
-                            <button id="like-button{{$post->id}}" name="{{$post->id}}"><i class="uil uil-heart" id="likeIcon{{$post->id}}"></i></button>
+            @foreach($posts as $postElement)
+                @if($postElement->profileType == "Clubber")
+                    @php
+                        $post = App\Http\Controllers\postClubberController::getById($postElement->postId);
+                    @endphp
+                    <div class="w-21 items-center text-slate-200 py-2">
+                        <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
+                            <div class ="post-banner rounded-t-lg object-fill">
+                                <img class ="rounded-t-lg " src="{{App\Http\Controllers\ImageController::getBannerUrl($post->eventId)}}" alt="{{App\Http\Controllers\ImageController::getBannerAlt($post->eventId)}}">
+                            </div>
+                            <div class="post-Profile flex items-center gap-2 p-2">
+                                <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{App\Http\Controllers\ImageController::getProPic($post->clubberUsername)}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($post->clubberUsername)}}">
+                                <a class="post-Username" href="">{{$post->clubberUsername}}</a>
+                                <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="">{{$post->clubUsername}}</a>
+                            </div>
+                            <div class="post-info p-2">
+                                <p class="post-caption">{{$post->caption}}</p>
+                            </div>
+                            <div class="post-buttons flex gap-2 p-2">
+                                <!-- <div class="p-1"><a href=""><img class="h-5 w-5" src="img/like-not-pressed.png" alt="like"></a></div> -->
+                                <div class="likes-interaction items-center gap-1 flex"> 
+                                    <p id="likeNumber{{$postElement->id}}">0</p>
+                                    <button id="like-button{{$postElement->id}}" name="{{$postElement->id}}"><i class="uil uil-heart" id="likeIcon{{$postElement->id}}"></i></button>
+                                </div>
+                                <div><button><i class="uil uil-comment" ></i></button></div>
+                                <div><button><i class="uil uil-tag"></i></button></div>
+                            </div>
                         </div>
-                        <div><button><i class="uil uil-comment" ></i></button></div>
-                        <div><button><i class="uil uil-tag"></i></button></div>
-                    
                     </div>
-                        
-                </div>
-            </div>
-        @endforeach
+                @elseif($postElement->profileType == "Club")
+                    @php
+                        $post = App\Http\Controllers\postClubController::getById($postElement->postId);
+                    @endphp
+                    <div class="w-21 items-center text-slate-200 py-2">
+                        <div class="post-club rounded-xl bg-black bg-opacity-50 backdrop-blur">
+                            <div class ="post-banner-club rounded-t-lg object-fill">
+                                <img class ="rounded-t-lg " src="{{App\Http\Controllers\ImageController::getPostClubImage($post->id)}}" alt="{{App\Http\Controllers\ImageController::getPostClubAlt($post->id)}}">
+                            </div>
+                        <div class="post-Profile-club  flex items-center gap-2 p-2">
+                            <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{App\Http\Controllers\ImageController::getProPic($post->clubName)}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($post->clubName)}}">
+                            <a class="post-Username" href="">{{$post->clubName}}</a>
+                            <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="">{{$post->clubName}}</a>
+                        </div>
+                
+                        <div class="post-info-club  p-2">
+                            <p class="post-caption-club">{{$post->caption}}</p>
+                        </div>
+
+                        <div class="post-buttons-club flex gap-2 p-2">
+                            <div class="likes-interaction items-center gap-1 flex"> 
+                                <p id="likeNumber{{$postElement->id}}">0</p>
+                                <button id="like-button{{$postElement->id}}" name="{{$postElement->id}}"><i class="uil uil-heart" id="likeIcon{{$postElement->id}}"></i></button>
+                            </div>
+                            <button><i class="uil uil-share" ></i></button>
+                        </div>
+                    </div>
+                    </div>
+                @endif
+            @endforeach
+
+
+            
+            
+
+
         </div>
 
         <div class="right p-2">
