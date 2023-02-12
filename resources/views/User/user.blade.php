@@ -15,9 +15,9 @@
     <!-- NAVBAR -->
         <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
-                <div class="navbar-logo items-center flex gap-2">
-                    <a href="/home">
-                        <img class="h-12 w-12 shadow-xl" src="images/feed/ClubbersLogo.png" alt="Clubbers">
+                <div class="navbar-logo">
+                    <a href="/home" class="flex gap-2 items-center">
+                        <img class="h-12 w-12 shadow-xl" src="../images/feed/ClubbersLogo.png" alt="Clubbers">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
@@ -34,8 +34,73 @@
             </div>            
         </nav>
 
-        <div class="py-36 md:py-36 lg:py-24 lg:grid grid-cols-3 justify-between text-slate-200" >
+        <div class="py-36 md:py-36 lg:py-24 text-slate-200 sticky">
+        <div class="grid grid-cols-4">
+            <div class="col-span-1"></div>
+            <!-- user profile -->
+            <div class="col-span-2 m-2">
+                <div class="profile-container bg-black bg-opacity-40 backdrop-blur shadow-xl rounded-xl">
+                    <div class="profile-all flex p-10">
+                        <img class="h-28 w-28 rounded-full" src="../images/proPics/shrek.jpg" alt="profile picture">
+                        <div class="profile-info items-center ml-12">
+                            <h1 class="font-bold text-2xl ml-2">Username</h1>
+                            <div class="profile-numbers flex gap-12 p-3">
+                                <div class="followers text-center">
+                                    <p>followers</p>
+                                    <p>500</p>
+                                </div>
+                                <div class="follow text-center">
+                                    <p>follow</p>
+                                    <p>90</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-bio ml-10 pb-10">
+                        <p>non so bene cosa scrivere ma qua ce la bio</p>
+                    </div>
+                    <div class="profile-buttons grid grid-cols-2 text-center">
+                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-bl-xl p-3 border-t border-slate-300 border-opacity-40"><p>posts</p></div></a>
+                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-br-xl p-3 border-t border-slate-300 border-opacity-40"><p>events</p></div></a>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-span-1"></div>
+        </div>
             
+        <div class="grid grid-cols-3 justify-between text-slate-200" >
+            <div></div>
+            <!-- USER POSTS -->
+            <div class="user-posts">
+
+                <div class="w-21 items-center text-slate-200 py-2">
+                    <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
+                        <div class ="post-banner rounded-t-lg object-fill">
+                            <img class ="rounded-t-lg " src="" alt="">
+                        </div>
+                        <div class="post-Profile flex items-center gap-2 p-2">
+                            <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="">
+                            <a class="post-Username" href=""></a>
+                            <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href=""></a>
+                        </div>
+                            
+                        <div class="post-info p-2">
+                            <p class="post-caption"></p>
+                        </div>
+                        <div class="post-buttons flex gap-2 p-2">
+                            <div class="likes-interaction items-center gap-1 flex"> 
+                                <p id=""</p>
+                                <button id="" name=""><i class="uil uil-heart" id=""></i></button>
+                            </div>
+                            <div><button><i class="uil uil-comment" ></i></button></div>
+                            <div><button><i class="uil uil-tag"></i></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+        
         </div>
 
 </html>
