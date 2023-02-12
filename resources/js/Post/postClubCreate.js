@@ -10,7 +10,11 @@ $(()=>{
     let prevZone = $('#previewZone').css('display', 'none');
     let part2 = $('#part2').css('display', 'none');
     let part3 = $('#part3').css('display', 'none');
-    let fileIn = $('#dropzoneFile')
+    let caption = $('#caption');
+    let maxCaptionLenght = caption.maxlenght;
+    let charCounter = $('#charCounter');
+    let fileIn = $('#fileIn')
+    let selectEvent = $('#selectEvent');
     let submitButton = $('#submitButton').css('display', 'none');
 
     function updateview(){
@@ -28,6 +32,16 @@ $(()=>{
         return wrapper;
     }
 
+    function populateSelect(){
+        $.get('/events/current/onGoing')
+        .then(response => {
+            let menu = $('#selectEvent');
+            for(let i = 0; i < response.length; i++){
+                let tmp = $(`<option>${response[i].name}</option>`);
+                menu.append(tmp);
+            }
+        })
+    }
 
 
     fileIn.on('change', function(e){
@@ -48,6 +62,19 @@ $(()=>{
 
     })
 
-    //MANCA DA POPOLARE LA SELECT CON GLI EVENTI CHE SONO onGoing E STORARE IL TUTTO DAJE
+    populateSelect();
+    charCounter.html(caption.maxlenght);
+
+    caption.bind('input propertychange', function() {
+        charCounter.html(`${this.value.length}/100`)
+    });
+
+    selectEvent.on("change", function(e){
+        if(this.value != 0){
+            submitButton.css('display', 'block');
+        }else{
+            submitButton.css('display', 'none');
+        }
+    })
 
 })

@@ -72,8 +72,10 @@ Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.sh
 Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
 
 Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
+Route::post('/post/club/store', [postClubController::class, 'store'])->name("PostClub.store");
 
 Route::get('/user/profile',[Usercontroller::class, 'show'])->name("User.show");
 
 Route::get('/events/onGoing/{clubName}', [EventController::class, 'getAllOnGoingClubEvents'])->name('Events.onGoing');
 Route::get('/events/notOnGoing/{clubName}', [EventController::class, 'getAllNotOnGoingEvents'])->name('Events.notOnGoing');
+Route::get('/events/current/onGoing', [EventController::class, 'getAllOnGoingAuthClubEvents'])->name("Events.currentOnGoing");
