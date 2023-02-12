@@ -60,8 +60,8 @@
                         <p>non so bene cosa scrivere ma qua ce la bio</p>
                     </div>
                     <div class="profile-buttons grid grid-cols-2 text-center">
-                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 p-3 border-t border-slate-300 border-opacity-40"><p>posts</p></div></a>
-                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 p-3 border-t border-slate-300 border-opacity-40"><p>events</p></div></a>
+                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-bl-xl p-3 border-t border-slate-300 border-opacity-40"><p>posts</p></div></a>
+                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-br-xl p-3 border-t border-slate-300 border-opacity-40"><p>events</p></div></a>
                     </div>
                 </div>
             </div> 
@@ -70,6 +70,7 @@
             
         <div class="grid grid-cols-3 justify-between text-slate-200" >
             <div></div>
+            <!-- USER POSTS -->
             <div class="user-posts">
 
                 <div class="w-21 items-center text-slate-200 py-2">
