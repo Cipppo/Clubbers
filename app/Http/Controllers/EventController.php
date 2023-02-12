@@ -103,6 +103,11 @@ class EventController extends Controller
         return $events;
     }
 
+    public function getAllOnGoingAuthClubEvents(){
+        $events = DB::table('events')->where('clubName', Auth::user()->username)->where('onGoing', 'True')->get();
+        return $events;
+    }
+
     public static function getAllNotOnGoingEvents($clubName){
         $events = DB::table('events')->where('clubName', $clubName)->where('onGoing', 'False')->get();
         return $events;
