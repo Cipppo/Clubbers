@@ -34,24 +34,53 @@
     <div class="grid grid-cols-3 pt-24 text-slate-200">
         <div></div>
         <div>
-            <!-- NOTIFICA -->
-            <div class="notification-container my-2 p-3 rounded-xl shadow-2xl bg-black bg-opacity-40 backdrop-blur">
-                <div class="notification-infos">
-                    <div class="justify-between flex items-center">
-                        <div class="notification-user flex gap-3">
-                            <img class="h-20 w-20 rounded-full" src="img/profilepic.jpeg" alt="prifile pic">
-                            <div>
-                                <a href="">Nickname</a>
-                                <p class="py-2">ha messo mi piace al tuo post!</p>
+            <!-- NOTIFICA NUOVA-->
+            <a href="">
+                <div class="notification-container my-2 p-3 rounded-xl shadow-2xl bg-black bg-opacity-40 backdrop-blur">
+                    <div class="notification-infos">
+                        <div class="justify-between flex items-center">
+                            <div class="notification-user flex gap-3">
+                                <img class="h-20 w-20 rounded-full" src="img/profilepic.jpeg" alt="prifile pic">
+                                <div>
+                                    <a href="">Nickname</a>
+                                    <p class="py-2">ha messo mi piace al tuo post!</p>
+                                </div>
                             </div>
+                            <!-- BANNER EVENTO A CUI IL POST FA RIFERIMENTO -->
+                            <div class="w-[40%]">
+                                <img class="object-scale-down rounded-lg" src="img/Banner1.jpg" alt="">
+                            </div> 
                         </div>
-                        <!-- BANNER EVENTO A CUI IL POST FA RIFERIMENTO -->
-                        <div class="w-[40%]">
-                            <img class="object-scale-down rounded-lg" src="img/Banner1.jpg" alt="">
-                        </div> 
                     </div>
                 </div>
+            </a>
+
+            <div class="separator my-2 text-center items-center grid grid-cols-5">
+                <div class="col-span-2 border-t border-gray-400"></div>
+                <div class="col-span-1"><p>old posts</p></div>
+                <div class="col-span-2 border-t border-gray-400"></div>
             </div>
+
+            <!-- NOTIFICA VECCHIA-->
+            <a href="">
+                <div class="notification-container my-2 p-3 rounded-xl shadow-2xl bg-black bg-opacity-40 backdrop-blur">
+                    <div class="notification-infos">
+                        <div class="justify-between flex items-center">
+                            <div class="notification-user flex gap-3">
+                                <img class="h-20 w-20 rounded-full" src="img/profilepic.jpeg" alt="prifile pic">
+                                <div>
+                                    <a href="">Nickname</a>
+                                    <p class="py-2">ha messo mi piace al tuo post!</p>
+                                </div>
+                            </div>
+                            <!-- BANNER EVENTO A CUI IL POST FA RIFERIMENTO -->
+                            <div class="w-[40%]">
+                                <img class="object-scale-down rounded-lg" src="img/Banner1.jpg" alt="">
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
         <div></div>
     </div>
