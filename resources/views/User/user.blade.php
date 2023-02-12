@@ -42,7 +42,7 @@
                 <div class="profile-container bg-black bg-opacity-40 backdrop-blur shadow-xl rounded-xl">
                     <div class="profile-all flex p-10">
                         <img class="h-28 w-28 rounded-full" src="../images/proPics/shrek.jpg" alt="profile picture">
-                        <div class="profile-info items-center ml-12">
+                        <div class="profile-info lg:grid grid-cols-2 w-full ml-12">
                             <h1 class="font-bold text-2xl ml-2">Username</h1>
                             <div class="profile-numbers flex gap-12 p-3">
                                 <div class="followers text-center">
@@ -57,6 +57,11 @@
                         </div>
                     </div>
                     <div class="profile-bio ml-10 pb-10">
+                        <!-- CLUB ONLY -->
+                        <div class="flex gap-1">
+                            <i class="uil uil-map-marker"></i>
+                            <p class >via andreadoria 132</p>
+                        </div>
                         <p>non so bene cosa scrivere ma qua ce la bio</p>
                     </div>
                     <div class="profile-buttons grid grid-cols-2 text-center">
@@ -73,6 +78,7 @@
             <!-- USER POSTS -->
             <div class="user-posts">
 
+                <!-- POSTS -->
                 <div class="w-21 items-center text-slate-200 py-2">
                     <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
                         <div class ="post-banner rounded-t-lg object-fill">
@@ -89,7 +95,7 @@
                         </div>
                         <div class="post-buttons flex gap-2 p-2">
                             <div class="likes-interaction items-center gap-1 flex"> 
-                                <p id=""</p>
+                                <p id=""></p>
                                 <button id="" name=""><i class="uil uil-heart" id=""></i></button>
                             </div>
                             <div><button><i class="uil uil-comment" ></i></button></div>
@@ -97,6 +103,28 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- EVENTS -->
+                <a href="">
+                    <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
+                        <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: ">
+                            <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
+                                <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
+                                    <div class="text-center flex justify-center">
+                                    </div>
+                                    <div class="justify-center flex gap-2 w-full">
+                                        <p class="mt-2 text-2xl">nome evento</p>
+                                    </div>
+                                    <div class="flex justify-between w-full px-7 pt-3">
+                                        <p class="invisible xl:visible">shortDescription</p>
+                                        <p>11/11/2011</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
             </div>
             <div></div>
         </div>
