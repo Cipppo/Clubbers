@@ -82,6 +82,11 @@ class ImageController extends Controller
         }
     }
 
+    public static function getPostClubberPics($clubberUsername, $eventName){
+        $pics = DB::table('foto_post_clubber')->where('username', $clubberUsername)->where('eventName', $eventName)->get();
+        return $pics;
+    }
+
     public static function getProPic($username){
         $url = DB::table('user_pro_pic')->where('username', $username)->first()->URL;
         return $url;
