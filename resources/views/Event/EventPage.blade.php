@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{$event->name}}</title>
-    @vite(['../resources/css/event.css'])
+    @vite(['../resources/css/event.css', '../resources/js/app.js', '../resources/js/Event/event.js'])
   </head>
   <body class="bg-fixed object-fill" style="background-image: url({{url('images/feed/background2luce.jpg')}})">
     <!--NAVBAR-->
@@ -14,7 +15,7 @@
             <div class="flex items-center justify-between">
                 <div class="navbar-logo items-center flex gap-2">
                     <a href="/home" class="flex items-center">
-                        <img class="h-12 w-12 shadow-xl" src="../../images/feed/ClubbersLogo.png" alt="Clubbers">
+                        <img class="h-12 w-12 shadow-xl" src="{{url('images/feed/ClubbersLogo.png')}}" alt="Clubbers Logo">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
@@ -25,7 +26,7 @@
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
                     <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
                     <h2 class="invisible lg:visible">{{ Auth::user()->username}}</h2>
-                    <a href=""><img src="{{App\Http\Controllers\ImageController::getProPic(Auth::user()->username)}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
+                    <a href=""><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h2><a href="/logout"><strong>LOGOUT</strong></a></h2>
                 </div>
             </div>            
@@ -48,7 +49,7 @@
           </div>
           <div class="name-club pl-8">
             <a href="#">{{$event->clubName}}</a>
-            <p>via fiorenzuola</p>
+            <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
         </div>
         </div>
       </div>
@@ -71,9 +72,11 @@
             
             <div class="event-info px-5 py-2">
               <div class="event-date flex text-center justify-between font-bold"></div>
+              @if($event->onGoing == "True" && Auth::user()->type == "User")
               <div class="join-event-button">
-                <button class="p-2 bg-green-500 rounded-xl my-2 font-semibold hover:bg-green-700 hover:text-slate-300 shadow-lg">JOIN EVENT!</button>
+                <button id="partecipateButton" class=""></button>
               </div>
+              @endif
               <p class="py-2">
                 {{$event->description}}
               </p>
