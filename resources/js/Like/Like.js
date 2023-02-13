@@ -17,7 +17,7 @@ function update(postId){
 }
 
 function updateLike(postId){
-    var a = $.post('/post/react/like', {'post_id':postId});
+    let a = $.post('/post/react/like', {'post_id':postId});
     console.log(postId);
     console.log(a);
     update(postId);
