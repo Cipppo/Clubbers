@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         @vite(['../resources/css/home.css', '../resources/js/Home/home.js'])
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <title>Clubbers</title>
     </head>
     
     <body class="Back h-screen text-white">
         <header class="bg-black bg-opacity-40 backdrop-blur-md p-2">
             <nav class="flex justify-between items-center w-[92%]  mx-auto">
                 <div>
-                    <img class="w-16 cursor-pointer" src="DAFARE" alt="logo clubbers">
+                    <img class="w-16 cursor-pointer" src="/imgs/logo-provvisorio.png" alt="logo clubbers">
                 </div>
                 <div
                     class="nav-links duration-500 bg-black bg-opacity-40 md:bg-opacity-0 lg:bg-opacity-0 md:static absolute rounded-lg md:min-h-fit min-h-[60vh] left-0 top-[-9000%] md:w-auto  w-full flex items-center px-5">
@@ -32,7 +33,7 @@
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="/create-user">
-                        <button class="bg-[#1d4185] text-white px-5 py-2 rounded-md hover:bg-[#1e4794]" href="/create-user">Sign in</button>
+                        <button class="bg-[#1d4185] text-white px-5 py-2 rounded-md hover:bg-[#1e4794]">Sign in</button>
                     </a>
                     <ion-icon name="menu" class="toggle-btn text-3xl cursor-pointer md:hidden"></ion-icon>
                 </div>
