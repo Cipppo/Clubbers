@@ -52,7 +52,9 @@ function unsetPartecipation(){
 }
 
 $("#endEvent").on('click', function(e){
-    
+    let a = $.post(`/event/end/${eventId}`);
+    console.log(a);
+    window.location.reload()
 })
 
 

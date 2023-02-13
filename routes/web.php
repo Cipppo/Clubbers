@@ -13,6 +13,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\likePostClubberController;
 use App\Http\Controllers\postClubberController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\notificationController;
 use App\Http\Controllers\postClubController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\TerminatedEventsController;
@@ -98,7 +99,7 @@ Route::get('/events/onGoing/{clubName}', [EventController::class, 'getAllOnGoing
 Route::get('/events/notOnGoing/{clubName}', [EventController::class, 'getAllNotOnGoingEvents'])->name('Events.notOnGoing');
 Route::get('/events/current/onGoing', [EventController::class, 'getAllOnGoingAuthClubEvents'])->name("Events.currentOnGoing");
 Route::get('/events/isPartecipating/{idEvento}', [EventController::class, 'isAuthPartecipating'])->name("Event.Partecipating");
-
+Route::post('/event/end/{id}', [EventController::class, 'markAsEnd'])->name("Event.close");
 
 Route::get('/user/following/{id}', [followedController::class, 'amIFollowing'])->name('User.isFollowing');
 Route::get('/user/countFollowing/{id}', [followedController::class, 'countFollowed'])->name("User.countFollowed");
@@ -106,4 +107,9 @@ Route::get('/user/countFollowers/{id}', [followersController::class, 'countFollo
 Route::post('/user/follow/{id}', [followedController::class, 'startFollowing'])->name('user.follow');
 Route::post('/user/unfollow/{id}', [followedController::class, 'removeFollow'])->name('User.unfollow');
 
+Route::get('/user/showFollowers/{id}', [followersController::class, 'getFollowers'])->name("User.followers");
+
+
 Route::post('/search', [searchController::class, 'search'])->name('Search');
+
+Route::get('/notifications', [notificationController::class, 'show'])->name('Notification.show');

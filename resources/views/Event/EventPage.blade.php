@@ -50,7 +50,7 @@
                         <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
                     </div>
                 </div>
-                @if($event->onGoing == "True")
+                @if($event->onGoing == "True" && Auth::user()->type == "Club")
                 <div><button id="endEvent" name="endEvent" class="p-2 mt-4 ml-2 bg-red-900 rounded-xl "><strong>MARK AS FINISH</strong></button></div>
                 @endif
             </div>

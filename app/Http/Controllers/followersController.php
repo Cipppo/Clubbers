@@ -13,7 +13,8 @@ class followersController extends Controller
     }
 
     public static function getFollowers($user){
-        $followers = DB::table('followers')->where('to', $user->id)->get();
+        $followers = DB::table('followers')->where('from', $user)->get();
+
         return $followers;
     }
 }

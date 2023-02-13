@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
-    <title>{{$event->name}}</title>
-    @vite(['../resources/css/notification.css'])
+    @vite(['../resources/css/notifications.css'])
   </head>
   <body class="bg-fixed object-fill" style="background-image: url({{url('images/feed/background2luce.jpg')}})">
     <!--NAVBAR-->
@@ -19,7 +18,7 @@
                 </a>
             </div>
             <div class="navbar-search-bar flex gap-4 p-2 bg-black backdrop-blur bg-opacity-40 rounded-2xl">
-                <form action="/search" method="POST" enctype="multipart/form-data">
+                <form action="/search" method="POST" class="flex" enctype="multipart/form-data">
                     @csrf
                         <button type="submit"><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
                         <div class="autocomplete">
@@ -41,26 +40,23 @@
         <div></div>
         <div>
             <!-- NOTIFICA NUOVA-->
-            <a href="">
+            @foreach(Auth::user()->unreadNotifications as $notification)
+                
                 <div class="notification-container my-2 p-3 rounded-xl shadow-2xl bg-black bg-opacity-40 backdrop-blur">
                     <div class="notification-infos">
                         <div class="justify-between flex items-center">
                             <div class="notification-user flex gap-3">
                                 <img class="h-20 w-20 rounded-full" src="img/profilepic.jpeg" alt="prifile pic">
                                 <div>
-                                    <a href="">Nickname</a>
-                                    <p class="py-2">ha messo mi piace al tuo post!</p>
+                                    <a href="">{{App\Http\Controllers\Usercontroller::getUsernameById($notification->notifiable_id)}}</a>
+                                    <p class="py-2">{{$notification->data['text']}}</p>
                                 </div>
                             </div>
                             <!-- BANNER EVENTO A CUI IL POST FA RIFERIMENTO -->
-                            <div class="w-[40%]">
-                                <img class="object-scale-down rounded-lg" src="img/Banner1.jpg" alt="">
-                            </div> 
                         </div>
                     </div>
-                </div>
-            </a>
-
+            </div>
+            @endforeach
             <div class="separator my-2 text-center items-center grid grid-cols-5">
                 <div class="col-span-2 border-t border-gray-400"></div>
                 <div class="col-span-1"><p>old posts</p></div>
