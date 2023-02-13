@@ -27,6 +27,11 @@ class postClubberController extends Controller
         return view("Posts.postCreate");
     }
 
+    public static function show($id){
+        $post = DB::table('postClubber')->where('id', $id)->first();
+        return view("Posts.postOpen", ['post' =>$post]);
+    }
+
     public static function getById($id){
         $post = DB::table('postClubber')->where('id', $id)->first();
         return $post;
