@@ -40,7 +40,7 @@ class postClubberController extends Controller
             'clubUsername' => EventController::getClubNameById(EventController::getIdByName($request->selectEvent)),
         ]);
         $postClubber->save();
-        EventController::delete_partecipation(EventController::getIdByName($request->selectEvent));
+        EventController::removePartecipation(EventController::getIdByName($request->selectEvent));
         ImageController::storePost($request);
 
         post::create([
