@@ -51,6 +51,10 @@ function unsetPartecipation(){
     setPartecipationStyle();
 }
 
+$("#endEvent").on('click', function(e){
+    
+})
+
 
 let eventId = window.location.href.split("/")[window.location.href.split("/").length - 1];
 let button = $("#partecipateButton");
