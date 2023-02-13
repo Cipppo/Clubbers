@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <title>Clubbers</title>
         <meta name="csrf-token" content="{{ csrf_token() }}" >
-        @vite(['../resources/css/postClubCreate.css',  '../resources/js/app.js'])
+        @vite(['../resources/css/postClubCreate.css',  '../resources/js/app.js', '../resources/js/User/UserPage.js', '../resources/js/Like/Like.js'])
     </head>
 
     <body class="bg-fixed object-fill" style="background-image: url({{url('images/feed/background2luce.jpg')}})">
@@ -17,7 +17,7 @@
             <div class="flex items-center justify-between">
                 <div class="navbar-logo">
                     <a href="/home" class="flex gap-2 items-center">
-                        <img class="h-12 w-12 shadow-xl" src="../images/feed/ClubbersLogo.png" alt="Clubbers">
+                        <img class="h-12 w-12 shadow-xl" src="{{url('../images/feed/ClubbersLogo.png')}}" alt="Clubbers">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
                     <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
                     <h1 class="invisible lg:visible">{{ Auth::user()->username}}</h1>
-                    <a href=""><img src="" class="rounded-full h-12 w-12 shadow-xl" alt="profile-picture"></a>
+                    <a href="/user/show/{{Auth::user()->id}}"><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h1><a href="/logout"><strong>LOGOUT</strong></a></h1>
                 </div>
             </div>            
@@ -41,9 +41,9 @@
             <div class="col-span-2 m-2">
                 <div class="profile-container bg-black bg-opacity-40 backdrop-blur shadow-xl rounded-xl">
                     <div class="profile-all flex p-10">
-                        <img class="h-28 w-28 rounded-full" src="../images/proPics/shrek.jpg" alt="profile picture">
+                        <img class="h-28 w-28 rounded-full" src="{{url(App\Http\Controllers\ImageController::getProPic($user->username))}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($user->username)}}">
                         <div class="profile-info lg:grid grid-cols-2 w-full ml-12">
-                            <h1 class="font-bold text-2xl ml-2">Username</h1>
+                            <h1 id="Username" class="font-bold text-2xl ml-2">{{$user->username}}</h1>
                             <div class="profile-numbers flex gap-12 p-3">
                                 <div class="followers text-center">
                                     <p>followers</p>
@@ -57,16 +57,16 @@
                         </div>
                     </div>
                     <div class="profile-bio ml-10 pb-10">
-                        <!-- CLUB ONLY -->
+                        @if($user->type == "Club")
                         <div class="flex gap-1">
                             <i class="uil uil-map-marker"></i>
-                            <p class >via andreadoria 132</p>
+                            <p class >{{App\Http\Controllers\Usercontroller::getAddress($user->username)}}</p>
                         </div>
-                        <p>non so bene cosa scrivere ma qua ce la bio</p>
+                        @endif
                     </div>
                     <div class="profile-buttons grid grid-cols-2 text-center">
-                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-bl-xl p-3 border-t border-slate-300 border-opacity-40"><p>posts</p></div></a>
-                        <a href=""><div class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-br-xl p-3 border-t border-slate-300 border-opacity-40"><p>events</p></div></a>
+                        <button id="postButton" class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-bl-xl p-3 border-t border-slate-300 border-opacity-40"><p>posts</p></button>
+                        <button id="eventButton" class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-br-xl p-3 border-t border-slate-300 border-opacity-40"><p>events</p></button>
                     </div>
                 </div>
             </div> 
@@ -76,54 +76,8 @@
         <div class="grid grid-cols-3 justify-between text-slate-200" >
             <div></div>
             <!-- USER POSTS -->
-            <div class="user-posts">
+            <div class="user-posts" id="container">
 
-                <!-- POSTS -->
-                <div class="w-21 items-center text-slate-200 py-2">
-                    <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
-                        <div class ="post-banner rounded-t-lg object-fill">
-                            <img class ="rounded-t-lg " src="" alt="">
-                        </div>
-                        <div class="post-Profile flex items-center gap-2 p-2">
-                            <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="">
-                            <a class="post-Username" href=""></a>
-                            <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href=""></a>
-                        </div>
-                            
-                        <div class="post-info p-2">
-                            <p class="post-caption"></p>
-                        </div>
-                        <div class="post-buttons flex gap-2 p-2">
-                            <div class="likes-interaction items-center gap-1 flex"> 
-                                <p id=""></p>
-                                <button id="" name=""><i class="uil uil-heart" id=""></i></button>
-                            </div>
-                            <div><button><i class="uil uil-comment" ></i></button></div>
-                            <div><button><i class="uil uil-tag"></i></button></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EVENTS -->
-                <a href="">
-                    <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
-                        <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: ">
-                            <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
-                                <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
-                                    <div class="text-center flex justify-center">
-                                    </div>
-                                    <div class="justify-center flex gap-2 w-full">
-                                        <p class="mt-2 text-2xl">nome evento</p>
-                                    </div>
-                                    <div class="flex justify-between w-full px-7 pt-3">
-                                        <p class="invisible xl:visible">shortDescription</p>
-                                        <p>11/11/2011</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
 
             </div>
             <div></div>
