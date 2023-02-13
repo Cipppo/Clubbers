@@ -66,7 +66,7 @@ $(()=>{
     charCounter.html(caption.maxlenght);
 
     caption.bind('input propertychange', function() {
-        charCounter.html(`${this.value.length}/100`)
+        charCounter.html(`${this.value.length}/150`)
     });
 
     selectEvent.on("change", function(e){
