@@ -98,10 +98,10 @@ class DatabaseSeeder extends Seeder
             'phone' => '3434343434', 
             'password' => bcrypt('password'), 
             'username' => 'UClub', 
-            'via' => 'via', 
-            'cap' => 'cpa', 
-            'comune' => 'comune', 
-            'regione' => 'regione',
+            'via' => 'Viale Michelangelo Buonarroti 4', 
+            'cap' => '47042', 
+            'comune' => 'Cesenatico', 
+            'regione' => 'Emilia-Romagna',
         ]);
 
         userProPic::factory()->create([
