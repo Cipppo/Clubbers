@@ -49,7 +49,11 @@
                     </form>
                 </div>
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
+<<<<<<< HEAD
                     <a href="/notifications" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white"><i class="uil uil-bell" id="notificationBell" style="color: white"></i></a>
+=======
+                    <a href="/notifications" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white"><i id="notificationBell" class="uil uil-bell"></i></a>
+>>>>>>> 5f36c5f4432c2cc9dc925839e54ccd89c427094f
                     <h2 class="invisible lg:visible">{{ Auth::user()->username}}</h2>
                     <a href="/user/show/{{Auth::user()->id}}"><img src="{{App\Http\Controllers\ImageController::getProPic(Auth::user()->username)}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h2><a href="/logout"><strong>LOGOUT</strong></a></h2>
