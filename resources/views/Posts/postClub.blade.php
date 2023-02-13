@@ -11,12 +11,11 @@
     </head>
 
     <body class="bg-fixed object-fill" style="background-image: url({{url('images/feed/background2luce.jpg')}})">
-
         <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
-                <div class="navbar-logo items-center flex gap-2">
-                    <a href="/home">
-                        <img class="h-12 w-12 shadow-xl" src="{{url('images/feed/ClubbersLogo.png')}}" alt="Clubbers Logo">
+                <div class="navbar-logo">
+                    <a href="/home" class="flex gap-2 items-center">
+                        <img class="h-12 w-12 shadow-xl" src="{{url('../images/feed/ClubbersLogo.png')}}" alt="Clubbers">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
@@ -27,9 +26,8 @@
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
                     <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
                     <h1 class="invisible lg:visible">{{ Auth::user()->username}}</h1>
-                    <a href=""><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
+                    <a href="/user/show/{{Auth::user()->id}}"><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h1><a href="/logout"><strong>LOGOUT</strong></a></h1>
-
                 </div>
             </div>            
         </nav>

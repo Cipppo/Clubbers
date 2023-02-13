@@ -51,6 +51,7 @@ class postClubberController extends Controller
 
         post::create([
             'postId' => $postClubber->id,
+            'userId' => Auth::user()->id,
             'profileType' => "Clubber",
         ]);
 

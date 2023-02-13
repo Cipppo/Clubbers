@@ -7,15 +7,97 @@ import $ from 'jquery';
 $(() => {
 
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
     let viewMode = 1;
     let postButton = $("#postButton");
     let eventButton = $('#eventButton');
     let container = $("#container");
+    let followButton = $("#followButton");
+    let followCounter = $('#followCounter');
+    let followersCounter = $("#FollowersCounter");
+
+    let followstatus = 0;
 
 
+    let userId = window.location.href.split("/")[window.location.href.split("/").length - 1];
+    let username = $('#Username').html();
+    
+
+    function setButtonToFollow(){
+        followButton.attr('class', 'm-4 p-2 bg-blue-500 rounded-xl my-2 font-semibold hover:bg-blue-700 hover:text-slate-300 shadow-lg');
+        followButton.html('Follow');
+    }
+
+    function setButtonToUnfollow(){
+        followButton.attr('class', 'm-4 p-2 bg-blue-500 rounded-xl my-2 font-semibold hover:bg-blue-700 hover:text-slate-300 shadow-lg');
+        followButton.html("Unfollow");
+    }
+
+
+    function handleButton(){
+        if(followstatus == 0){
+            setButtonToFollow();
+            followstatus = 1;
+        }else{
+            setButtonToUnfollow();
+            followstatus = 0;
+        }
+    }
+
+    function setupButton(){
+        $.get(`/user/following/${userId}`)
+        .then(response=>{
+            followstatus = response;
+            handleButton();
+        })
+    }
+
+
+    followButton.on('click', function(e){
+
+        if(followstatus == 1){
+            $.post(`/user/follow/${userId}`).then(response =>{
+                console.log(response);
+            });
+        }else{
+            $.post(`/user/unfollow/${userId}`).then(response => {
+                console.log(response);
+            });
+        }
+
+        handleButton();
+        updateStats();
+
+    })
+
+    function updateStats(){
+        refreshFollowed();
+        refreshFollowers();
+    }
+
+    function refreshFollowed(){
+        $.get(`/user/countFollowing/${userId}`).then( response =>{
+            followCounter.html(response);
+        });
+    }
+
+    function refreshFollowers(){
+        $.get(`/user/countFollowers/${userId}`).then( response =>{
+            followersCounter.html(response);
+        });
+    }
+
+
+    setupButton();
+    updateStats();
 
     function addPostToContainer(postIn){
-        console.log(postIn);
         postIn[0].forEach(post => {
             container.append(`
                 <div class="w-21 items-center text-slate-200 py-2">
@@ -39,7 +121,6 @@ $(() => {
     };
 
     function addEventToContainer(eventIn){
-        console.log(eventIn[0]);
         eventIn[0].forEach(evento =>{
             container.append(`
                 <a href="/event/show/${evento.eventId}">
@@ -69,7 +150,6 @@ $(() => {
         $.get(`/user/post/${id}`)
         .then(response =>{
             let responseA = Array(response[0]);
-                console.log("MANDATO");
                 addPostToContainer(responseA);
         })
     };
@@ -114,9 +194,7 @@ $(() => {
         }
     }
 
-    let userId = window.location.href.split("/")[window.location.href.split("/").length - 1];
-    let username = $('#Username').html();
-    
+
 
     postButton.on('click', function(e){
         viewMode = 1;

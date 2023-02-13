@@ -47,15 +47,18 @@
                             <div class="profile-numbers flex gap-12 p-3">
                                 <div class="followers text-center">
                                     <p>followers</p>
-                                    <p>500</p>
+                                    <p id="FollowersCounter"></p>
                                 </div>
                                 <div class="follow text-center">
                                     <p>follow</p>
-                                    <p>90</p>
+                                    <p id="followCounter"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @if($user->id != Auth::user()->id)
+                    <button id="followButton"></button>
+                    @endif
                     <div class="profile-bio ml-10 pb-10">
                         @if($user->type == "Club")
                         <div class="flex gap-1">
@@ -65,24 +68,66 @@
                         @endif
                     </div>
                     <div class="profile-buttons grid grid-cols-2 text-center">
+                        @if($user->type == "User")
                         <button id="postButton" class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-bl-xl p-3 border-t border-slate-300 border-opacity-40"><p>posts</p></button>
                         <button id="eventButton" class="profile-post hover:bg-white hover:bg-opacity-10 hover:rounded-br-xl p-3 border-t border-slate-300 border-opacity-40"><p>events</p></button>
+                        @endif
                     </div>
                 </div>
             </div> 
             <div class="col-span-1"></div>
         </div>
+        
+        @if($user->type == "User")
+            <div class="grid grid-cols-3 justify-between text-slate-200" >
+                <div></div>
+                <!-- USER POSTS -->
+                <div class="user-posts" id="container">
+
+
+                </div>
+                <div></div>
+            </div>
             
+            </div>
+        @else   
         <div class="grid grid-cols-3 justify-between text-slate-200" >
             <div></div>
-            <!-- USER POSTS -->
-            <div class="user-posts" id="container">
 
+            <div class='w-full text-center bg-black bg-opacity-40 backdrop-blur shadow-xl rounded-xl'>
+                NEXT EVENTS
+                @php
+                    $events = \App\Http\Controllers\EventController::getAllOnGoingClubEvents($user->username);
+                @endphp
+                @foreach($events as $event)
+                    <a href="/event/show/{{$event->id}}">
+                        <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
+                            <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{url(App\Http\Controllers\ImageController::getBannerUrl($event->id))}})">
+                                <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
+                                    <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
+                                        <div class="text-center flex justify-center"></div>
+                                        <div class="justify-center flex gap-2 w-full">
+                                            <p class="mt-2 text-2xl">{{$event->name}}</p>
+                                        </div>
+                                        <div class="flex justify-between w-full px-7 pt-3">
+                                            <p class="invisible xl:visible">{{$event->shortDescription}}</p>
+                                            <p>{{$event->Date}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                
+                @endforeach
 
             </div>
+
             <div></div>
+
         </div>
-        
-        </div>
+
+
+        @endif
 
 </html>

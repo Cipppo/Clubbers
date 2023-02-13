@@ -4,6 +4,8 @@
 use App\Http\Controllers\ClubRegistrationController;
 use App\Http\Controllers\commentController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\followedController;
+use App\Http\Controllers\followersController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
@@ -93,3 +95,8 @@ Route::get('/events/current/onGoing', [EventController::class, 'getAllOnGoingAut
 Route::get('/events/isPartecipating/{idEvento}', [EventController::class, 'isAuthPartecipating'])->name("Event.Partecipating");
 
 
+Route::get('/user/following/{id}', [followedController::class, 'amIFollowing'])->name('User.isFollowing');
+Route::get('/user/countFollowing/{id}', [followedController::class, 'countFollowed'])->name("User.countFollowed");
+Route::get('/user/countFollowers/{id}', [followersController::class, 'countFollowers'])->name("User.coutnFollowers");
+Route::post('/user/follow/{id}', [followedController::class, 'startFollowing'])->name('user.follow');
+Route::post('/user/unfollow/{id}', [followedController::class, 'removeFollow'])->name('User.unfollow');

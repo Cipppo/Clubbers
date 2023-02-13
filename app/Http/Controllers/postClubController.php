@@ -25,6 +25,7 @@ class postClubController extends Controller
         
         post::create([
             'postId' => $post->id,
+            'userId' => Auth::user()->id,
             'profileType' => "Club",
         ]);
 

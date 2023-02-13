@@ -14,9 +14,9 @@
         <!--NAVBAR-->
         <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
-                <div class="navbar-logo items-center flex gap-2">
-                    <a href="/home" class="flex items-center">
-                        <img class="h-12 w-12 shadow-xl" src="{{url('images/feed/ClubbersLogo.png')}}" alt="Clubbers">
+                <div class="navbar-logo">
+                    <a href="/home" class="flex gap-2 items-center">
+                        <img class="h-12 w-12 shadow-xl" src="{{url('../images/feed/ClubbersLogo.png')}}" alt="Clubbers">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
@@ -25,10 +25,10 @@
                     <input type="search" class="bg-black lg:px-20 py-2 rounded-full placeholder:text-center shadow-2xl" placeholder="connect with people...">
                 </div>
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
-                    <a href=""><img src="" class="bg-white bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
-                    <h2 class="invisible lg:visible">{{ Auth::user()->username}}</h2>
-                    <a href=""><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
-                    <h2><a href="/logout"><strong>LOGOUT</strong></a></h2>
+                    <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
+                    <h1 class="invisible lg:visible">{{ Auth::user()->username}}</h1>
+                    <a href="/user/show/{{Auth::user()->id}}"><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
+                    <h1><a href="/logout"><strong>LOGOUT</strong></a></h1>
                 </div>
             </div>            
         </nav>
@@ -40,9 +40,9 @@
                 <div class="post-container mt-2 p-3 bg-black bg-opacity-40 backdrop-blur rounded-xl shadow-2xl">
                     <div class="user-info flex">
                         <div class="post-Profile flex items-center gap-2 p-2">
-                            <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}">
-                            <a class="post-Username" href="">{{$post->clubberUsername}}</a>
-                            <a class="post-clubTag rounded-full bg-black p-1 px-2 bg-opacity-40 hover:bg-white hover:bg-opacity-20" href="">{{$post->clubUsername}}</a>
+                            <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{url(App\Http\Controllers\ImageController::getProPic($post->clubberUsername))}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($post->clubberUsername)}}">
+                            <a class="post-Username" href="/user/show/{{App\Http\Controllers\Usercontroller::getIdByUsername($post->clubberUsername)}}">{{$post->clubberUsername}}</a>
+                            <a class="post-clubTag rounded-full bg-black p-1 px-2 bg-opacity-40 hover:bg-white hover:bg-opacity-20" href="/user/show/{{App\Http\Controllers\Usercontroller::getIdByUsername($post->clubUsername)}}">{{$post->clubUsername}}</a>
                             <a class="rounded-full bg-black p-1 px-2 bg-opacity-40 hover:bg-white hover:bg-opacity-20" href="/event/show/{{$post->eventId}}">{{App\Http\Controllers\EventController::getEventNameById($post->eventId)}}</a>
                         </div>
                         
@@ -73,7 +73,7 @@
                     @foreach($comments as $comment)
                         <div class="comment-layout flex p-2 gap-2 m-2">
                             <img class="post-profilePicture object-fill h-14 w-14  rounded-full" src="{{url(App\Http\Controllers\ImageController::getProPic($comment->clubberUsername))}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($comment->clubberUsername)}}">
-                            <div><a class="post-Username font-bold" href="">{{$comment->clubberUsername}}</a><p>{{$comment->caption}}</p></div>
+                            <div><a class="post-Username font-bold" href="/user/show/{{App\Http\Controllers\Usercontroller::getIdByUsername($comment->clubberUsername)}}">{{$comment->clubberUsername}}</a><p>{{$comment->caption}}</p></div>
                         </div>
                     @endforeach
                 </div>
@@ -105,3 +105,5 @@
         </script>
     </body>
 </html>
+
+
