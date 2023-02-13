@@ -8,11 +8,12 @@
         <title>Clubbers</title>
     </head>
     
-    <body class="Back h-screen text-white">
-        <header class="bg-black bg-opacity-40 backdrop-blur-md p-2">
+    <body class="Back h-screen text-slate-200">
+        <header class="bg-black bg-opacity-30 backdrop-blur-md p-2 shadow-2xl">
             <nav class="flex justify-between items-center w-[92%]  mx-auto">
-                <div>
-                    <img class="w-16 cursor-pointer" src="../public/images/Clubbers.logo" alt="logo clubbers">
+                <div class="flex items-center">
+                    <img class="w-16 cursor-pointer" src="{{url('images/feed/ClubbersLogo.png')}}" alt="logo clubbers">
+                    <h1>Clubbers</h1>
                 </div>
                 <div
                     class="nav-links duration-500 bg-black bg-opacity-40 md:bg-opacity-0 lg:bg-opacity-0 md:static absolute rounded-lg md:min-h-fit min-h-[60vh] left-0 top-[-9000%] md:w-auto  w-full flex items-center px-5">
