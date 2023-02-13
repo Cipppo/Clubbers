@@ -43,7 +43,7 @@
                     @csrf
                         <button type="submit"><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
                         <div class="autocomplete">
-                        <label for="myInput" name="myInputLabel">
+                        <label for="myInput">
                         <input id="myInput" name="myInput" type="text" class="bg-black lg:px-20 py-2 rounded-full placeholder:text-center shadow-2xl" placeholder="connect with people...">
                         </div>
                     </form>
