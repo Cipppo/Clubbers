@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use PDO;
 
 class EventController extends Controller
 {
@@ -90,6 +91,11 @@ class EventController extends Controller
     public static function getClubNameById($id){
         $name = DB::table('events')->where('id', $id)->first()->clubName;
         return $name;
+    }
+
+    public static function getEventNameById($id){
+        $event = DB::table('events')->where('id', $id)->first()->name;
+        return $event;
     }
 
     public static function getEventsbyDate($date){
