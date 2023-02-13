@@ -36,70 +36,123 @@
     <div class="py-36 md:py-36 lg:py-24 lg:grid grid-cols-3 justify-between text-slate-200">
         <div class="club-info">
             <div class="fixed w-[32%] p-3 top-34 flex items-center backdrop-blur bg-black bg-opacity-40 m-3 rounded-xl">
-            <div class="profile-pic-club">
-              <img src="{{url(App\Http\Controllers\ImageController::getProPic($event->clubName))}}" class="h-20 w-20 rounded-full"
-                alt="{{url(App\Http\Controllers\ImageController::getProPicAlt($event->clubName))}}"/>
+                <div class="profile-pic-club">
+                    <img src="{{url(App\Http\Controllers\ImageController::getProPic($event->clubName))}}" class="h-20 w-20 rounded-full" alt="{{url(App\Http\Controllers\ImageController::getProPicAlt($event->clubName))}}"/>
+                </div>
+                <div class="name-club pl-8">
+                    <a href="#">{{$event->clubName}}</a>
+                    <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
+                </div>
             </div>
-            <div class="name-club pl-8">
-              <a href="#">{{$event->clubName}}</a>
-              <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
-            </div>
-          </div>
-      </div>
-
-      <div class="event-real mt-4 rounded-xl bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl h-full">
-        <div class="">
-          <img class="rounded-t-xl" src="{{url(App\Http\Controllers\ImageController::getBannerUrl($event->id))}}" alt="{{url(App\Http\Controllers\ImageController::getBannerAlt($event->id))}}"/>
-          <div class="event-name">
-            <div class="event-info flex justify-between p-2">
-              <h1 class="pl-5 p-2 text-5xl font-bold">{{$event->name}}</h1>
-            <div>
-            <p class="text-2xl">{{$event->Date}}</p>
-            <div class="flex items-center pl-[65%]">
-              <i class="uil uil-clock"></i>
-              <p class="text-2xl">{{$event->Time}}</p>
-            </div>
-          </div>
         </div>
-        <div class="event-info px-5 py-2">
-          <div class="event-date flex text-center justify-between font-bold"></div>
-          @if($event->onGoing == "True" && Auth::user()->type == "User")
-          <div class="join-event-button">
-            <button id="partecipateButton" class=""></button>
-          </div>
-          @endif
-          <p class="py-2">{{$event->description}}</p>
-          </div>
+
+        <div class="event-real mt-4 rounded-xl bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl h-full">
+            <div class="">
+                <img class="rounded-t-xl" src="{{url(App\Http\Controllers\ImageController::getBannerUrl($event->id))}}" alt="{{url(App\Http\Controllers\ImageController::getBannerAlt($event->id))}}"/>
+                <div class="event-name">
+                    <div class="event-info flex justify-between p-2">
+                        <h1 class="pl-5 p-2 text-5xl font-bold">{{$event->name}}</h1>
+                    <div>
+                    <p class="text-2xl">{{$event->Date}}</p>
+                    <div class="flex items-center pl-[65%]">
+                        <i class="uil uil-clock"></i>
+                        <p class="text-2xl">{{$event->Time}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="event-info px-5 py-2">
+                <div class="event-date flex text-center justify-between font-bold"></div>
+                @if($event->onGoing == "True" && Auth::user()->type == "User")
+                <div class="join-event-button">
+                    <button id="partecipateButton" class=""></button>
+                </div>
+                @endif
+                <p class="py-2">{{$event->description}}</p>
+            </div>
         </div>
       </div>
     </div>
-    <div class="">
-      <a href="">
-          <div class="w-21 items-center text-slate-200 py-2">
-              <div class="post-User rounded-xl bg-black bg-opacity-50 backdrop-blur">
-                  <div class ="post-banner rounded-t-lg object-fill">
-                      <a href="  "><img class ="rounded-t-lg " src="banner " alt=""></a>
+    
+    <div class="m-2">
+        <div class="post-container w-21 items-center text-slate-200 py-2">
+            <div class="rounded-xl bg-black bg-opacity-50 backdrop-blur">
+                <div class="relative overflow-hidden" id="carousel-container">
+                    <div class="absolute overflow-hidden flex" id="carousel">
+                        <!-- POST TEMPLATE Wo/event banner  -->
+                        <div class="post-container rounded-xl bg-black bg-opacity-40 m-4">
+                            <div class="post-user-info flex gap-3 ml-2 mt-2 items-center">
+                                <img src="" alt="profile pic">
+                                <a class="font-bold" href="">USERNAME</a>
+                                <a href="">CLUB</a>
+                            </div>
+                            <div class="ml-2">
+                                <p>song sei bellissimo</p>
+                            </div>
+                            <div class="post-buttons flex gap-2 p-2">
+                                <div class="likes-interaction items-center gap-1 flex"> 
+                                    <p id="likeNumber">-1</p>
+                                    <button id="like-button" name=""><i class="uil uil-heart" id=""></i></button>
+                                </div>
+                                <div><button><i class="uil uil-tag"></i></button></div>
+                            </div>
+                        </div>
+
+                        <div class="post-container rounded-xl bg-black bg-opacity-40 m-4">
+                            <div class="post-user-info flex gap-3 ml-2 mt-2 items-center">
+                                <img class="h-16 w-16 rounded-full"src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" alt="profile pic">
+                                <a class="font-bold" href="">USERNAME</a>
+                                <a href="">CLUB</a>
+                            </div>
+                            <div class="ml-2">
+                                <p>odio song</p>
+                            </div>
+                            <div class="post-buttons flex gap-2 p-2">
+                                <div class="likes-interaction items-center gap-1 flex"> 
+                                    <p id="likeNumber">110</p>
+                                    <button id="like-button" name=""><i class="uil uil-heart" id=""></i></button>
+                                </div>
+                                <div><button><i class="uil uil-tag"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
                   </div>
-                  <div class="post-Profile flex items-center gap-2 p-2">
-                    <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src=" " alt=" foto profilo">
-                    <a class="post-Username" href="">clubberUsername</a>
-                    <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="">clubUsername</a>
+                  
+                  <div class="grid grid-cols-2 my-2">
+                    <button id="prev-button" class="hover:bg-opacity-20 hover:bg-white rounded-bl-xl"><i class="uil uil-arrow-left"></i></button>
+                    <button id="next-button" class="hover:bg-opacity-20 hover:bg-white rounded-br-xl"><i class="uil uil-arrow-right"></i></button>
                   </div>
-                  <div class="post-info p-2">
-                      <p class="post-caption">caption</p>
-                  </div>
-                  <div class="post-buttons flex gap-2 p-2">
-                  <!-- <div class="p-1"><a href=""><img class="h-5 w-5" src="img/like-not-pressed.png" alt="like"></a></div> -->
-                  <div class="likes-interaction items-center gap-1 flex"> 
-                      <p id="likeNumber">0</p>
-                      <button id="like-button" name=""><i class="uil uil-heart" id="likeIcon"></i></button{$postElement->id}}>
-                  </div>
-                  <div><button><i class="uil uil-comment" ></i></button></div>
-                  <div><button><i class="uil uil-tag"></i></button></div>
-              </div>
-          </div>
-      </a>
+            </div>
+        </div>
+        <script>
+        const carouselContainer = document.querySelector("#carousel-container");
+        const carousel = document.querySelector("#carousel");
+        const prevButton = document.querySelector("#prev-button");
+        const nextButton = document.querySelector("#next-button");
         
+        let currentIndex = 0;
+        const images = carousel.children;
+        
+        carouselContainer.style.width = "100%";
+        carouselContainer.style.height = "200px";
+        carousel.style.width = (images.length * 100) + "%";
+        carousel.style.height = "100%";
+        carousel.style.display = "flex";
+        
+        for (let i = 0; i < images.length; i++) {
+          images[i].style.flex = "1";
+          images[i].style.width = (100 / images.length) + "%";
+        }
+        
+        prevButton.addEventListener("click", () => {
+          currentIndex = Math.max(currentIndex - 1, 0);
+          carousel.style.transform = `translateX(-${currentIndex * 100 / images.length}%)`;
+        });
+        
+        nextButton.addEventListener("click", () => {
+          currentIndex = Math.min(currentIndex + 1, images.length - 1);
+          carousel.style.transform = `translateX(-${currentIndex * 100 / images.length}%)`;
+        });
+      </script>
     </div>
   </div>
 </div>
