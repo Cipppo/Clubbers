@@ -46,7 +46,7 @@
                         <img src="{{url(App\Http\Controllers\ImageController::getProPic($event->clubName))}}" class="h-20 w-20 rounded-full" alt="{{url(App\Http\Controllers\ImageController::getProPicAlt($event->clubName))}}"/>
                     </div>
                     <div class="name-club pl-8">
-                        <a href="{{App\Http\Controllers\Usercontroller::getIdByUsername($event->clubName)}}">{{$event->clubName}}</a>
+                        <a href="/user/show/{{App\Http\Controllers\Usercontroller::getIdByUsername($event->clubName)}}">{{$event->clubName}}</a>
                         <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
                     </div>
                 </div>
