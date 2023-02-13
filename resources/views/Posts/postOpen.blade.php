@@ -66,6 +66,7 @@
                     </div>
                 </div>
 
+                
                 <div class="comments-container rounded-xl bg-black bg-opacity-40 backdrop-blur p-2 mt-2" id="commentsContainer">
                     <h1 class="text-2xl"><strong>Comments</strong></h1>
                     <!--COMMENT TEMPLATE-->
@@ -78,22 +79,24 @@
                 </div>
             </div>
             <div>
-                <div class="comment-button ml-2 mt-2 sticky-right fixed w-full md:w-full lg:w-[32%] text-center">
-                    <div>
-                        <div class="flex items-center justify-center w-full">
-                            <label for="comment" name="commentLabel" class="w-full bg-black bg-opacity-40 backdrop-blur rounded-xl">
-                            <div class="flex justify-between p-2">
-                                <div><h2><strong>Comment this post!</strong></h2></div>
-                                <p class="inline text-right" id="charCounter">0/50</p>
-                            </div>
-                            <textarea id="comment" name="comment" maxlength="50" class="bg-black bg-opacity-40 w-full rounded-xl"></textarea>
-                            <div class="flex justify-between p-2">
-                                <div></div>
-                                <div><button id="sendComment" name="sendComment" class="p-2 bg-blue-900 rounded-xl "><strong>SEND</strong></button></div>
+                @if(Auth::user()->type == "User")
+                    <div class="comment-button ml-2 mt-2 sticky-right fixed w-full md:w-full lg:w-[32%] text-center">
+                        <div>
+                            <div class="flex items-center justify-center w-full">
+                                <label for="comment" name="commentLabel" class="w-full bg-black bg-opacity-40 backdrop-blur rounded-xl">
+                                <div class="flex justify-between p-2">
+                                    <div><h2><strong>Comment this post!</strong></h2></div>
+                                    <p class="inline text-right" id="charCounter">0/50</p>
+                                </div>
+                                <textarea id="comment" name="comment" maxlength="50" class="bg-black bg-opacity-40 w-full rounded-xl"></textarea>
+                                <div class="flex justify-between p-2">
+                                    <div></div>
+                                    <div><button id="sendComment" name="sendComment" class="p-2 bg-blue-900 rounded-xl "><strong>SEND</strong></button></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
 
