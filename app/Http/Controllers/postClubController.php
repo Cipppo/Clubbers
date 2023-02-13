@@ -6,6 +6,7 @@ use App\Models\post;
 use App\Models\post_club;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\DB;
 
 class postClubController extends Controller
@@ -28,6 +29,8 @@ class postClubController extends Controller
             'userId' => Auth::user()->id,
             'profileType' => "Club",
         ]);
+
+
 
         return redirect()->route('Feed.Home');
 

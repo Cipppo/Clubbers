@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\post;
 use App\Models\postclubber;
-
+use App\Notifications\postUpdateNotification;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Notification;
 
 use Illuminate\Support\Facades\DB;
 
@@ -55,6 +57,7 @@ class postClubberController extends Controller
             'profileType' => "Clubber",
         ]);
 
+        Notification::send(Auth::user(), new postUpdateNotification(Auth::user()));
 
         return redirect()->route("Feed.Home");
     }
