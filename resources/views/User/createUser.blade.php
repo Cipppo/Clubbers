@@ -55,7 +55,7 @@
                     <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="Date" id="birth" name="birth">
                 </div>
                 <div class="mt-8 content-center">
-                  <label for="City" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="city-tag">Where do you live?</label>
+                  <label for="city" class="ml-3 text-sm font-bold text-gray-700 tracking-wide" id="city-tag">Where do you live?</label>
                   <input class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" type="text" placeholder="Rome" name="city" id="city">
                 </div>
                 <div class="mt-8 content-center">
@@ -93,7 +93,7 @@
                 </div>
                 <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
                   <span>Already in?</span>
-                  <a href="/logIn" class="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Sign In !</a>
+                  <a href="/log-user" class="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Log in!</a>
                 </p>
               </form>
             </div>

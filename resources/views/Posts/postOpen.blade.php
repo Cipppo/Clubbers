@@ -14,30 +14,31 @@
         <!--NAVBAR-->
         <nav class="z-10 items-center w-full sticky-top fixed px-10 py-5 bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl">
             <div class="flex items-center justify-between">
-                <div class="navbar-logo">
-                    <a href="/home" class="flex gap-2 items-center">
-                        <img class="h-12 w-12 shadow-xl" src="{{url('../images/feed/ClubbersLogo.png')}}" alt="Clubbers">
+                <div class="navbar-logo items-center flex gap-2">
+                    <a href="/home" class="flex items-center">
+                        <img class="h-12 w-12 shadow-xl" src="{{url('images/feed/ClubbersLogo.png')}}" alt="Clubbers">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
                 <div class="navbar-search-bar flex gap-4 p-2 bg-black backdrop-blur bg-opacity-40 rounded-2xl">
-                    <form action="/search" method="POST" class="flex" enctype="multipart/form-data">
-                        @csrf
-                            <button type="submit"><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
-                            <div class="autocomplete">
-                            <label for="myInput" name="myInputLabel">
-                            <input id="myInput" name="myInput" type="text" class="bg-black lg:px-20 py-2 rounded-full placeholder:text-center shadow-2xl" placeholder="connect with people...">
-                            </div>
+                    <form action="/search" class="flex" method="POST" enctype="multipart/form-data">
+                    @csrf
+                        <button type="submit"><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
+                        <div class="autocomplete">
+                        <label for="myInput">
+                        <input id="myInput" name="myInput" type="text" class="bg-black lg:px-20 py-2 rounded-full placeholder:text-center shadow-2xl" placeholder="connect with people...">
+                        </div>
                     </form>
                 </div>
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
-                    <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
-                    <h1 class="invisible lg:visible">{{ Auth::user()->username}}</h1>
+                    <a href="/notifications" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white"><i class="uil uil-bell"></i></a>
+                    <h2 class="invisible lg:visible">{{ Auth::user()->username}}</h2>
                     <a href="/user/show/{{Auth::user()->id}}"><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
-                    <h1><a href="/logout"><strong>LOGOUT</strong></a></h1>
+                    <h2><a href="/logout"><strong>LOGOUT</strong></a></h2>
                 </div>
             </div>            
-        </nav>
+    </nav>
+
         <div class="lg:grid grid-cols-3 pt-24 text-slate-200">
             <div>
                 
@@ -87,15 +88,15 @@
             <div>
                 @if(Auth::user()->type == "User")
                     <div class="comment-button ml-2 mt-2 sticky-right fixed w-full md:w-full lg:w-[32%] text-center">
-                        <div>
-                            <div class="flex items-center justify-center w-full">
-                                <label for="comment" name="commentLabel" class="w-full bg-black bg-opacity-40 backdrop-blur rounded-xl">
+                        <div class = "bg-black bg-opacity-40 backdrop-blur" >
+                            <div class="items-center justify-center w-full">
+                                <label for="comment" class="w-full bg-black bg-opacity-40 backdrop-blur rounded-xl"></label>
                                 <div class="flex justify-between p-2">
                                     <div><h2><strong>Comment this post!</strong></h2></div>
                                     <p class="inline text-right" id="charCounter">0/50</p>
                                 </div>
-                                <textarea id="comment" name="comment" maxlength="50" class="bg-black bg-opacity-40 w-full rounded-xl"></textarea>
-                                <div class="flex justify-between p-2">
+                                <textarea id="comment" name="comment" class="bg-black bg-opacity-40 w-full rounded-xl h-32 p-3"></textarea>
+                                <div class="flex justify-betwflexeen p-2">
                                     <div></div>
                                     <div><button id="sendComment" name="sendComment" class="p-2 bg-blue-900 rounded-xl "><strong>SEND</strong></button></div>
                                 </div>

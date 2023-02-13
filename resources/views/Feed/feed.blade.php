@@ -39,17 +39,17 @@
                     </a>
                 </div>
                 <div class="navbar-search-bar flex gap-4 p-2 bg-black backdrop-blur bg-opacity-40 rounded-2xl">
-                    <form action="/search" method="POST" enctype="multipart/form-data">
+                    <form action="/search" class="flex" method="POST" enctype="multipart/form-data">
                     @csrf
                         <button type="submit"><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
                         <div class="autocomplete">
-                        <label for="myInput" name="myInputLabel">
+                        <label for="myInput">
                         <input id="myInput" name="myInput" type="text" class="bg-black lg:px-20 py-2 rounded-full placeholder:text-center shadow-2xl" placeholder="connect with people...">
                         </div>
                     </form>
                 </div>
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
-                    <a href="/notifications"><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
+                    <a href="/notifications" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white"><i class="uil uil-bell"></i></a>
                     <h2 class="invisible lg:visible">{{ Auth::user()->username}}</h2>
                     <a href="/user/show/{{Auth::user()->id}}"><img src="{{App\Http\Controllers\ImageController::getProPic(Auth::user()->username)}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h2><a href="/logout"><strong>LOGOUT</strong></a></h2>
