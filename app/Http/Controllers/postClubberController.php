@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\post;
 use App\Models\postclubber;
+use App\Models\User;
 use App\Notifications\postUpdateNotification;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,9 +58,12 @@ class postClubberController extends Controller
             'profileType' => "Clubber",
         ]);
 
-        $followers = followersController::getFollowers(Auth::user());
+        $followers = followersController::getFollowers(Auth::user()->id);
 
-        Notification::send($followers, new postUpdateNotification(Auth::user()));
+        foreach($followers as $follower){
+            Notification::send(User::find($follower->to), new postUpdateNotification(Auth::user()));
+        }
+
 
         return redirect()->route("Feed.Home");
     }

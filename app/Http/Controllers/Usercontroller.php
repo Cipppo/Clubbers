@@ -78,6 +78,11 @@ class Usercontroller extends Controller
         return $id;
     }
 
+    public static function getUsernameById($id){
+        $username = DB::table('users')->where('id', $id)->first()->username;
+        return $username;
+    }
+
     public static function getAllPosts($id){
         $user = DB::table('users')->where('id', $id)->first();
         $username = $user->username;
