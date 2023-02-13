@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <title>Clubbers</title>
         <meta name="csrf-token" content="{{ csrf_token() }}" >
-        @vite(['../resources/css/postClubCreate.css',  '../resources/js/app.js'])
+        @vite(['../resources/css/postClubCreate.css',  '../resources/js/app.js', '../resources/js/Post/postPage.js'])
     </head>
 
     <body class="bg-fixed object-fill" style="background-image: url({{url('images/feed/background2luce.jpg')}})">
@@ -52,6 +52,7 @@
                             @php
                                 $eventName = App\Http\Controllers\EventController::getEventNameById($post->eventId);
                                 $pics = App\Http\Controllers\ImageController::getPostClubberPics($post->clubberUsername, $eventName);
+                                $comments = App\Http\Controllers\commentController::getPostComments($post->id);
                             @endphp
                             @foreach($pics as $pic)
                             <img src="{{url($pic->URL)}}" class="w-64 h-auto object-scale-down" alt="{{$pic->alt}}">
@@ -65,37 +66,31 @@
                     </div>
                 </div>
 
-                <div class="comments-container rounded-xl bg-black bg-opacity-40 backdrop-blur p-2 mt-2">
-                    <h1 class="text-xl">comments</h1>
+                <div class="comments-container rounded-xl bg-black bg-opacity-40 backdrop-blur p-2 mt-2" id="commentsContainer">
+                    <h1 class="text-2xl"><strong>Comments</strong></h1>
                     <!--COMMENT TEMPLATE-->
-                    <div class="comment-layout flex p-2 gap-2 m-2">
-                        <img class="post-profilePicture object-fill h-14 w-14  rounded-full" src="img/profilepic.jpeg" alt="profile picture">
-                        <div>
-                            <a class="post-Username font-bold" href="">RobertoSaviano14</a>
-                            <p>Song come canzone</p>
+                    @foreach($comments as $comment)
+                        <div class="comment-layout flex p-2 gap-2 m-2">
+                            <img class="post-profilePicture object-fill h-14 w-14  rounded-full" src="{{url(App\Http\Controllers\ImageController::getProPic($comment->clubberUsername))}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($comment->clubberUsername)}}">
+                            <div><a class="post-Username font-bold" href="">{{$comment->clubberUsername}}</a><p>{{$comment->caption}}</p></div>
                         </div>
-                    </div>
-                    <div class="comment-layout flex p-2 gap-2 m-2">
-                        <img class="post-profilePicture object-fill h-14 w-14  rounded-full" src="img/shrek.jpg" alt="profile picture">
-                        <div>
-                            <a class="post-Username font-bold" href="">SalvatoreAranzulla_VEVO</a>
-                            <p>Bella foto!</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div>
                 <div class="comment-button ml-2 mt-2 sticky-right fixed w-full md:w-full lg:w-[32%] text-center">
-                    <div class="p-2 mb-2 rounded-xl bg-black bg-opacity-50 backdrop-blur shadow-2xl hover:bg-white hover:bg-opacity-20">
-                        <a href="">Send</a>
-                    </div>
                     <div>
                         <div class="flex items-center justify-center w-full">
-                            <label for="caption" name="captionLabel" class="w-full bg-black bg-opacity-40 backdrop-blur rounded-xl">
+                            <label for="comment" name="commentLabel" class="w-full bg-black bg-opacity-40 backdrop-blur rounded-xl">
                             <div class="flex justify-between p-2">
-                                <p class="inline text-right" id="charCounter">150</p>
+                                <div><h2><strong>Comment this post!</strong></h2></div>
+                                <p class="inline text-right" id="charCounter">0/50</p>
                             </div>
-                            <textarea id="caption" name="caption" maxlength="150" class="bg-black bg-opacity-40 w-full rounded-xl"></textarea>
+                            <textarea id="comment" name="comment" maxlength="50" class="bg-black bg-opacity-40 w-full rounded-xl"></textarea>
+                            <div class="flex justify-between p-2">
+                                <div></div>
+                                <div><button id="sendComment" name="sendComment" class="p-2 bg-blue-900 rounded-xl "><strong>SEND</strong></button></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,34 +98,7 @@
         </div>
 
         <script>
-            const carouselContainer = document.querySelector("#carousel-container");
-            const carousel = document.querySelector("#carousel");
-            const prevButton = document.querySelector("#prev-button");
-            const nextButton = document.querySelector("#next-button");
-            
-            let currentIndex = 0;
-            const images = carousel.children;
-            
-            carouselContainer.style.width = "100%";
-            carouselContainer.style.height = "400px";
-            carousel.style.width = (images.length * 100) + "%";
-            carousel.style.height = "100%";
-            carousel.style.display = "flex";
-            
-            for (let i = 0; i < images.length; i++) {
-            images[i].style.flex = "1";
-            images[i].style.width = (100 / images.length) + "%";
-            }
-            
-            prevButton.addEventListener("click", () => {
-            currentIndex = Math.max(currentIndex - 1, 0);
-            carousel.style.transform = `translateX(-${currentIndex * 100 / images.length}%)`;
-            });
-            
-            nextButton.addEventListener("click", () => {
-            currentIndex = Math.min(currentIndex + 1, images.length - 1);
-            carousel.style.transform = `translateX(-${currentIndex * 100 / images.length}%)`;
-            });
+
         </script>
     </body>
 </html>
