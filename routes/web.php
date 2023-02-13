@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ClubRegistrationController;
+use App\Http\Controllers\commentController;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +77,9 @@ Route::post('/event/removePartecipation/{eventId}', [EventController::class, 're
 Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
 Route::post('/post/club/store', [postClubController::class, 'store'])->name("PostClub.store");
 Route::get('/post/show/{id}', [postClubberController::class, 'show'])->name("PostClubber.store");
+
+Route::get('/post/comments/show/{postId}', [commentController::class, 'getPostComments'])->name("Comments.show");
+Route::post('/posts/comment/add', [commentController::class, 'store'])->name("Comments.store");
 
 Route::get('/user/profile',[Usercontroller::class, 'show'])->name("User.show");
 
