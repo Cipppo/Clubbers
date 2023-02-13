@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('followers', function (Blueprint $table) {
             $table->id();
-            $table->string('postId');
-            $table->string('userId');
-            $table->string('profileType');
+            $table->string('from');
+            $table->string('to');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('followers');
     }
 };

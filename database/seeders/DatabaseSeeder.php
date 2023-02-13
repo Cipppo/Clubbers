@@ -208,7 +208,7 @@ class DatabaseSeeder extends Seeder
             'shortDescription' => 'Mala Chica o Mala Riga ?', 
             'Date' => "24/02/2023", 
             'Time' => '23',
-            'onGoing' => 'True',
+            'onGoing' => 'False',
         ]);
 
         event_banner::factory()->create([

@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class post extends Model
+class terminatedEvents extends Model
 {
     use HasFactory;
 
-    public $table = 'post';
     public $timestamps = false;
+    public $table = "terminate_events";
 
     protected $fillable = [
-        'postId',
-        'userId',
-        'profileType',
+        'idClubber',
+        'idEvento',
     ];
-
 }
+

@@ -4,6 +4,8 @@
 use App\Http\Controllers\ClubRegistrationController;
 use App\Http\Controllers\commentController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\followedController;
+use App\Http\Controllers\followersController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
@@ -12,6 +14,8 @@ use App\Http\Controllers\likePostClubberController;
 use App\Http\Controllers\postClubberController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\postClubController;
+use App\Http\Controllers\searchController;
+use App\Http\Controllers\TerminatedEventsController;
 use App\Models\foto_post_club;
 use App\Models\likePostClubber;
 
@@ -66,6 +70,8 @@ Route::get('/calendar/date/{date}', [EventController::class, 'getEventsbyDate'])
 Route::get('/calendar/date/event/{date}', [EventController::class, 'isEvent'])->name('Calendar.isThereanEvent');
 
 Route::get('/user/followedNotonGoingEvents', [EventController::class, 'getAuthUserNotOnGoingEvents'])->name('User.getFollowedNotOnGoingEvents');
+Route::get('/user/show/{id}', [Usercontroller::class, 'show'])->name('User.show');
+Route::get('/user/events/terminated/{id}', [TerminatedEventsController::class, 'getUserTerminatedEvents'])->name('User.terminatedEvents');
 
 Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.show');
 Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
@@ -77,6 +83,11 @@ Route::post('/event/removePartecipation/{eventId}', [EventController::class, 're
 Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
 Route::post('/post/club/store', [postClubController::class, 'store'])->name("PostClub.store");
 Route::get('/post/show/{id}', [postClubberController::class, 'show'])->name("PostClubber.store");
+Route::get('/user/post/{id}', [Usercontroller::class, 'getAllPosts'])->name("User.getPost");
+
+Route::get('/users/names', [Usercontroller::class, 'getAllUsersNames'])->name('Users.names');
+
+
 
 Route::get('/post/comments/show/{postId}', [commentController::class, 'getPostComments'])->name("Comments.show");
 Route::post('/posts/comment/add', [commentController::class, 'store'])->name("Comments.store");
@@ -88,3 +99,11 @@ Route::get('/events/notOnGoing/{clubName}', [EventController::class, 'getAllNotO
 Route::get('/events/current/onGoing', [EventController::class, 'getAllOnGoingAuthClubEvents'])->name("Events.currentOnGoing");
 Route::get('/events/isPartecipating/{idEvento}', [EventController::class, 'isAuthPartecipating'])->name("Event.Partecipating");
 
+
+Route::get('/user/following/{id}', [followedController::class, 'amIFollowing'])->name('User.isFollowing');
+Route::get('/user/countFollowing/{id}', [followedController::class, 'countFollowed'])->name("User.countFollowed");
+Route::get('/user/countFollowers/{id}', [followersController::class, 'countFollowers'])->name("User.coutnFollowers");
+Route::post('/user/follow/{id}', [followedController::class, 'startFollowing'])->name('user.follow');
+Route::post('/user/unfollow/{id}', [followedController::class, 'removeFollow'])->name('User.unfollow');
+
+Route::post('/search', [searchController::class, 'search'])->name('Search');

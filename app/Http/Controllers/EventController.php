@@ -88,6 +88,11 @@ class EventController extends Controller
         return $id;
     }
 
+    public static function getIdByClubName($name){
+        $id = DB::table('events')->where('clubName', $name)->first()->id;
+        return $id;
+    }
+
     public static function getClubNameById($id){
         $name = DB::table('events')->where('id', $id)->first()->clubName;
         return $name;

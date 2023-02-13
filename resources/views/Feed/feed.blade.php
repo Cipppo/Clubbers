@@ -11,7 +11,9 @@
     '../resources/js/Like/Like.js',  
     '../resources/js/app.js', 
     '../resources/css/styleCalendario.css', 
-    '../resources/js/Calendario/script.js'])
+    '../resources/js/Calendario/script.js', 
+    '../resources/css/searchBar.css',
+    '../resources/js/searchBar/searchBar.js'])
 </head>
     
 
@@ -37,13 +39,19 @@
                     </a>
                 </div>
                 <div class="navbar-search-bar flex gap-4 p-2 bg-black backdrop-blur bg-opacity-40 rounded-2xl">
-                    <button><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
-                    <input type="search" class="bg-black lg:px-20 py-2 rounded-full placeholder:text-center shadow-2xl" placeholder="connect with people...">
+                    <form action="/search" method="POST" enctype="multipart/form-data">
+                    @csrf
+                        <button type="submit"><i class="uil uil-search p-3 rounded-full hover:bg-white hover:bg-opacity-20"></i></button>
+                        <div class="autocomplete">
+                        <label for="myInput" name="myInputLabel">
+                        <input id="myInput" name="myInput" type="text" class="bg-black lg:px-20 py-2 rounded-full placeholder:text-center shadow-2xl" placeholder="connect with people...">
+                        </div>
+                    </form>
                 </div>
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
                     <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
                     <h2 class="invisible lg:visible">{{ Auth::user()->username}}</h2>
-                    <a href=""><img src="{{App\Http\Controllers\ImageController::getProPic(Auth::user()->username)}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
+                    <a href="/user/show/{{Auth::user()->id}}"><img src="{{App\Http\Controllers\ImageController::getProPic(Auth::user()->username)}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h2><a href="/logout"><strong>LOGOUT</strong></a></h2>
                 </div>
             </div>            
@@ -124,8 +132,8 @@
                             </div>
                             <div class="post-Profile flex items-center gap-2 p-2">
                                 <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{App\Http\Controllers\ImageController::getProPic($post->clubberUsername)}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt($post->clubberUsername)}}">
-                                <a class="post-Username" href="">{{$post->clubberUsername}}</a>
-                                <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="">{{$post->clubUsername}}</a>
+                                <a class="post-Username" href="/user/show/{{App\Http\Controllers\Usercontroller::getIdByUsername($post->clubberUsername)}}">{{$post->clubberUsername}}</a>
+                                <a class="post-clubTag rounded-full bg-black p-0.5 px-1 opacity-30" href="/user/show/{{App\Http\Controllers\Usercontroller::getIdByUsername($post->clubUsername)}}">{{$post->clubUsername}}</a>
                             </div>
                             <div class="post-info p-2">
                                 <p class="post-caption">{{$post->caption}}</p>

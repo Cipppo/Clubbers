@@ -57,9 +57,10 @@ class Usercontroller extends Controller
      * @param string $id
      * @return \Illuminate\View\View
      */
-    public function show()
+    public function show($id)
     {
-        return view("User.user");
+        $user = DB::table("users")->where('id', $id)->first();
+        return view('User.user', ['user' => $user]);
     }
 
 
@@ -70,6 +71,38 @@ class Usercontroller extends Controller
         $cap = DB::table('users')->where('username', $username)->first()->CAP;
 
         return $via.","." ".$cap.","." ".$comune.","." ".$regione;
+    }
 
+    public static function getIdByUsername($username){
+        $id = DB::table('users')->where('username', $username)->first()->id;
+        return $id;
+    }
+
+    public static function getAllPosts($id){
+        $user = DB::table('users')->where('id', $id)->first();
+        $username = $user->username;
+        
+        $eventIds = array();
+        $posts = DB::table('postClubber')->where('clubberUsername', $username)->get();
+        foreach($posts as $post){
+            array_push($eventIds, $post->eventId);
+        }
+
+        $res = array();
+
+    
+        $post = DB::table('postClubber')->join('event_banner','postClubber.eventId', '=', 'event_banner.eventId')->join('user_pro_pic', 'postClubber.clubberUsername', 'user_pro_pic.username')
+        ->select('event_banner.URL as bannerUrl', 'user_pro_pic.URL as proPicUrl', 'postClubber.clubberUsername', 'postClubber.clubUsername', 'postClubber.caption as caption', 
+        'postClubber.id as postId', 'event_banner.eventId')->join('users', 'users.username', '=', "postClubber.clubberUsername")->where('users.id', $id)->get();
+        array_push($res, $post);
+        
+        return $res;
+    }
+
+
+    public static function getAllUsersNames(){
+        $names = DB::table('users')->select('username')->get();
+
+        return $names;
     }
 }
