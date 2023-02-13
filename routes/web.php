@@ -31,8 +31,6 @@ Route::get('/', function () {
 })->name('Home.home');
 
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', function(){
@@ -70,6 +68,10 @@ Route::get('/user/followedNotonGoingEvents', [EventController::class, 'getAuthUs
 
 Route::get('/event/show/{id}', [EventController::class, 'show'])->name('Event.show');
 Route::get('/event/create', [EventController::class, 'create'])->name('Event.create');
+Route::post('/event/store', [EventController::class, 'store'])->name("Event.store");
+
+Route::post('/event/partecipate/{eventId}', [EventController::class, 'setPartecipation'])->name('Event.Partecipate');
+Route::post('/event/removePartecipation/{eventId}', [EventController::class, 'removePartecipation'])->name("Event.removePartecipation");
 
 Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
 Route::post('/post/club/store', [postClubController::class, 'store'])->name("PostClub.store");
@@ -79,3 +81,5 @@ Route::get('/user/profile',[Usercontroller::class, 'show'])->name("User.show");
 Route::get('/events/onGoing/{clubName}', [EventController::class, 'getAllOnGoingClubEvents'])->name('Events.onGoing');
 Route::get('/events/notOnGoing/{clubName}', [EventController::class, 'getAllNotOnGoingEvents'])->name('Events.notOnGoing');
 Route::get('/events/current/onGoing', [EventController::class, 'getAllOnGoingAuthClubEvents'])->name("Events.currentOnGoing");
+Route::get('/events/isPartecipating/{idEvento}', [EventController::class, 'isAuthPartecipating'])->name("Event.Partecipating");
+
