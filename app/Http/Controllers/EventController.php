@@ -161,9 +161,8 @@ class EventController extends Controller
     }
 
     public static function markAsEnd($eventId){
-        $event = Event::find($eventId);
-        $event->update([
-
+        $event = DB::table("events")->where('id', $eventId)->update([
+            'onGoing' => false,
         ]);
     }
 }

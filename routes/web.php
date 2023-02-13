@@ -98,7 +98,7 @@ Route::get('/events/onGoing/{clubName}', [EventController::class, 'getAllOnGoing
 Route::get('/events/notOnGoing/{clubName}', [EventController::class, 'getAllNotOnGoingEvents'])->name('Events.notOnGoing');
 Route::get('/events/current/onGoing', [EventController::class, 'getAllOnGoingAuthClubEvents'])->name("Events.currentOnGoing");
 Route::get('/events/isPartecipating/{idEvento}', [EventController::class, 'isAuthPartecipating'])->name("Event.Partecipating");
-
+Route::post('/event/end/{id}', [EventController::class, 'markAsEnd'])->name("Event.close");
 
 Route::get('/user/following/{id}', [followedController::class, 'amIFollowing'])->name('User.isFollowing');
 Route::get('/user/countFollowing/{id}', [followedController::class, 'countFollowed'])->name("User.countFollowed");
