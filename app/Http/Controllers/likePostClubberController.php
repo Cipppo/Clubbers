@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\likePostClubber;
+use App\Models\User;
+use App\Notifications\likeNotification;
+use Illuminate\Support\Facades\Notification;
 
 class likePostClubberController extends Controller
 {
@@ -25,9 +28,9 @@ class likePostClubberController extends Controller
         $like->clubberId = Auth::id();
         $like->save();
 
-        //Ok il like funziona, adesso bisogna fare in modo di metterlo a tutti i post 
-        //E fare l accendi e spegni
-        
+
+        $postUser = postController::getPostUser($request->post_id);
+        Notification::send(User::find($postUser), new likeNotification(Auth::user()));
         return Response('Success.', 200);
 
     }

@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\partecipa_evento;
 use App\Models\event;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use PDO;
+
+use App\Notifications\eventUpdateNotification;
+use Illuminate\Support\Facades\Notification;
+
+
 
 class EventController extends Controller
 {
@@ -74,6 +79,13 @@ class EventController extends Controller
         ]);
 
         ImageController::storeEventBanner($request, $event->id);
+
+        $followers = followersController::getFollowers(Auth::user()->id);
+
+        foreach($followers as $follower){
+            Notification::send(User::find($follower->to), new eventUpdateNotification(Auth::user()));
+        }
+
 
         return redirect()->route("Feed.Home");
     }

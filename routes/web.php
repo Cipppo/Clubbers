@@ -15,6 +15,7 @@ use App\Http\Controllers\postClubberController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\notificationController;
 use App\Http\Controllers\postClubController;
+use App\Http\Controllers\postController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\TerminatedEventsController;
 use App\Models\foto_post_club;
@@ -113,3 +114,5 @@ Route::get('/user/showFollowers/{id}', [followersController::class, 'getFollower
 Route::post('/search', [searchController::class, 'search'])->name('Search');
 
 Route::get('/notifications', [notificationController::class, 'show'])->name('Notification.show');
+
+

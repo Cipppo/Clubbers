@@ -6,11 +6,11 @@ use App\Models\post;
 use App\Models\postclubber;
 use App\Models\User;
 use App\Notifications\postUpdateNotification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Notification;
 
 use Illuminate\Support\Facades\DB;
 

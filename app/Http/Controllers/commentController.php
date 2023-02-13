@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\comment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
+use App\Notifications\commentNotification;
+use Illuminate\Support\Facades\Notification;
+
 
 
 class commentController extends Controller
@@ -21,6 +26,11 @@ class commentController extends Controller
             'clubberUsername' => Auth::user()->username,
             'postId' => $request->postId,
         ]);
+
+
+        $postUser = postController::getPostUser($request->postId);
+        Notification::send(User::find($postUser), new commentNotification(Auth::user()));
+
         
         return response(200);
     }
