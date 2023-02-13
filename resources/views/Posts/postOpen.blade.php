@@ -16,7 +16,7 @@
             <div class="flex items-center justify-between">
                 <div class="navbar-logo items-center flex gap-2">
                     <a href="/home" class="flex items-center">
-                        <img class="h-12 w-12 shadow-xl" src="img/ClubbersLogo.png" alt="Clubbers">
+                        <img class="h-12 w-12 shadow-xl" src="{{url('images/feed/ClubbersLogo.png')}}" alt="Clubbers">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
                     <a href=""><img src="" class="bg-white bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
                     <h2 class="invisible lg:visible">{{ Auth::user()->username}}</h2>
-                    <a href=""><img src="{{App\Http\Controllers\ImageController::getProPic(Auth::user()->username)}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
+                    <a href=""><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h2><a href="/logout"><strong>LOGOUT</strong></a></h2>
                 </div>
             </div>            
@@ -40,18 +40,22 @@
                 <div class="post-container mt-2 p-3 bg-black bg-opacity-40 backdrop-blur rounded-xl shadow-2xl">
                     <div class="user-info flex">
                         <div class="post-Profile flex items-center gap-2 p-2">
-                            <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="img/profilepic.jpeg" alt="profile picture">
-                            <a class="post-Username" href="">RobertoSaviano14</a>
-                            <a class="post-clubTag rounded-full bg-black p-1 px-2 bg-opacity-40 hover:bg-white hover:bg-opacity-20" href="">U-Club</a>
-                            <a class="rounded-full bg-black p-1 px-2 bg-opacity-40 hover:bg-white hover:bg-opacity-20" href="">NOME EVENTO</a>
+                            <img class="post-profilePicture object-fill h-20 w-20  rounded-full" src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}">
+                            <a class="post-Username" href="">{{$post->clubberUsername}}</a>
+                            <a class="post-clubTag rounded-full bg-black p-1 px-2 bg-opacity-40 hover:bg-white hover:bg-opacity-20" href="">{{$post->clubUsername}}</a>
+                            <a class="rounded-full bg-black p-1 px-2 bg-opacity-40 hover:bg-white hover:bg-opacity-20" href="/event/show/{{$post->eventId}}">{{App\Http\Controllers\EventController::getEventNameById($post->eventId)}}</a>
                         </div>
                         
                     </div>
                     <div class="relative overflow-hidden" id="carousel-container">
                         <div class="absolute overflow-hidden" id="carousel">
-                        <img src="img/shrek.jpg" class="w-64 h-auto object-scale-down">
-                        <img src="img/Shrek-E-Vissero-Felici-E-Contenti-Poster-Locandina.webp" class="w-64 h-auto object-scale-down">
-                        <img src="img/banner.png" class="w-64 h-auto object-scale-down">
+                            @php
+                                $eventName = App\Http\Controllers\EventController::getEventNameById($post->eventId);
+                                $pics = App\Http\Controllers\ImageController::getPostClubberPics($post->clubberUsername, $eventName);
+                            @endphp
+                            @foreach($pics as $pic)
+                            <img src="{{url($pic->URL)}}" class="w-64 h-auto object-scale-down" alt="{{$pic->alt}}">
+                            @endforeach
                         </div>
                     </div>
                     
