@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\userProPic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class Usercontroller extends Controller
@@ -59,5 +60,16 @@ class Usercontroller extends Controller
     public function show()
     {
         return view("User.user");
+    }
+
+
+    public static function getAddress($username){
+        $via = DB::table('users')->where('username', $username)->first()->via;
+        $comune = DB::table('users')->where('username', $username)->first()->comune;
+        $regione = DB::table('users')->where('username', $username)->first()->regione;
+        $cap = DB::table('users')->where('username', $username)->first()->CAP;
+
+        return $via.","." ".$cap.","." ".$comune.","." ".$regione;
+
     }
 }
