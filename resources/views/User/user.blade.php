@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     @if($user->id != Auth::user()->id)
-                    <button id="followButton"></button>
+                    <div class="pb-2 pl-4"><button id="followButton"></button></div>
                     @endif
                     <div class="profile-bio ml-10 pb-10">
                         @if($user->type == "Club")
@@ -99,35 +99,38 @@
         @else   
         <div class="grid grid-cols-3 justify-between text-slate-200" >
             <div></div>
-
-            <div class='w-full text-center bg-black bg-opacity-40 backdrop-blur shadow-xl rounded-xl'>
-                NEXT EVENTS
-                @php
-                    $events = \App\Http\Controllers\EventController::getAllOnGoingClubEvents($user->username);
-                @endphp
-                @foreach($events as $event)
-                    <a href="/event/show/{{$event->id}}">
-                        <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
-                            <div class="events-bg-img bg-cover w-full h-24 rounded-xl" style="background-image: url({{url(App\Http\Controllers\ImageController::getBannerUrl($event->id))}})">
-                                <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
-                                    <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
-                                        <div class="text-center flex justify-center"></div>
-                                        <div class="justify-center flex gap-2 w-full">
-                                            <p class="mt-2 text-2xl">{{$event->name}}</p>
-                                        </div>
-                                        <div class="flex justify-between w-full px-7 pt-3">
-                                            <p class="invisible xl:visible">{{$event->shortDescription}}</p>
-                                            <p>{{$event->Date}}</p>
+            
+            <div class="container-events-club p-2 ">
+                <div class='w-full text-center bg-black bg-opacity-40 backdrop-blur shadow-xl rounded-xl'>
+                    <p class="p-3 font-bold">NEXT EVENTS</p>
+                    @php
+                        $events = \App\Http\Controllers\EventController::getAllOnGoingClubEvents($user->username);
+                    @endphp
+                    @foreach($events as $event)
+                        <a href="/event/show/{{$event->id}}">
+                            <div class="transition p-2 ease-in-out delay-150 hover:-translate-y-1 hover:scale-103  duration-300">
+                                <div class="events-bg-img bg-cover h-24 rounded-xl" style="background-image: url({{url(App\Http\Controllers\ImageController::getBannerUrl($event->id))}})">
+                                    <div class="hover:bg-black hover:bg-opacity-20 hover:backdrop-blur-sm rounded-xl hover:delay-200">
+                                        <div class="event-real rounded-xl h-24 bg-black bg-opacity-60 p-3 items-center">
+                                            <div class="text-center flex justify-center"></div>
+                                            <div class="justify-center flex gap-2 w-full">
+                                                <p class="mt-2 text-2xl">{{$event->name}}</p>
+                                            </div>
+                                            <div class="flex justify-between w-full px-7 pt-3">
+                                                <p class="invisible xl:visible">{{$event->shortDescription}}</p>
+                                                <p>{{$event->Date}}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                
-                @endforeach
+                        </a>
+                    
+                    @endforeach
 
+                </div>
             </div>
+            
 
             <div></div>
 
