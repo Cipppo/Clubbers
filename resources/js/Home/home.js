@@ -1,8 +1,3 @@
-console.log(1);
-
-
-
-
 let togglebutton = document.querySelector('.toggle-btn');
 
 const navLinks = document.querySelector('.nav-links');
@@ -12,5 +7,6 @@ function onToggleMenu(){
 }
 
 togglebutton.addEventListener('click', function(){
-    onToggleMenu()
+    onToggleMenu();
+    togglebutton.name = togglebutton.name === 'menu' ? 'close' : 'menu';
 })
