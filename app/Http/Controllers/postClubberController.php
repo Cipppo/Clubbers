@@ -46,6 +46,7 @@ class postClubberController extends Controller
         ]);
         $postClubber->save();
         EventController::removePartecipation(EventController::getIdByName($request->selectEvent));
+        TerminatedEventsController::store(Auth::user()->id, EventController::getIdByName($request->selectEvent));
         ImageController::storePost($request);
 
         post::create([
