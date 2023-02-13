@@ -75,6 +75,7 @@ Route::post('/event/removePartecipation/{eventId}', [EventController::class, 're
 
 Route::get('/post/club/create', [postClubController::class, 'create'])->name("PostClub.create");
 Route::post('/post/club/store', [postClubController::class, 'store'])->name("PostClub.store");
+Route::get('/post/show/{id}', [postClubberController::class, 'show'])->name("PostClubber.store");
 
 Route::get('/user/profile',[Usercontroller::class, 'show'])->name("User.show");
 
