@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\foto_post_club;
 use App\Models\Image;
+use App\Models\event_banner;
 use App\Models\postclubber;
 use App\Models\userProPic;
 use Illuminate\Support\Str;
@@ -62,6 +63,21 @@ class ImageController extends Controller
                 'postId' => $postId,
                 'URL' => $POST_UPLOAD_URL.$newFile,
                 'alt' => Auth::user()->username."_".$request->selectEvent."_post",
+            ]);
+        }
+    }
+
+    public static function storeEventBanner(Request $request, $eventId){
+        $BANNER_UPLOAD_URL = 'images/Banners/';
+
+        $file = $request->hasFile('fileIn');
+        if($file){
+            $newFile = $request->file('fileIn')->getClientOriginalName();
+            $request->file('fileIn')->move(public_path($BANNER_UPLOAD_URL), $newFile);
+            event_banner::create([
+                'eventId' => $eventId,
+                'URL' => $BANNER_UPLOAD_URL.$newFile,
+                'alt' => $request->eventName."_"."banner",
             ]);
         }
     }
