@@ -40,18 +40,20 @@
     <!-- BODY -->
     <div class="py-36 md:py-36 lg:py-24 lg:grid grid-cols-3 justify-between text-slate-200">
         <div class="club-info">
-            <div class="fixed w-[32%] p-3 top-34 flex items-center backdrop-blur bg-black bg-opacity-40 m-3 rounded-xl">
-                <div class="profile-pic-club">
-                    <img src="{{url(App\Http\Controllers\ImageController::getProPic($event->clubName))}}" class="h-20 w-20 rounded-full" alt="{{url(App\Http\Controllers\ImageController::getProPicAlt($event->clubName))}}"/>
+            <div class="fixed w-[32%] p-3 top-34 items-center backdrop-blur bg-black bg-opacity-40 m-3 rounded-xl">
+                <div class="flex">
+                    <div class="profile-pic-club">
+                        <img src="{{url(App\Http\Controllers\ImageController::getProPic($event->clubName))}}" class="h-20 w-20 rounded-full" alt="{{url(App\Http\Controllers\ImageController::getProPicAlt($event->clubName))}}"/>
+                    </div>
+                    <div class="name-club pl-8">
+                        <a href="{{App\Http\Controllers\Usercontroller::getIdByUsername($event->clubName)}}">{{$event->clubName}}</a>
+                        <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
+                    </div>
                 </div>
-                <div class="name-club pl-8">
-                    <a href="{{App\Http\Controllers\Usercontroller::getIdByUsername($event->clubName)}}">{{$event->clubName}}</a>
-                    <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
-                </div>
+                @if($event->onGoing == "True")
+                <div><button id="endEvent" name="endEvent" class="p-2 mt-4 ml-2 bg-red-900 rounded-xl "><strong>MARK AS FINISH</strong></button></div>
+                @endif
             </div>
-            @if($event->onGoing == "True")
-                <div><button id="endEvent" name="endEvent" class="p-2 bg-red-900 rounded-xl "><strong>MARK AS FINISH</strong></button></div>
-            @endif
         </div>
 
         <div class="event-real mt-4 rounded-xl bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl h-full">
