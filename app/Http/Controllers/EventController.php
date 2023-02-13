@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\partecipa_evento;
+use App\Models\event;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -59,6 +61,22 @@ class EventController extends Controller
         return view('Event.EventCreate');
     }
 
+    public static function store(Request $request){
+        $event = Event::create([
+            'name' => $request->eventName,
+            'description' => $request->longDescription,
+            'clubName' => Auth::user()->username,
+            'shortDescription' => $request->shortDescription,
+            'Date' => $request->eventDay,
+            'Time' => $request->eventTime,
+            'onGoing' => "True",
+        ]);
+
+        ImageController::storeEventBanner($request, $event->id);
+
+        return redirect()->route("Feed.Home");
+    }
+
     public static function getCreatedEvents($clubName){
         $created = DB::table('events')->where('clubName', $clubName)->get();
         return $created;
@@ -72,10 +90,6 @@ class EventController extends Controller
     public static function getClubNameById($id){
         $name = DB::table('events')->where('id', $id)->first()->clubName;
         return $name;
-    }
-
-    public static function delete_partecipation($id){
-        DB::table('partecipa_evento')->where('idEvento',$id)->delete();
     }
 
     public static function getEventsbyDate($date){
@@ -113,4 +127,25 @@ class EventController extends Controller
         return $events;
     }
 
+    public static function isAuthPartecipating($idEvento){
+        $partecipating = DB::table('partecipa_evento')->where('idclubber', Auth::user()->id)->where('idEvento', $idEvento)->first();
+        if(isset($partecipating)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    public static function setPartecipation($eventId){
+        partecipa_evento::create([
+            'idClubber' => Auth::user()->id,
+            'idEvento' => $eventId,
+        ]);
+        return 1;
+    }
+
+    public static function removePartecipation($eventId){
+        DB::table('partecipa_evento')->where('idEvento',$eventId)->delete();
+        return 1;
+    }
 }
