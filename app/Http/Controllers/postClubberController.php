@@ -57,7 +57,9 @@ class postClubberController extends Controller
             'profileType' => "Clubber",
         ]);
 
-        Notification::send(Auth::user(), new postUpdateNotification(Auth::user()));
+        $followers = followersController::getFollowers(Auth::user());
+
+        Notification::send($followers, new postUpdateNotification(Auth::user()));
 
         return redirect()->route("Feed.Home");
     }

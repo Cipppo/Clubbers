@@ -49,6 +49,9 @@
                     <p>{{App\Http\Controllers\Usercontroller::getAddress($event->clubName)}}</p>
                 </div>
             </div>
+            @if($event->onGoing == "True")
+                <div><button id="endEvent" name="endEvent" class="p-2 bg-red-900 rounded-xl "><strong>MARK AS FINISH</strong></button></div>
+            @endif
         </div>
 
         <div class="event-real mt-4 rounded-xl bg-black backdrop-blur bg-opacity-40 text-slate-200 shadow-xl h-full">

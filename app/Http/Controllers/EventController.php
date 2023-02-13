@@ -159,4 +159,11 @@ class EventController extends Controller
         DB::table('partecipa_evento')->where('idEvento',$eventId)->delete();
         return 1;
     }
+
+    public static function markAsEnd($eventId){
+        $event = Event::find($eventId);
+        $event->update([
+
+        ]);
+    }
 }

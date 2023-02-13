@@ -11,4 +11,9 @@ class followersController extends Controller
         $res = DB::table('followers')->where('from', $id)->get()->count();
         return $res;
     }
+
+    public static function getFollowers($user){
+        $followers = DB::table('followers')->where('to', $user->id)->get();
+        return $followers;
+    }
 }
