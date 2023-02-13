@@ -114,5 +114,5 @@ Route::get('/user/showFollowers/{id}', [followersController::class, 'getFollower
 Route::post('/search', [searchController::class, 'search'])->name('Search');
 
 Route::get('/notifications', [notificationController::class, 'show'])->name('Notification.show');
-
+Route::get('notification/present', [notificationController::class, 'areThereNotification'])->name('Notification.present');
 
