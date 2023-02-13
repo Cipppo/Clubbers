@@ -98,4 +98,11 @@ class Usercontroller extends Controller
         
         return $res;
     }
+
+
+    public static function getAllUsersNames(){
+        $names = DB::table('users')->select('username')->get();
+
+        return $names;
+    }
 }

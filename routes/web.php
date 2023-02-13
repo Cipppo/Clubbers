@@ -14,6 +14,7 @@ use App\Http\Controllers\likePostClubberController;
 use App\Http\Controllers\postClubberController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\postClubController;
+use App\Http\Controllers\searchController;
 use App\Http\Controllers\TerminatedEventsController;
 use App\Models\foto_post_club;
 use App\Models\likePostClubber;
@@ -84,6 +85,10 @@ Route::post('/post/club/store', [postClubController::class, 'store'])->name("Pos
 Route::get('/post/show/{id}', [postClubberController::class, 'show'])->name("PostClubber.store");
 Route::get('/user/post/{id}', [Usercontroller::class, 'getAllPosts'])->name("User.getPost");
 
+Route::get('/users/names', [Usercontroller::class, 'getAllUsersNames'])->name('Users.names');
+
+
+
 Route::get('/post/comments/show/{postId}', [commentController::class, 'getPostComments'])->name("Comments.show");
 Route::post('/posts/comment/add', [commentController::class, 'store'])->name("Comments.store");
 
@@ -100,3 +105,5 @@ Route::get('/user/countFollowing/{id}', [followedController::class, 'countFollow
 Route::get('/user/countFollowers/{id}', [followersController::class, 'countFollowers'])->name("User.coutnFollowers");
 Route::post('/user/follow/{id}', [followedController::class, 'startFollowing'])->name('user.follow');
 Route::post('/user/unfollow/{id}', [followedController::class, 'removeFollow'])->name('User.unfollow');
+
+Route::post('/search', [searchController::class, 'search'])->name('Search');
