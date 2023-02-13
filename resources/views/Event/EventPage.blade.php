@@ -81,30 +81,12 @@
                         <!-- POST TEMPLATE Wo/event banner  -->
                         <div class="post-container rounded-xl bg-black bg-opacity-40 m-4">
                             <div class="post-user-info flex gap-3 ml-2 mt-2 items-center">
-                                <img src="" alt="profile pic">
-                                <a class="font-bold" href="">USERNAME</a>
-                                <a href="">CLUB</a>
-                            </div>
-                            <div class="ml-2">
-                                <p>song sei bellissimo</p>
-                            </div>
-                            <div class="post-buttons flex gap-2 p-2">
-                                <div class="likes-interaction items-center gap-1 flex"> 
-                                    <p id="likeNumber">-1</p>
-                                    <button id="like-button" name=""><i class="uil uil-heart" id=""></i></button>
-                                </div>
-                                <div><button><i class="uil uil-tag"></i></button></div>
-                            </div>
-                        </div>
-
-                        <div class="post-container rounded-xl bg-black bg-opacity-40 m-4">
-                            <div class="post-user-info flex gap-3 ml-2 mt-2 items-center">
                                 <img class="h-16 w-16 rounded-full"src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" alt="profile pic">
                                 <a class="font-bold" href="">USERNAME</a>
-                                <a href="">CLUB</a>
+                                <a class="px-2 py-1 rounded-full bg-white bg-opacity-20 hover:bg-opacity-10" href="">CLUB</a>
                             </div>
                             <div class="ml-2">
-                                <p>odio song</p>
+                                <p>bel posto!</p>
                             </div>
                             <div class="post-buttons flex gap-2 p-2">
                                 <div class="likes-interaction items-center gap-1 flex"> 
