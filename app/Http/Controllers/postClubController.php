@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\post;
 use App\Models\post_club;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use App\Notifications\postUpdateNotification;
+use Illuminate\Support\Facades\Notification;
 
 use Illuminate\Support\Facades\DB;
 
@@ -30,6 +34,11 @@ class postClubController extends Controller
             'profileType' => "Club",
         ]);
 
+        $followers = followersController::getFollowers(Auth::user()->id);
+
+        foreach($followers as $follower){
+            Notification::send(User::find($follower->to), new postUpdateNotification(Auth::user()));
+        }
 
 
         return redirect()->route('Feed.Home');

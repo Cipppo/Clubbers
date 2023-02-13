@@ -41,49 +41,27 @@
         <div></div>
         <div>
             <!-- NOTIFICA NUOVA-->
-            @foreach(Auth::user()->unreadNotifications as $notification)
-                
-                <div class="notification-container my-2 p-3 rounded-xl shadow-2xl bg-black bg-opacity-40 backdrop-blur">
-                    <div class="notification-infos">
+            
+            <div class="notification-container my-2 p-3 rounded-xl shadow-2xl bg-black bg-opacity-40 backdrop-blur">
+                    <h1 class="text-center">NOTIFICATIONS</h1>
+                    @foreach(Auth::user()->notifications as $notification)
+                    <div class="notification-infos mt-2">
                         <div class="justify-between flex items-center">
                             <div class="notification-user flex gap-3">
-                                <img class="h-20 w-20 rounded-full" src="img/profilepic.jpeg" alt="prifile pic">
+                                <img class="h-20 w-20 rounded-full" src="{{url($notification->data['URL'])}}" alt="profile pic">
                                 <div>
-                                    <a href="">{{App\Http\Controllers\Usercontroller::getUsernameById($notification->notifiable_id)}}</a>
+                                    <a href="/user/show/{{$notification->data['id']}}">{{$notification->data['username']}}</a>
                                     <p class="py-2">{{$notification->data['text']}}</p>
                                 </div>
                             </div>
                             <!-- BANNER EVENTO A CUI IL POST FA RIFERIMENTO -->
                         </div>
                     </div>
+                    @endforeach
+                    @php
+                        Auth::user()->notifications->markAsRead();
+                    @endphp
             </div>
-            @endforeach
-            <div class="separator my-2 text-center items-center grid grid-cols-5">
-                <div class="col-span-2 border-t border-gray-400"></div>
-                <div class="col-span-1"><p>old posts</p></div>
-                <div class="col-span-2 border-t border-gray-400"></div>
-            </div>
-
-            <!-- NOTIFICA VECCHIA-->
-            <a href="">
-                <div class="notification-container my-2 p-3 rounded-xl shadow-2xl bg-black bg-opacity-40 backdrop-blur">
-                    <div class="notification-infos">
-                        <div class="justify-between flex items-center">
-                            <div class="notification-user flex gap-3">
-                                <img class="h-20 w-20 rounded-full" src="img/profilepic.jpeg" alt="prifile pic">
-                                <div>
-                                    <a href="">Nickname</a>
-                                    <p class="py-2">ha messo mi piace al tuo post!</p>
-                                </div>
-                            </div>
-                            <!-- BANNER EVENTO A CUI IL POST FA RIFERIMENTO -->
-                            <div class="w-[40%]">
-                                <img class="object-scale-down rounded-lg" src="img/Banner1.jpg" alt="">
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-            </a>
         </div>
         <div></div>
     </div>

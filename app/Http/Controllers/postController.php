@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +34,11 @@ class postController extends Controller
         $postNew = array_reverse($outPosts);
         
         return $postNew;
+    }
+
+    public static function getPostUser($postId){
+        $userId = DB::table('post')->where('postId', $postId)->first()->userId;
+        return $userId;
     }
 
 

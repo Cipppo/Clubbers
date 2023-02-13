@@ -11,14 +11,17 @@ class eventUpdateNotification extends Notification
 {
     use Queueable;
 
+
+    private $uploadUser;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($uploadUser)
     {
-        //
+        $this->uploadUser = $uploadUser;
     }
 
     /**
@@ -29,7 +32,7 @@ class eventUpdateNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -55,7 +58,10 @@ class eventUpdateNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'id' => $this->uploadUser->id,
+            'username' => $this->uploadUser->username,
+            'URL' => \App\Http\Controllers\ImageController::getProPic($this->uploadUser->username),
+            'text' =>  $this->uploadUser->username." ha appena caricato un nuovo evento!",
         ];
     }
 }
