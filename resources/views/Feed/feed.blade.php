@@ -136,7 +136,6 @@
                                     <p id="likeNumber{{$postElement->id}}">0</p>
                                     <button id="like-button{{$postElement->id}}" name="{{$postElement->id}}"><i class="uil uil-heart" id="likeIcon{{$postElement->id}}"></i></button>
                                 </div>
-                                <div><button><i class="uil uil-comment" ></i></button></div>
                                 <div><button><i class="uil uil-tag"></i></button></div>
                             </div>
                         </div>

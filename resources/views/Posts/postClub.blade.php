@@ -16,7 +16,7 @@
             <div class="flex items-center justify-between">
                 <div class="navbar-logo items-center flex gap-2">
                     <a href="/home">
-                        <img class="h-12 w-12 shadow-xl" src="images/feed/ClubbersLogo.png" alt="Clubbers">
+                        <img class="h-12 w-12 shadow-xl" src="{{url('images/feed/ClubbersLogo.png')}}" alt="Clubbers Logo">
                         <h2 class="invisible md:visible lg:visible">Clubbers</h2>
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="navbar-options items-center md:flex lg:flex lg:gap-4 gap-2">
                     <a href=""><img src="" class="bg-black bg-opacity-30 px-3 py-1 rounded-full hover:bg-opacity-20 hover:bg-white" alt="notification"></a>
                     <h1 class="invisible lg:visible">{{ Auth::user()->username}}</h1>
-                    <a href=""><img src="" class="rounded-full h-12 w-12 shadow-xl" alt="profile-picture"></a>
+                    <a href=""><img src="{{url(App\Http\Controllers\ImageController::getProPic(Auth::user()->username))}}" class="rounded-full h-12 w-12 shadow-xl" alt="{{App\Http\Controllers\ImageController::getProPicAlt(Auth::user()->username)}}"></a>
                     <h1><a href="/logout"><strong>LOGOUT</strong></a></h1>
 
                 </div>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div id="submitButton" class="w-full mt-2 h-24 rounded-lg shadow-xl bg-black backdrop-blur bg-opacity-40 p-3 text-center hover:bg-white hover:bg-opacity-20">
-                    <button type="submit">CREATE EVENT</button>
+                    <button type="submit">CREATE POST</button>
                 </div>
             </form>
         </div>

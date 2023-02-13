@@ -82,7 +82,7 @@
             <div class="rounded-lg shadow-xl mt-2 bg-black backdrop-blur bg-opacity-40 p-10 ">
                 <div class="flex items-center justify-between w-full">
                     <label for="eventDay" name="eventDayLabel" class="w-full">When will your event take place ?</label>
-                    <input type="eventDay" id="eventDay" name="eventDay" class="text-black rounded-lg"/>
+                    <input type="Date" id="eventDay" name="eventDay" class="text-black rounded-lg"/>
                 </div>
                 <div class="flex items-center justify-between w-full mt-2">
                     <label for="eventTime" name="eventTimeLabel" class="w-full">At what time ?</label>
